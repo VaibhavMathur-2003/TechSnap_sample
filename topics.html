@@ -46,9 +46,10 @@
           display: none;
         }
       }
-      aside {
+      aside, .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
 
       @media (max-width: 1000px) {
@@ -403,7 +404,7 @@
             Contact us
           </button>
         </aside>
-        <div class="max_width_holder w-full max-w-[1400px] max-[1500px]:max-w-[1100px]">
+        <div class="max_width_holder w-full max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll">
             <section class="topic_section ml-8">
                 <div class="heading flex my-4 ">
                     <h1 class="text-2xl font-semibold mr-4">Trending Tags</h1>

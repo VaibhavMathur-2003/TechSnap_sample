@@ -46,11 +46,12 @@
           display: none;
         }
       }
-      aside {
+      aside,
+      .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
-
       @media (max-width: 1000px) {
         aside {
           position: absolute;
@@ -405,237 +406,8 @@
         </aside>
 
         <div
-          class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]"
+          class="w-full mx-auto max_width_holder flex flex-row max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll"
         >
-          <div
-            class="share_to_section hidden fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
-            id="conaitnerCheck"
-          >
-            <div
-              class="share_to_conatiner bg-white rounded-lg shadow-lg w-[350px]"
-            >
-              <div
-                class="title flex justify-between items-center px-4 py-2 bg-gray-200"
-              >
-                <span
-                  class="cursor-pointer text-gray-600 hover:text-gray-800"
-                  onclick="backToMoreSection()"
-                  ><</span
-                >
-                <p class="font-semibold">Share to ..</p>
-                <span
-                  class="cursor-pointer text-gray-600 hover:text-gray-800"
-                  onclick="moreOptionsClose()"
-                  >X</span
-                >
-              </div>
-              <div class="body">
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  <p id="red" class="">whatsapp</p>
-                </div>
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  <p id="red" class="">facebookt</p>
-                </div>
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  <p id="red" class="">twitter</p>
-                </div>
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  <p id="red" class="">zoom</p>
-                </div>
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                >
-                  <p id="red" class="">copy link</p>
-                </div>
-                <div
-                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
-                  onclick="backToMoreSection()"
-                >
-                  <p id="red" class="">cancel</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="more_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            id="conaitnerCheck"
-          >
-            <div class="more_container bg-white rounded-lg p-4 w-[350px]">
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-                onclick="reportToBox()"
-              >
-                <p id="red" class="text-red-500">Report</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-              >
-                <p id="red" class="text-red-500">unfollow</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-              >
-                <p>go to post</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-              >
-                <p>tagged account</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-                onclick="shareToBox()"
-              >
-                <p>share to..</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-              >
-                <p>copy to</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-              >
-                <p>embed</p>
-              </div>
-              <div
-                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
-                onclick="moreOptionsClose()"
-              >
-                <p>cancel</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="report_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            id="conaitnerCheck"
-          >
-            <div class="report_conatiner w-[350px] rounded-lg bg-white shadow">
-              <div
-                class="title flex items-center justify-between px-4 py-2 bg-gray-200"
-              >
-                <span
-                  class="cursor-pointer text-gray-600 hover:text-gray-800"
-                  onclick="backToMoreSection()"
-                  ><</span
-                >
-                <p class="font-semibold">Report</p>
-                <span
-                  class="cursor-pointer text-gray-600 hover:text-gray-800"
-                  onclick="moreOptionsClose()"
-                  >X</span
-                >
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <div
-                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onclick="reportpageToBox()"
-              >
-                <p>its a spam</p>
-                <span class="text-gray-500">></span>
-              </div>
-              <!-- Rest of the report items -->
-            </div>
-          </div>
-
-          <div
-            class="reportconfirmPage_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-            id="conaitnerCheck"
-          >
-            <div
-              class="reportconfirmPage_contianer w-full max-w-md rounded-lg bg-white shadow"
-            >
-              <div
-                class="reportconfirmPage_detailes flex flex-col items-center p-4"
-              >
-                <div class="icons_done">
-                  <img src="assets/done.png" alt="done" class="w-16 h-16" />
-                </div>
-                <div class="reportconfirmPage_text text-center">
-                  <h2 class="font-semibold text-lg mb-2">
-                    Don't want to see this?
-                  </h2>
-                  <p class="text-gray-600">
-                    When you see something you don't like on Instagram, you can
-                    report it if it doesn't follow our
-                    <span class="font-semibold">Community Guidelines</span> or
-                    you can remove the person who shared it from your experience
-                  </p>
-                </div>
-              </div>
-              <div class="reportconfirmPage_button flex justify-center p-4">
-                <button
-                  class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                  onclick="moreOptionsClose()"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
           <div class="min-[900px]:w-[80%] mx-auto">
             <div class="bg-white p-4 rounded-lg shadow-md">
               <div class="flex items-center mb-10">
@@ -1437,37 +1209,266 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="rounded-lg p-4 w-[38%] max-[900px]:hidden">
-          <div class="bg-white p-4 rounded">
-            <h2 class="text-xl font-bold mb-2">Linkdin News</h2>
-            <div class="mb-4">
-              <p class="font-semibold">Biden to meet refugees in Poland</p>
-              <p class="text-gray-400 text-sm">2h ago</p>
+          <div class="rounded-lg p-4 w-[38%] max-[900px]:hidden">
+            <div class="bg-white p-4 rounded">
+              <h2 class="text-xl font-bold mb-2">Linkdin News</h2>
+              <div class="mb-4">
+                <p class="font-semibold">Biden to meet refugees in Poland</p>
+                <p class="text-gray-400 text-sm">2h ago</p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold">Biden to meet refugees in Poland</p>
+                <p class="text-gray-400 text-sm">2h ago</p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold">Biden to meet refugees in Poland</p>
+                <p class="text-gray-400 text-sm">2h ago</p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold">Biden to meet refugees in Poland</p>
+                <p class="text-gray-400 text-sm">2h ago</p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold">Biden to meet refugees in Poland</p>
+                <p class="text-gray-400 text-sm">2h ago</p>
+              </div>
             </div>
-            <div class="mb-4">
-              <p class="font-semibold">Biden to meet refugees in Poland</p>
-              <p class="text-gray-400 text-sm">2h ago</p>
-            </div>
-            <div class="mb-4">
-              <p class="font-semibold">Biden to meet refugees in Poland</p>
-              <p class="text-gray-400 text-sm">2h ago</p>
-            </div>
-            <div class="mb-4">
-              <p class="font-semibold">Biden to meet refugees in Poland</p>
-              <p class="text-gray-400 text-sm">2h ago</p>
-            </div>
-            <div class="mb-4">
-              <p class="font-semibold">Biden to meet refugees in Poland</p>
-              <p class="text-gray-400 text-sm">2h ago</p>
+            <div class="text-white p-4 rounded flex items-center">
+              <img
+                src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAACeUyGWuWBhQQLyxe1gEMEaZgw.png"
+                alt="ads"
+                class="mr-4"
+              />
             </div>
           </div>
-          <div class="text-white p-4 rounded flex items-center">
-            <img
-              src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAACeUyGWuWBhQQLyxe1gEMEaZgw.png"
-              alt="ads"
-              class="mr-4"
-            />
+
+        </div>
+        <div
+          class="reportconfirmPage_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          id="conaitnerCheck"
+        >
+          <div
+            class="reportconfirmPage_contianer w-full max-w-md rounded-lg bg-white shadow"
+          >
+            <div
+              class="reportconfirmPage_detailes flex flex-col items-center p-4"
+            >
+              <div class="icons_done">
+                <img src="assets/done.png" alt="done" class="w-16 h-16" />
+              </div>
+              <div class="reportconfirmPage_text text-center">
+                <h2 class="font-semibold text-lg mb-2">
+                  Don't want to see this?
+                </h2>
+                <p class="text-gray-600">
+                  When you see something you don't like on Instagram, you can
+                  report it if it doesn't follow our
+                  <span class="font-semibold">Community Guidelines</span> or you
+                  can remove the person who shared it from your experience
+                </p>
+              </div>
+            </div>
+            <div class="reportconfirmPage_button flex justify-center p-4">
+              <button
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                onclick="moreOptionsClose()"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="share_to_section hidden fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+          id="conaitnerCheck"
+        >
+          <div
+            class="share_to_conatiner bg-white rounded-lg shadow-lg w-[350px]"
+          >
+            <div
+              class="title flex justify-between items-center px-4 py-2 bg-gray-200"
+            >
+              <span
+                class="cursor-pointer text-gray-600 hover:text-gray-800"
+                onclick="backToMoreSection()"
+                ><</span
+              >
+              <p class="font-semibold">Share to ..</p>
+              <span
+                class="cursor-pointer text-gray-600 hover:text-gray-800"
+                onclick="moreOptionsClose()"
+                >X</span
+              >
+            </div>
+            <div class="body">
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+              >
+                <p id="red" class="">whatsapp</p>
+              </div>
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+              >
+                <p id="red" class="">facebookt</p>
+              </div>
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+              >
+                <p id="red" class="">twitter</p>
+              </div>
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+              >
+                <p id="red" class="">zoom</p>
+              </div>
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+              >
+                <p id="red" class="">copy link</p>
+              </div>
+              <div
+                class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="backToMoreSection()"
+              >
+                <p id="red" class="">cancel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="more_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          id="conaitnerCheck"
+        >
+          <div class="more_container bg-white rounded-lg p-4 w-[350px]">
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              onclick="reportToBox()"
+            >
+              <p id="red" class="text-red-500">Report</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            >
+              <p id="red" class="text-red-500">unfollow</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            >
+              <p>go to post</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            >
+              <p>tagged account</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              onclick="shareToBox()"
+            >
+              <p>share to..</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            >
+              <p>copy to</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            >
+              <p>embed</p>
+            </div>
+            <div
+              class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              onclick="moreOptionsClose()"
+            >
+              <p>cancel</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="report_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          id="conaitnerCheck"
+        >
+          <div class="report_conatiner w-[350px] rounded-lg bg-white shadow">
+            <div
+              class="title flex items-center justify-between px-4 py-2 bg-gray-200"
+            >
+              <span
+                class="cursor-pointer text-gray-600 hover:text-gray-800"
+                onclick="backToMoreSection()"
+                ><</span
+              >
+              <p class="font-semibold">Report</p>
+              <span
+                class="cursor-pointer text-gray-600 hover:text-gray-800"
+                onclick="moreOptionsClose()"
+                >X</span
+              >
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <div
+              class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+              onclick="reportpageToBox()"
+            >
+              <p>its a spam</p>
+              <span class="text-gray-500">></span>
+            </div>
+            <!-- Rest of the report items -->
           </div>
         </div>
         <div
@@ -1595,12 +1596,11 @@ Write Something here...</textarea
                   </svg>
                 </div>
                 <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full"
-              >
-                Post
-              </button>
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full"
+                >
+                  Post
+                </button>
               </div>
-              
             </div>
           </div>
         </div>

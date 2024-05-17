@@ -46,9 +46,10 @@
           display: none;
         }
       }
-      aside {
+      aside, .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
 
       @media (max-width: 1000px) {
@@ -381,7 +382,7 @@
             Contact us
           </button>
         </aside>
-        <div class="max_width_holder">
+        <div class="max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll">
             <section class="competition_section max-w-[1400px] mx-auto h-full py-5 relative">
                 <div class="competition_banner h-[300px] flex justify-between items-center">
                     <div class="left w-1/2 h-[80%] mx-8  flex flex-col justify-between">

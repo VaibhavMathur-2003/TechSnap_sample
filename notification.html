@@ -46,9 +46,10 @@
           display: none;
         }
       }
-      aside {
+      aside, .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
 
       @media (max-width: 1000px) {
@@ -381,7 +382,7 @@
             Contact us
           </button>
         </aside>
-        <div class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]">
+        <div class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll">
             <div class="page_notification_conatiner">
                 <div class="title flex items-center justify-center">
                     <img src="https://cdn-icons-png.flaticon.com/512/107/107822.png" alt="notification" class="w-6 h-6 mr-2">

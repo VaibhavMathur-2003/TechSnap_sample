@@ -46,9 +46,10 @@
           display: none;
         }
       }
-      aside {
+      aside, .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
 
       @media (max-width: 1000px) {
@@ -381,7 +382,7 @@
             Contact us
           </button>
         </aside>
-        <div class="max-w-holder w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] ">
+        <div class="max-w-holder w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll ">
             <form class="editProfile" id="edit_profile">
                 <!-- Edit profile Header------- -->
                 <div class="editProfileHeader flex w-[60%] max-[900px]:w-[90%] my-12 mx-auto justify-between items-center" >

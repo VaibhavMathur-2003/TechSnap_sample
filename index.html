@@ -50,9 +50,10 @@
           display: none;
         }
       }
-      aside {
+      aside, .max_width_holder {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        height: calc(100vh - 65px);
       }
 
       @media (max-width: 1000px) {
@@ -65,6 +66,7 @@
           transition: all 0.3s ease;
         }
       }
+  
 
       .banner .yellow_tag {
         height: 50px;
@@ -409,10 +411,10 @@
       </aside>
 
         <div
-          class="min-[900px]:pl-10 w-[90%] mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]"
+          class="min-[900px]:pl-10 w-[90%] mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll overflow-x-hidden overflow-y-scroll"
         >
           <div
-            class="flex bg-white rounded-r-2xl rounded-l-2xl overflow-hidden justify-evenly  w-[90%] font-bold my-8 text-center border border-black max-[900px]:flex-col"
+            class="my_progress_section flex bg-white rounded-r-2xl rounded-l-2xl overflow-hidden justify-evenly  w-[90%] font-bold my-8 text-center border border-black max-[900px]:flex-col"
           >
             <div
               class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
