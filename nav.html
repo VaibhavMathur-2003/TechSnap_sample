@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="bg-white shadow-md py-4 text-lg">
+        <div class="sub_header container mx-auto flex justify-between items-center">
+            <div class="Header_icon flex items-center">
+                <div class="ham cursor-pointer mr-4" onclick="slideMenu()">
+                    <img id="ham_icon" src="https://img.icons8.com/android/96/000000/menu.png" class="w-6 h-6 hidden" />
+                </div>
+                <img src="assets/icon.svg" alt="Logo" class="w-32 h-12 object-contain" />
+            </div>
+    
+            <div class="Header_Profile flex items-center mr-5 w-[410px]">
+                <div class="Icons flex items-center mr-4 w-[300px]">
+                    <div class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-center rounded-full px-3 py-2 mr-4">
+                        <p class="flex items-center font-medium text-base mr-2"><span>🔥</span> 0</p>
+                        <p class="flex items-center font-medium text-base"><span>🎯</span> 0</p>
+                    </div>
+                    <div class="score flex items-center">
+                        <p class="flex items-center font-medium text-base mr-4"><span>⚡</span> 200</p>
+                        <p class="flex items-center font-medium text-base">
+                            <span><img src="assets/coin (3).png" alt="notifiction" class="w-6 h-6 mx-2.5" /></span>
+                            50
+                        </p>
+                    </div>
+                </div>
+                <img src="assets/bell.svg" alt="notifiction" class="notification_bell w-6 h-6 mr-4 cursor-pointer" />
+                <div class="notification_dropdown"></div>
+                <div class="relative">
+                    <img src="assets/profile.jpg" alt="avatar" class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer" />
+                    <div class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between">
+                        <a href="#" class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold">
+                            <span><img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" class="w-5 h-5 mr-2" /></span>
+                            <p>View Dashboard</p>
+                        </a>
+                        <a href="#" class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold">
+                            <span><img src="https://img.icons8.com/ios/50/000000/user.png" class="w-5 h-5 mr-2" /></span>
+                            <p>View Profile</p>
+                        </a>
+                        <a href="#" class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold">
+                            <span><img src="https://img.icons8.com/ios/50/000000/user-not-found.png" class="w-5 h-5 mr-2" /></span>
+                            <p>Edit</p>
+                        </a>
+                        <a href="#" class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold">
+                            <span><img src="https://img.icons8.com/windows/32/000000/exit.png" class="w-5 h-5 mr-2" /></span>
+                            <p>Logout</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="./app.js"></script>
+</body>
+</html>

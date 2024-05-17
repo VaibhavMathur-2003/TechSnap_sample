@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="bg-white fixed shadow-md py-2 text-lg w-full z-50">
+        <div
+          class="sub_header relative container mx-auto flex justify-between items-center"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-5 w-[410px]">
+            <div class="Icons flex items-center mr-4 w-[300px]">
+              <div
+                class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-between rounded-full px-3 py-2 mr-4"
+              >
+                <p class="flex items-center font-medium text-base mr-2">
+                  <span>🔥</span> 0
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span>🎯</span> 0
+                </p>
+              </div>
+              <div class="score flex items-center">
+                <p class="flex items-center font-medium text-base mr-4">
+                  <span>⚡</span> 200
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span
+                    ><img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mx-2.5"
+                  /></span>
+                  50
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/bell.svg"
+              alt="notifiction"
+              class="notification_bell w-6 h-6 mr-4 cursor-pointer"
+            />
+            <div class="notification_dropdown"></div>
+            <div class="relative">
+              <img
+                src="assets/profile.jpg"
+                alt="avatar"
+                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+              />
+              <div
+                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden hidden w-[220px] h-[250px] flex flex-col justify-between"
+              >
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Dashboard</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Profile</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Edit</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/windows/32/000000/exit.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] flex flex-col transition-all duration-300 z-20 max-w-[220px] align-center w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <a
+              href="index.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Progress</p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4 mr-2" />
+              <p>Competitions</p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/leaderboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Leaderboard</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">catalog</h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Career Paths</p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Courses</p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Projects</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4 mr-2" />
+              <p>Practice</p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/clipboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Assessments</p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Live Events</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">PROFILE</h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My profile</p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/edit (1).png"
+                alt="bookmark"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Edit profile</p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/user (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Account Settings</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/logout (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Logout</p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-5 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+        <div class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]">
+            <div class="page_notification_conatiner">
+                <div class="title flex items-center justify-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/107/107822.png" alt="notification" class="w-6 h-6 mr-2">
+                    <h2 class="font-bold text-4xl my-4">Notification Center</h2>
+                </div>
+                <div class="page_notifiction_switch flex justify-around items-center mt-4 text-xl">
+                    <div class="switch notificationTablinks" id="defaultNotificationTab" onclick="notificationTabHandler(event, 'recent')">
+                        <h1 class="font-semibold">Recent</h1>
+                    </div>
+                    <div class="switch notificationTablinks" onclick="notificationTabHandler(event, 'opened')">
+                        <h1 class="font-semibold">Opened</h1>
+                    </div>
+                    <div class="switch notificationTablinks" onclick="notificationTabHandler(event, 'seen')">
+                        <h1 class="font-semibold">Seen</h1>
+                    </div>
+                </div>
+                <div class="page_notifications_section notificationTabcontent w-[80%] mx-auto" id="recent">
+                    <!-- Recent notifications content -->
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="page_notifications_section notificationTabcontent w-[80%] mx-auto" id="opened">
+                    <!-- Opened notifications content -->
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="page_notifications_section notificationTabcontent w-[80%] mx-auto" id="seen">
+                    <!-- Seen notifications content -->
+                    <div class="page_notification_item bg-blue-200 relative shadow-md rounded-lg my-4">
+                        <div class="top_holder flex items-center justify-between min-[900px]:px-4 py-2">
+                            <div class="image min-[900px]:w-[150px] mx-auto grid place-items-center">
+                                <img src="assets/profile.png" alt="profile" class="w-10 h-10 rounded-full">
+                            </div>
+                            <div class="notify_text flex-1 mr-4">
+                                <p class="text-sm ">
+                                    Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem ipsum, dolor sit amet consecLorem ipsum, dol
+                                </p>
+                            </div>
+                            <div class="time flex flex-col items-center justify-center">
+                                <p class="text-gray-600">2h</p>
+                                <span class="popup">...</span>
+                            </div>
+                        </div>
+                        <div class="popupHolder hidden z-50 absolute top-16 right-0 w-48 flex flex-col bg-white border border-gray-400 rounded shadow">
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Delete</h1>
+                            </div>
+                            <div class="item flex items-center justify-between px-4 py-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/786/786286.png" alt="delete" class="w-6 h-6">
+                                <h1 class="text-sm font-medium">Turn Off</h1>
+                            </div>
+                        </div>
+                        <div class="button_zone px-4 py-2 ml-[150px]">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded-lg">View</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-lg">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById('defaultNotificationTab').click();
+    console.log();
+    function notificationTabHandler(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName('notificationTabcontent');
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = 'none';
+        }
+        tablinks = document.getElementsByClassName('notificationTablinks');
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(' active', '');
+        }
+        document.getElementById(cityName).style.display = 'block';
+        evt.currentTarget.className += ' active';
+    }
+    const popups = [
+        ...document.getElementsByClassName('page_notification_item'),
+    ];
+
+    document.addEventListener('click', (event) => {
+    const popupDots = event.target.closest('.popup');
+    if (popupDots) {
+        const parentNotificationItem = popupDots.closest('.page_notification_item');
+        const popupHolder = parentNotificationItem.querySelector('.popupHolder');
+        popupHolder.classList.toggle('hidden');
+    }
+});
+
+</script>
+
+
+</html>

@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="bg-white fixed shadow-md py-2 text-lg w-full z-50">
+        <div
+          class="sub_header relative container mx-auto flex justify-between items-center"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-5 w-[410px]">
+            <div class="Icons flex items-center mr-4 w-[300px]">
+              <div
+                class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-between rounded-full px-3 py-2 mr-4"
+              >
+                <p class="flex items-center font-medium text-base mr-2">
+                  <span>🔥</span> 0
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span>🎯</span> 0
+                </p>
+              </div>
+              <div class="score flex items-center">
+                <p class="flex items-center font-medium text-base mr-4">
+                  <span>⚡</span> 200
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span
+                    ><img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mx-2.5"
+                  /></span>
+                  50
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/bell.svg"
+              alt="notifiction"
+              class="notification_bell w-6 h-6 mr-4 cursor-pointer"
+            />
+            <div class="notification_dropdown"></div>
+            <div class="relative">
+              <img
+                src="assets/profile.jpg"
+                alt="avatar"
+                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+              />
+              <div
+                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+              >
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Dashboard</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Profile</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Edit</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/windows/32/000000/exit.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] min-w-[220px] flex flex-col transition-all duration-300 z-20 max-w-[220px] align-center w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <a
+              href="index.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Progress</p>
+            </a>
+            <a
+              href="myFeed.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Feed</p>
+            </a>
+            <a
+              href="topics.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Topics</p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4 mr-2" />
+              <p>Competitions</p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/leaderboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Leaderboard</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">catalog</h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Career Paths</p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Courses</p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Projects</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4 mr-2" />
+              <p>Practice</p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/clipboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Assessments</p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Live Events</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">PROFILE</h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My profile</p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/edit (1).png"
+                alt="bookmark"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Edit profile</p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/user (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Account Settings</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/logout (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Logout</p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-5 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+
+        <div
+          class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]"
+        >
+          <div
+            class="share_to_section hidden fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+            id="conaitnerCheck"
+          >
+            <div
+              class="share_to_conatiner bg-white rounded-lg shadow-lg w-[350px]"
+            >
+              <div
+                class="title flex justify-between items-center px-4 py-2 bg-gray-200"
+              >
+                <span
+                  class="cursor-pointer text-gray-600 hover:text-gray-800"
+                  onclick="backToMoreSection()"
+                  ><</span
+                >
+                <p class="font-semibold">Share to ..</p>
+                <span
+                  class="cursor-pointer text-gray-600 hover:text-gray-800"
+                  onclick="moreOptionsClose()"
+                  >X</span
+                >
+              </div>
+              <div class="body">
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  <p id="red" class="">whatsapp</p>
+                </div>
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  <p id="red" class="">facebookt</p>
+                </div>
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  <p id="red" class="">twitter</p>
+                </div>
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  <p id="red" class="">zoom</p>
+                </div>
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                >
+                  <p id="red" class="">copy link</p>
+                </div>
+                <div
+                  class="share_item px-4 py-2 cursor-pointer hover:bg-gray-100"
+                  onclick="backToMoreSection()"
+                >
+                  <p id="red" class="">cancel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="more_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            id="conaitnerCheck"
+          >
+            <div class="more_container bg-white rounded-lg p-4 w-[350px]">
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+                onclick="reportToBox()"
+              >
+                <p id="red" class="text-red-500">Report</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              >
+                <p id="red" class="text-red-500">unfollow</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              >
+                <p>go to post</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              >
+                <p>tagged account</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+                onclick="shareToBox()"
+              >
+                <p>share to..</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              >
+                <p>copy to</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+              >
+                <p>embed</p>
+              </div>
+              <div
+                class="more_item hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+                onclick="moreOptionsClose()"
+              >
+                <p>cancel</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="report_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            id="conaitnerCheck"
+          >
+            <div class="report_conatiner w-[350px] rounded-lg bg-white shadow">
+              <div
+                class="title flex items-center justify-between px-4 py-2 bg-gray-200"
+              >
+                <span
+                  class="cursor-pointer text-gray-600 hover:text-gray-800"
+                  onclick="backToMoreSection()"
+                  ><</span
+                >
+                <p class="font-semibold">Report</p>
+                <span
+                  class="cursor-pointer text-gray-600 hover:text-gray-800"
+                  onclick="moreOptionsClose()"
+                  >X</span
+                >
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <div
+                class="report_item flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onclick="reportpageToBox()"
+              >
+                <p>its a spam</p>
+                <span class="text-gray-500">></span>
+              </div>
+              <!-- Rest of the report items -->
+            </div>
+          </div>
+
+          <div
+            class="reportconfirmPage_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            id="conaitnerCheck"
+          >
+            <div
+              class="reportconfirmPage_contianer w-full max-w-md rounded-lg bg-white shadow"
+            >
+              <div
+                class="reportconfirmPage_detailes flex flex-col items-center p-4"
+              >
+                <div class="icons_done">
+                  <img src="assets/done.png" alt="done" class="w-16 h-16" />
+                </div>
+                <div class="reportconfirmPage_text text-center">
+                  <h2 class="font-semibold text-lg mb-2">
+                    Don't want to see this?
+                  </h2>
+                  <p class="text-gray-600">
+                    When you see something you don't like on Instagram, you can
+                    report it if it doesn't follow our
+                    <span class="font-semibold">Community Guidelines</span> or
+                    you can remove the person who shared it from your experience
+                  </p>
+                </div>
+              </div>
+              <div class="reportconfirmPage_button flex justify-center p-4">
+                <button
+                  class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  onclick="moreOptionsClose()"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="min-[900px]:w-[80%] mx-auto">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <div class="flex items-center mb-10">
+                <img
+                  src="assets/profile.png"
+                  alt="profile"
+                  class="w-12 h-12 rounded-full mr-2"
+                />
+                <div
+                  class="post_bar cursor-pointer border-gray-200 border-2 solid w-full rounded-full p-3"
+                  onclick="showPostFeed()"
+                >
+                  <h1 class="text-lg font-semibold text-gray-400">
+                    Start A Post
+                  </h1>
+                </div>
+              </div>
+              <div class="options_holder flex justify-between">
+                <div class="icon flex items-center cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 mr-2"
+                  >
+                    <path
+                      d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+                    ></path>
+                  </svg>
+                  <span class="text-sm">Photo</span>
+                </div>
+                <div class="icon flex items-center cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 mr-2"
+                  >
+                    <path
+                      d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"
+                    ></path>
+                  </svg>
+                  <span class="text-sm">Video</span>
+                </div>
+                <div class="icon flex items-center cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 mr-2"
+                  >
+                    <path
+                      d="M3 3v15a3 3 0 003 3h12a3 3 0 003-3V3zm13 1.75A1.25 1.25 0 1114.75 6 1.25 1.25 0 0116 4.75zm-8 0A1.25 1.25 0 116.75 6 1.25 1.25 0 018 4.75zM19 18a1 1 0 01-1 1H6a1 1 0 01-1-1V9h14zm-5.9-3a1 1 0 00-1-1H12a3.12 3.12 0 00-1 .2l-1-.2v-3h3.9v1H11v1.15a3.7 3.7 0 011.05-.15 1.89 1.89 0 012 1.78V15a1.92 1.92 0 01-1.84 2H12a1.88 1.88 0 01-2-1.75 1 1 0 010-.25h1a.89.89 0 001 1h.1a.94.94 0 001-.88z"
+                    ></path>
+                  </svg>
+                  <span class="text-sm">Event</span>
+                </div>
+                <div class="icon flex items-center cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 mr-2"
+                  >
+                    <path
+                      d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+                    ></path>
+                  </svg>
+                  <span class="text-sm">Write an article</span>
+                </div>
+              </div>
+            </div>
+            <div class="post_box p-4 shadow-lg my-8 rounded">
+              <div class="avater_section flex items-center justify-between p-4">
+                <div class="profile flex items-center">
+                  <img
+                    class="w-12 h-12 rounded-full mr-4"
+                    src="assets/profile.png"
+                    alt="profile"
+                  />
+                  <div class="name">
+                    <p class="font-bold">Alan Biju</p>
+                    <span class="text-gray-600">TechSnap DevOps</span>
+                  </div>
+                </div>
+                <div class="more cursor-pointer text-4xl" onclick="showMore()">
+                  ...
+                </div>
+              </div>
+              <div class="para p-4">
+                <p class="text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti reprehenderit minima dolorem deleniti consequatur
+                  quas, alias quis. Quam quo harum inventore, hic rerum ab.
+                  Laudantium numquam inventore iste provident labore!
+                </p>
+              </div>
+              <div
+                class="photo cursor-pointer"
+                onclick="window.location.href='postDetailsPage.html'"
+              >
+                <img
+                  class="w-full h-auto"
+                  src="assets/banner.png"
+                  alt="banner"
+                />
+              </div>
+              <div class="post_tages flex items-center justify-between p-4">
+                <div class="tags_box flex">
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2"
+                  >
+                    React Js
+                  </div>
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                  >
+                    React Js
+                  </div>
+                </div>
+                <div class="time">
+                  <p class="text-gray-600">posted 3 Jan</p>
+                </div>
+              </div>
+              <div class="post_icon_conatiner p-4">
+                <div class="post_icons flex items-center">
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span id="heart" class="mr-2">
+                      <i class="far fa-heart js-heart heart"></i>
+                    </span>
+                    <span class="text-gray-600">Like</span>
+                  </div>
+                  <div
+                    class="icon comment_icon flex items-center mr-4 cursor-pointer"
+                  >
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+                    />
+                    <span class="text-gray-600">Comment</span>
+                  </div>
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span class="mr-2"> </span>
+                    <span class="text-gray-600">Bookmark</span>
+                  </div>
+                  <div class="icon flex items-center cursor-pointer">
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://cdn-icons-png.flaticon.com/512/25/25419.png"
+                    />
+                    <span class="text-gray-600">Share</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment_section hidden bg-gray-100 p-4">
+                <div class="comment_input flex items-center mb-4">
+                  <img
+                    class="w-10 h-10 rounded-full mr-4"
+                    src="assets/profile.jpg"
+                    alt="profile"
+                  />
+                  <input
+                    class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                    type="text"
+                    name="comment"
+                    id="comment"
+                    placeholder="Write a comment..."
+                  />
+                </div>
+                <button
+                  id="submit_comment"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Submit
+                </button>
+                <div class="comments_box mt-4">
+                  <div class="comment mb-4">
+                    <div class="main_comment flex">
+                      <img
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/profile.jpg"
+                        alt="profile"
+                      />
+                      <div class="main_info flex-1">
+                        <div class="comment_info">
+                          <div class="comment_name flex items-center mb-2">
+                            <p class="font-bold mr-2">Alan Biju</p>
+                            <span class="text-gray-600">Developer</span>
+                          </div>
+                          <div class="para mb-2">
+                            <p class="text-gray-700">
+                              Thank you Nuseir Yassin for taking us this through
+                              this amazing Odyssey 💕👌😊, surreal experience
+                              and Dubai has done it again a giant time
+                              capsule.........Yet again millenials will throng
+                              the Booking counters eager to catch a
+                            </p>
+                          </div>
+                        </div>
+                        <div class="likes flex items-center mb-4">
+                          <span class="mr-2">Like . 51 ||</span>
+                          <span
+                            class="comment_reply_btn text-blue-500 cursor-pointer"
+                            >Reply</span
+                          >
+                        </div>
+                        <div class="comment_input reply flex items-center mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <input
+                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                            type="text"
+                            name="comment"
+                            id="comment"
+                            placeholder="Write a reply..."
+                          />
+                          <button
+                            id="submit_comment"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">
+                                  Thank you Nuseir Yassin for taking us this
+                                  through this amazing Odyssey 💕👌😊, surreal
+                                  experience and Dubai has done it again a giant
+                                  time capsule.........Yet again millenials will
+                                  throng the Booking counters eager to catch a
+                                </p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Thank you</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="sub_comment hidden_comment hidden flex mb-4"
+                        >
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Ur right bro</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onclick="ShowMoreComments()"
+                      class="showmorebutton text-blue-500 w-full"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="loadMorebutton bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Load More
+                </button>
+              </div>
+            </div>
+            <div class="post_box p-4 shadow-lg my-8 rounded">
+              <div class="avater_section flex items-center justify-between p-4">
+                <div class="profile flex items-center">
+                  <img
+                    class="w-12 h-12 rounded-full mr-4"
+                    src="assets/profile.png"
+                    alt="profile"
+                  />
+                  <div class="name">
+                    <p class="font-bold">Alan Biju</p>
+                    <span class="text-gray-600">TechSnap DevOps</span>
+                  </div>
+                </div>
+                <div class="more cursor-pointer text-4xl" onclick="showMore()">
+                  ...
+                </div>
+              </div>
+              <div class="para p-4">
+                <p class="text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti reprehenderit minima dolorem deleniti consequatur
+                  quas, alias quis. Quam quo harum inventore, hic rerum ab.
+                  Laudantium numquam inventore iste provident labore!
+                </p>
+              </div>
+              <div
+                class="photo cursor-pointer"
+                onclick="window.location.href='postDetailsPage.html'"
+              >
+                <img
+                  class="w-full h-auto"
+                  src="assets/banner.png"
+                  alt="banner"
+                />
+              </div>
+              <div class="post_tages flex items-center justify-between p-4">
+                <div class="tags_box flex">
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2"
+                  >
+                    React Js
+                  </div>
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                  >
+                    React Js
+                  </div>
+                </div>
+                <div class="time">
+                  <p class="text-gray-600">posted 3 Jan</p>
+                </div>
+              </div>
+              <div class="post_icon_conatiner p-4">
+                <div class="post_icons flex items-center">
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span id="heart" class="mr-2">
+                      <i class="far fa-heart js-heart heart"></i>
+                    </span>
+                    <span class="text-gray-600">Like</span>
+                  </div>
+                  <div
+                    class="icon comment_icon flex items-center mr-4 cursor-pointer"
+                  >
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+                    />
+                    <span class="text-gray-600">Comment</span>
+                  </div>
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span class="mr-2"> </span>
+                    <span class="text-gray-600">Bookmark</span>
+                  </div>
+                  <div class="icon flex items-center cursor-pointer">
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://cdn-icons-png.flaticon.com/512/25/25419.png"
+                    />
+                    <span class="text-gray-600">Share</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment_section hidden bg-gray-100 p-4">
+                <div class="comment_input flex items-center mb-4">
+                  <img
+                    class="w-10 h-10 rounded-full mr-4"
+                    src="assets/profile.jpg"
+                    alt="profile"
+                  />
+                  <input
+                    class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                    type="text"
+                    name="comment"
+                    id="comment"
+                    placeholder="Write a comment..."
+                  />
+                </div>
+                <button
+                  id="submit_comment"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Submit
+                </button>
+                <div class="comments_box mt-4">
+                  <div class="comment mb-4">
+                    <div class="main_comment flex">
+                      <img
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/profile.jpg"
+                        alt="profile"
+                      />
+                      <div class="main_info flex-1">
+                        <div class="comment_info">
+                          <div class="comment_name flex items-center mb-2">
+                            <p class="font-bold mr-2">Alan Biju</p>
+                            <span class="text-gray-600">Developer</span>
+                          </div>
+                          <div class="para mb-2">
+                            <p class="text-gray-700">
+                              Thank you Nuseir Yassin for taking us this through
+                              this amazing Odyssey 💕👌😊, surreal experience
+                              and Dubai has done it again a giant time
+                              capsule.........Yet again millenials will throng
+                              the Booking counters eager to catch a
+                            </p>
+                          </div>
+                        </div>
+                        <div class="likes flex items-center mb-4">
+                          <span class="mr-2">Like . 51 ||</span>
+                          <span
+                            class="comment_reply_btn text-blue-500 cursor-pointer"
+                            >Reply</span
+                          >
+                        </div>
+                        <div class="comment_input reply flex items-center mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <input
+                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                            type="text"
+                            name="comment"
+                            id="comment"
+                            placeholder="Write a reply..."
+                          />
+                          <button
+                            id="submit_comment"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">
+                                  Thank you Nuseir Yassin for taking us this
+                                  through this amazing Odyssey 💕👌😊, surreal
+                                  experience and Dubai has done it again a giant
+                                  time capsule.........Yet again millenials will
+                                  throng the Booking counters eager to catch a
+                                </p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Thank you</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="sub_comment hidden_comment hidden flex mb-4"
+                        >
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Ur right bro</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onclick="ShowMoreComments()"
+                      class="showmorebutton text-blue-500 w-full"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="loadMorebutton bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Load More
+                </button>
+              </div>
+            </div>
+            <div class="post_box p-4 shadow-lg my-8 rounded">
+              <div class="avater_section flex items-center justify-between p-4">
+                <div class="profile flex items-center">
+                  <img
+                    class="w-12 h-12 rounded-full mr-4"
+                    src="assets/profile.png"
+                    alt="profile"
+                  />
+                  <div class="name">
+                    <p class="font-bold">Alan Biju</p>
+                    <span class="text-gray-600">TechSnap DevOps</span>
+                  </div>
+                </div>
+                <div class="more cursor-pointer text-4xl" onclick="showMore()">
+                  ...
+                </div>
+              </div>
+              <div class="para p-4">
+                <p class="text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti reprehenderit minima dolorem deleniti consequatur
+                  quas, alias quis. Quam quo harum inventore, hic rerum ab.
+                  Laudantium numquam inventore iste provident labore!
+                </p>
+              </div>
+              <div
+                class="photo cursor-pointer"
+                onclick="window.location.href='postDetailsPage.html'"
+              >
+                <img
+                  class="w-full h-auto"
+                  src="assets/banner.png"
+                  alt="banner"
+                />
+              </div>
+              <div class="post_tages flex items-center justify-between p-4">
+                <div class="tags_box flex">
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2"
+                  >
+                    React Js
+                  </div>
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                  >
+                    React Js
+                  </div>
+                </div>
+                <div class="time">
+                  <p class="text-gray-600">posted 3 Jan</p>
+                </div>
+              </div>
+              <div class="post_icon_conatiner p-4">
+                <div class="post_icons flex items-center">
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span id="heart" class="mr-2">
+                      <i class="far fa-heart js-heart heart"></i>
+                    </span>
+                    <span class="text-gray-600">Like</span>
+                  </div>
+                  <div
+                    class="icon comment_icon flex items-center mr-4 cursor-pointer"
+                  >
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+                    />
+                    <span class="text-gray-600">Comment</span>
+                  </div>
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span class="mr-2"> </span>
+                    <span class="text-gray-600">Bookmark</span>
+                  </div>
+                  <div class="icon flex items-center cursor-pointer">
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://cdn-icons-png.flaticon.com/512/25/25419.png"
+                    />
+                    <span class="text-gray-600">Share</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment_section hidden bg-gray-100 p-4">
+                <div class="comment_input flex items-center mb-4">
+                  <img
+                    class="w-10 h-10 rounded-full mr-4"
+                    src="assets/profile.jpg"
+                    alt="profile"
+                  />
+                  <input
+                    class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                    type="text"
+                    name="comment"
+                    id="comment"
+                    placeholder="Write a comment..."
+                  />
+                </div>
+                <button
+                  id="submit_comment"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Submit
+                </button>
+                <div class="comments_box mt-4">
+                  <div class="comment mb-4">
+                    <div class="main_comment flex">
+                      <img
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/profile.jpg"
+                        alt="profile"
+                      />
+                      <div class="main_info flex-1">
+                        <div class="comment_info">
+                          <div class="comment_name flex items-center mb-2">
+                            <p class="font-bold mr-2">Alan Biju</p>
+                            <span class="text-gray-600">Developer</span>
+                          </div>
+                          <div class="para mb-2">
+                            <p class="text-gray-700">
+                              Thank you Nuseir Yassin for taking us this through
+                              this amazing Odyssey 💕👌😊, surreal experience
+                              and Dubai has done it again a giant time
+                              capsule.........Yet again millenials will throng
+                              the Booking counters eager to catch a
+                            </p>
+                          </div>
+                        </div>
+                        <div class="likes flex items-center mb-4">
+                          <span class="mr-2">Like . 51 ||</span>
+                          <span
+                            class="comment_reply_btn text-blue-500 cursor-pointer"
+                            >Reply</span
+                          >
+                        </div>
+                        <div class="comment_input reply flex items-center mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <input
+                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                            type="text"
+                            name="comment"
+                            id="comment"
+                            placeholder="Write a reply..."
+                          />
+                          <button
+                            id="submit_comment"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">
+                                  Thank you Nuseir Yassin for taking us this
+                                  through this amazing Odyssey 💕👌😊, surreal
+                                  experience and Dubai has done it again a giant
+                                  time capsule.........Yet again millenials will
+                                  throng the Booking counters eager to catch a
+                                </p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sub_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Thank you</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sub_comment hidden_comment flex mb-4">
+                          <img
+                            class="w-8 h-8 rounded-full mr-4"
+                            src="assets/profile.jpg"
+                            alt="profile"
+                          />
+                          <div class="main_info flex-1">
+                            <div class="comment_info">
+                              <div class="comment_name flex items-center mb-2">
+                                <p class="font-bold mr-2">Alan Biju</p>
+                                <span class="text-gray-600">Developer</span>
+                              </div>
+                              <div class="para mb-2">
+                                <p class="text-gray-700">Ur right bro</p>
+                              </div>
+                            </div>
+                            <div class="likes">
+                              <span>Like . 51</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onclick="ShowMoreComments()"
+                      class="showmorebutton text-blue-500 w-full"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="loadMorebutton bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Load More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg p-4 w-[38%] max-[900px]:hidden">
+          <div class="bg-white p-4 rounded">
+            <h2 class="text-xl font-bold mb-2">Linkdin News</h2>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+          </div>
+          <div class="text-white p-4 rounded flex items-center">
+            <img
+              src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAACeUyGWuWBhQQLyxe1gEMEaZgw.png"
+              alt="ads"
+              class="mr-4"
+            />
+          </div>
+        </div>
+        <div
+          class="feed_more_section hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          id="feedmainconaitner"
+        >
+          <div
+            class="more_container w-[550px] bg-white rounded-lg shadow-lg p-6 max-w-md"
+          >
+            <div class="title flex justify-between items-center mb-4">
+              <h1 class="text-lg font-semibold">Create Post</h1>
+              <h1
+                id="close_feed_container"
+                class="text-lg font-semibold cursor-pointer"
+              >
+                X
+              </h1>
+            </div>
+            <div class="avater_section flex items-center mb-4">
+              <div class="profile mr-4">
+                <img
+                  src="assets/profile.png"
+                  alt="profile"
+                  class="w-12 h-12 rounded-full"
+                />
+              </div>
+              <div class="name">
+                <p class="text-gray-800 font-semibold">Alan Biju</p>
+              </div>
+            </div>
+            <div class="write mb-4">
+              <textarea
+                rows="5"
+                placeholder="Write Something here..."
+                autofocus
+                class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+Write Something here...</textarea
+              >
+            </div>
+            <div class="footer flex justify-between items-center">
+              <div class="icons flex w-full justify-between">
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M23 20v1H1v-1zM8 9H2v10h6zm7-6H9v16h6zm7 11h-6v5h6z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M3 3v15a3 3 0 003 3h12a3 3 0 003-3V3zm13 1.75A1.25 1.25 0 1114.75 6 1.25 1.25 0 0116 4.75zm-8 0A1.25 1.25 0 116.75 6 1.25 1.25 0 018 4.75zM19 18a1 1 0 01-1 1H6a1 1 0 01-1-1V9h14zm-5.9-3a1 1 0 00-1-1H12a3.12 3.12 0 00-1 .2l-1-.2v-3h3.9v1H11v1.15a3.7 3.7 0 011.05-.15 1.89 1.89 0 012 1.78V15a1.92 1.92 0 01-1.84 2H12a1.88 1.88 0 01-2-1.75 1 1 0 010-.25h1a.89.89 0 001 1h.1a.94.94 0 001-.88z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="icon mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-supported-dps="24x24"
+                    fill="currentColor"
+                    class="mercado-match w-6 h-6 text-gray-500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <!-- Path skipped -->
+                    <path
+                      d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+                    ></path>
+                  </svg>
+                </div>
+                <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full"
+              >
+                Post
+              </button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="./app.js"></script> -->
+  <script>
+    ///--------------------------------
+
+    ///------------------------------
+    const showMore = () => {
+      const moreSection = document.querySelector(".more_section");
+
+      if (moreSection.style.display == "grid") {
+        moreSection.style.display = "none";
+      } else {
+        moreSection.style.display = "grid";
+      }
+    };
+    const shareToBox = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      moreSection.style.display = "none";
+      shareSection.style.display = "grid";
+    };
+    const reportToBox = () => {
+      const moreSection = document.querySelector(".more_section");
+      const reportSection = document.querySelector(".report_section");
+      moreSection.style.display = "none";
+      reportSection.style.display = "grid";
+    };
+    const reportpageToBox = () => {
+      const reportSection = document.querySelector(".report_section");
+      const reportPageSection = document.querySelector(
+        ".reportconfirmPage_section"
+      );
+      reportSection.style.display = "none";
+      reportPageSection.style.display = "grid";
+    };
+    const backToMoreSection = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      const reportSection = document.querySelector(".report_section");
+      moreSection.style.display = "grid";
+      shareSection.style.display = "none";
+      reportSection.style.display = "none";
+    };
+    const moreOptionsClose = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      const reportSection = document.querySelector(".report_section");
+      const reportPageSection = document.querySelector(
+        ".reportconfirmPage_section"
+      );
+      reportPageSection.style.display = "none";
+      moreSection.style.display = "none";
+      shareSection.style.display = "none";
+      reportSection.style.display = "none";
+    };
+
+    ////------------------------------
+    const ShowMoreComments = () => {
+      console.log("here");
+      // const ShowMoreCommentsSection =
+      // 	document.querySelector('.hidden_comment');
+      // const ShowMoreCommentsButton =
+      // 	document.querySelector('.showmorebutton');
+
+      // if (ShowMoreCommentsSection.style.display == 'flex') {
+      // 	ShowMoreCommentsSection.style.display = 'none';
+      // 	ShowMoreCommentsButton.textContent = 'Load More';
+      // } else {
+      // 	ShowMoreCommentsSection.style.display = 'flex';
+      // 	ShowMoreCommentsButton.textContent = 'Show Less';
+      // }
+    };
+    // const showmorebutton = document.querySelector('.showmorebutton').parentElement.querySelectorAll(".hidden_comment");
+    const AllmoreButton = document.querySelectorAll(".showmorebutton");
+    AllmoreButton.forEach((elt) => {
+      elt.addEventListener("click", () => {
+        const comments = elt.parentElement.querySelectorAll(".hidden_comment");
+        comments.forEach((commentItem) => {
+          if (commentItem.style.display == "flex") {
+            commentItem.style.display = "none";
+            elt.textContent = "Load More";
+          } else {
+            commentItem.style.display = "flex";
+            elt.textContent = "Show Less";
+          }
+        });
+      });
+    });
+    ///--------------------------------
+    // const showComment = () => {
+    // 	const CommentSection = document.querySelector('.comment_section');
+    // 	if (CommentSection.style.display == 'block') {
+    // 		CommentSection.style.display = 'none';
+    // 	} else {
+    // 		CommentSection.style.display = 'block';
+    // 	}
+    // };
+    // const CommentIcon = document
+    // 	.querySelector('.comment_icon')
+    // 	.parentElement.parentElement.parentElement.querySelector(
+    // 		'.comment_section',
+    // 	);
+    const CommentIcon = document.querySelectorAll(".comment_icon");
+    CommentIcon.forEach((ele) => {
+      ele.addEventListener("click", () => {
+        const CommentSection =
+          ele.parentElement.parentElement.nextElementSibling;
+
+        if (CommentSection.style.display == "block") {
+          CommentSection.style.display = "none";
+        } else {
+          CommentSection.style.display = "block";
+        }
+        console.log(CommentSection);
+      });
+    });
+    // console.log(CommentIcon);
+    //--------------------------------------------
+
+    const feedMoreSection = document.querySelector(".feed_more_section");
+    const closeFeedMoreSection = document.querySelector(
+      "#close_feed_container"
+    );
+    const showPostFeed = () => {
+      console.log("here");
+
+      if (feedMoreSection.style.display == "grid") {
+        feedMoreSection.style.display = "none";
+      } else {
+        feedMoreSection.style.display = "grid";
+      }
+    };
+    feedMoreSection.addEventListener("click", (e) => {
+      if (e.target.id === "feedmainconaitner") {
+        feedMoreSection.style.display = "none";
+      }
+    });
+    closeFeedMoreSection.addEventListener("click", (e) => {
+      feedMoreSection.style.display = "none";
+    });
+
+    //-------------------------------------
+    const moreSection = document.querySelector(".more_section");
+    moreSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        moreSection.style.display = "none";
+      }
+    });
+    const shareSection = document.querySelector(".share_to_section");
+    const reportSection = document.querySelector(".report_section");
+    const reportPageSection = document.querySelector(
+      ".reportconfirmPage_section"
+    );
+
+    shareSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        shareSection.style.display = "none";
+      }
+    });
+    reportPageSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        reportPageSection.style.display = "none";
+      }
+    });
+    reportSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        reportSection.style.display = "none";
+      }
+    });
+    const fullpostsection = document.querySelector(".full_post_section");
+    fullpostsection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        fullpostsection.style.display = "none";
+      }
+    });
+    //-------------------
+    $(document).ready(function () {
+      $("#heart").click(function () {
+        if ($("#heart").hasClass("liked")) {
+          $("#heart").html(
+            '<i class="far fa-heart js-heart heart" aria-hidden="true"></i>'
+          );
+          $("#heart").removeClass("liked");
+        } else {
+          $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+          $("#heart").addClass("liked");
+        }
+      });
+    });
+    //------------------------
+    const diplayPost = () => {
+      const full_post_section = document.querySelector(".full_post_section");
+      if (full_post_section.style.display == "grid") {
+        full_post_section.style.display = "none";
+      } else {
+        full_post_section.style.display = "grid";
+      }
+    };
+    //------------------------
+    const popups = [...document.getElementsByClassName("comment")];
+
+    window.addEventListener("click", ({ target }) => {
+      console.log("here");
+      const popup = target.closest(".comment");
+      const popupDots = target.closest(".comment_reply_btn");
+      const replyHolder = target.closest(".reply");
+      console.log(replyHolder);
+      const clickedOnClosedPopup =
+        popup && popupDots && !popup.classList.contains("show");
+      const clickedOnInsidePopup =
+        popup && replyHolder && !popup.classList.contains("show");
+
+      popups.forEach((p) => {
+        if (clickedOnInsidePopup) {
+          p.classList.remove("show");
+        }
+      });
+
+      if (clickedOnClosedPopup) popup.classList.add("show");
+    });
+  </script>
+</html>

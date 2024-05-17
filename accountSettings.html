@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+			rel="stylesheet"
+			type="text/css"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="bg-white fixed shadow-md py-2 text-lg w-full z-50">
+        <div
+          class="sub_header relative container mx-auto flex justify-between items-center"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-5 w-[410px]">
+            <div class="Icons flex items-center mr-4 w-[300px]">
+              <div
+                class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-between rounded-full px-3 py-2 mr-4"
+              >
+                <p class="flex items-center font-medium text-base mr-2">
+                  <span>🔥</span> 0
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span>🎯</span> 0
+                </p>
+              </div>
+              <div class="score flex items-center">
+                <p class="flex items-center font-medium text-base mr-4">
+                  <span>⚡</span> 200
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span
+                    ><img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mx-2.5"
+                  /></span>
+                  50
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/bell.svg"
+              alt="notifiction"
+              class="notification_bell w-6 h-6 mr-4 cursor-pointer"
+            />
+            <div class="notification_dropdown"></div>
+            <div class="relative">
+              <img
+                src="assets/profile.jpg"
+                alt="avatar"
+                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+              />
+              <div
+                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+              >
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Dashboard</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Profile</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Edit</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/windows/32/000000/exit.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] flex flex-col transition-all duration-300 z-20 max-w-[220px] align-center w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <a
+              href="index.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Progress</p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4 mr-2" />
+              <p>Competitions</p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/leaderboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Leaderboard</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">catalog</h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Career Paths</p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Courses</p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Projects</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4 mr-2" />
+              <p>Practice</p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/clipboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Assessments</p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Live Events</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">PROFILE</h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My profile</p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/edit (1).png"
+                alt="bookmark"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Edit profile</p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/user (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Account Settings</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/logout (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Logout</p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-5 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+        <div class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]">
+            <div class="accountContainer">
+              <div class="bg-transparent rounded-lg flex flex-col sm:flex-row">
+                <div class="profile-tab-nav p-[1rem] min-[900px]:w-[250px] border border-black">
+                  <div class="p-4 ">
+                    <div class="img-circle hidden text-center mb-3">
+                      <img src="assets/profile.png" alt="Image" class="pic rounded-full h-24 w-24 border-4 border-white" />
+                    </div>
+                    <h4 class="text-center account_setting_heading pb-0 text-xl">Account Settings</h4>
+                  </div>
+                  <div class="nav flex-col nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a
+                      class="nav-link active  border-b border-gray-300 text-gray-800 flex items-center px-2 py-3"
+                      id="account-tab"
+                      data-toggle="pill"
+                      href="#account"
+                      role="tab"
+                      aria-controls="account"
+                      aria-selected="true"
+                      onclick="myHash('account')"
+                    >
+                      <i class="fa fa-cart-plus text-center mr-3"></i>
+                      Subscription
+                    </a>
+                    <a
+                      class="nav-link border-b border-gray-300 text-gray-800 flex items-center px-2 py-3"
+                      id="notification-tab"
+                      data-toggle="pill"
+                      href="#notification"
+                      role="tab"
+                      aria-controls="notification"
+                      aria-selected="false"
+                      onclick="myHash('notification')"
+                    >
+                      <i class="fa fa-bell text-center mr-3"></i>
+                      Notification
+                    </a>
+                    <a
+                      class="nav-link border-b border-gray-300 text-gray-800 flex items-center px-2 py-3"
+                      id="password-tab"
+                      data-toggle="pill"
+                      href="#password"
+                      role="tab"
+                      aria-controls="password"
+                      aria-selected="false"
+                      onclick="myHash('password')"
+                    >
+                      <i class="fa fa-key text-center mr-3"></i>
+                      Password
+                    </a>
+                    <a
+                      class="nav-link border-b border-gray-300 text-gray-800 flex items-center px-2 py-3"
+                      id="security-tab"
+                      data-toggle="pill"
+                      href="#security"
+                      role="tab"
+                      aria-controls="security"
+                      aria-selected="false"
+                      onclick="myHash('security')"
+                    >
+                      <i class="fa fa-history text-center mr-3"></i>
+                      History
+                    </a>
+                    <a
+                      class="nav-link border-b border-gray-300 text-gray-800 flex items-center px-2 py-3"
+                      id="application-tab"
+                      data-toggle="pill"
+                      href="#application"
+                      role="tab"
+                      aria-controls="application"
+                      aria-selected="false"
+                      onclick="myHash('application')"
+                    >
+                      <i class="fa fa-trash text-center mr-3"></i>
+                      Delete My Account
+                    </a>
+                  </div>
+                </div>
+                <div class="tab-content p-4 p-md-5 min-[900px]:w-[70%]" id="v-pills-tabContent">
+                  <div class="tab-pane fade show active max-[900px]:text-center" id="account" role="tabpanel" aria-labelledby="account-tab">
+                    <h1 class=" text-xl border-b border-black pb-4 font-semibold">Subscription</h1>
+                    <div class="my_progress_third_card bg-pink-500 text-white p-4 mb-4 flex flex-col relative">
+                      <h1 class="text-sm w-9/12 font-medium">
+                        Please take your skill test so that we can improve your recommendations and can suggest you better content or projects
+                      </h1>
+                      <button class="w-36 hidden h-10 bg-white font-semibold rounded-lg mt-5">Button Text</button>
+                      <p class="close_banner hidden absolute top-6 right-6 font-semibold cursor-pointer">X</p>
+                    </div>
+                    <h3 class="text-xl account_setting_heading font-semibold pb-4">Current Plan</h3>
+                    <div class="current_plan border-2 border-black rounded-2xl pb-10 items-center px-3 flex flex-col sm:flex-row">
+                      <div class="free_trail_holder w-full sm:w-7/12 flex flex-col items-start justify-start">
+                        <h1 class="text-lg font-semibold text-pink-600 border-b border-black pb-2.5">Free Trail</h1>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                      </div>
+                      <div class="doller_holder w-full sm:w-5/12 flex flex-col items-center max-[900px]:mt-6">
+                        <h1 class="text-sm font-semibold tracking-wide">
+                          <span class="text-xl">$1000</span>/year
+                        </h1>
+                        <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500 mt-4">
+                          Upgrade to Pro
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Other tabs content here -->
+                  <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+                    <h3 class="account_setting_heading font-semibold text-lg border-b border-black pb-4">Subscription</h3>
+                    <div class="my_progress_third_card bg-pink-500 text-white p-5 flex flex-col relative">
+                      <h1 class="text-sm w-9/12 font-medium">
+                        Please take your skill test so that we can improve your recommendations and can suggest you better content or projects
+                      </h1>
+                      <p class="close_banner absolute top-6 right-6 font-semibold cursor-pointer">X</p>
+                    </div>
+                    <h3 class="account_setting_heading no-border-bottom font-semibold text-lg pb-0">Current Plan</h3>
+                    <div class="current_plan border border-black rounded-lg p-2.5 flex flex-col sm:flex-row">
+                      <div class="free_trail_holder w-full sm:w-7/12 flex flex-col items-start justify-start">
+                        <h1 class="text-lg font-semibold text-pink-600 border-b border-black pb-2.5">Free Trail</h1>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                        <p class="font-medium">Lorem ipsum, dolor sit amet consectetur</p>
+                      </div>
+                      <div class="doller_holder w-full sm:w-5/12 flex flex-col justify-end items-center mt-5 sm:mt-0">
+                        <h1 class="text-sm font-semibold tracking-wide">
+                          <span class="text-xl">$1000</span>/year
+                        </h1>
+                        <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500 mt-4">
+                          Upgrade to Pro
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                    <h3 class="mb-4 account_setting_heading font-semibold text-lg border-b border-black pb-4">Password Settings</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <div class="form-group mb-4">
+                          <label class="block font-medium mb-2">Old password</label>
+                          <input type="password" class="form-control w-full px-3 py-2 border border-gray-400 rounded-md" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <div class="form-group mb-4">
+                          <label class="block font-medium mb-2">New password</label>
+                          <input type="password" class="form-control w-full px-3 py-2 border border-gray-400 rounded-md" />
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group mb-4">
+                          <label class="block font-medium mb-2">Confirm new password</label>
+                          <input type="password" class="form-control w-full px-3 py-2 border border-gray-400 rounded-md" />
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500">
+                        Change Password
+                      </button>
+                    </div>
+                    <h3 class="my-4 account_setting_heading font-semibold text-lg border-b border-black pb-4">Email</h3>
+                    <p class="mb-4">
+                      All emails addresses that are associated with your account are listed below. Verified emails have a checkmark next to them and are used to grant access to Groups. You can learn more about Groups here.
+                    </p>
+                    <div class="primary_email_holder mb-4">
+                      <h5 class="font-semibold text-base mb-2">Primary Email</h5>
+                      <div class="email_holder flex items-center justify-between">
+                        <p class="font-medium">akhilsv@gmail.com</p>
+                        <span class="font-extrabold text-blue-600">Verified</span>
+                      </div>
+                    </div>
+                    <div class="primary_email_holder mb-4">
+                      <h5 class="font-semibold text-base mb-2">Additional Email</h5>
+                      <p class="font-medium mb-2">You don't have any additional email.</p>
+                      <input type="password" class="form-control w-full px-3 py-2 border border-gray-400 rounded-md" />
+                    </div>
+                    <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500">
+                      Add Email
+                    </button>
+                  </div>
+                  <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                    <div class="history_header flex items-end justify-start border-b border-gray-400 pb-1.5">
+                      <h1
+                        class="slideHistoryTabLinks text-sm font-semibold cursor-pointer relative mr-5 pb-0.5 "
+                        id="defaultslideHistoryTabLinks"
+                        onclick="slideHistoryTab(event,'transaction')"
+                      >
+                        Transaction History
+                      </h1>
+                      <h1
+                        class="slideHistoryTabLinks text-sm font-semibold cursor-pointer relative mr-5 pb-0.5"
+                        onclick="slideHistoryTab(event,'login')"
+                      >
+                        Login History
+                      </h1>
+                      <h1
+                        class="slideHistoryTabLinks text-sm font-semibold cursor-pointer relative mr-5 pb-0.5"
+                        onclick="slideHistoryTab(event,'enrollment')"
+                      >
+                        Enrollment History
+                      </h1>
+                    </div>
+                    <div class="slideHistoryTabContent py-12" id="transaction">
+                      <div class="transaction_history">
+                        <h1 class="text-xl">Day - Friday, August 21,2000</h1>
+                      </div>
+                    </div>
+                    <div class="slideHistoryTabContent py-12" id="login">
+                      <h1 class="text-xl">Login History</h1>
+                    </div>
+                    <div class="slideHistoryTabContent py-12" id="enrollment">
+                      <h1 class="text-xl">Enrollment Historyory</h1>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+                    <h3 class="mb-4 account_setting_heading font-semibold text-lg border-b border-black pb-4">Account Deletion</h3>
+                    <p class="mb-4">All your profile and learning data will be permanently deleted.</p>
+                    <div>
+                      <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500">Delete My Account</button>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                    <h3 class="mb-4 account_setting_heading font-semibold text-lg border-b border-black pb-4">Notification</h3>
+                    <h6 class="font-semibold text-base mb-4">I want to recieve email about</h6>
+                    <div class="notification-item flex items-center justify-between mb-4">
+                      <div class="content">
+                        <h1 class="text-lg font-semibold">OnBoarding</h1>
+                        <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                      </div>
+                      <label class="switch relative inline-block w-14 h-7">
+                        <input type="checkbox" checked class="opacity-0 w-0 h-0" />
+                        <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-full transition-colors duration-300"></span>
+                        <span class="slider:before absolute w-5 h-5 bg-white rounded-full transform -translate-y-1/2 left-1 top-1/2 transition-transform duration-300"></span>
+                      </label>
+                    </div>
+                    <div class="notification-item flex items-center justify-between mb-4">
+                      <div class="content">
+                        <h1 class="text-lg font-semibold">OnBoarding</h1>
+                        <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                      </div>
+                      <label class="switch relative inline-block w-14 h-7">
+                        <input type="checkbox" class="opacity-0 w-0 h-0" />
+                        <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-full transition-colors duration-300"></span>
+                        <span class="slider:before absolute w-5 h-5 bg-white rounded-full transform -translate-y-1/2 left-1 top-1/2 transition-transform duration-300"></span>
+                      </label>
+                    </div>
+                    <div class="notification-item flex items-center justify-between mb-4">
+                      <div class="content">
+                        <h1 class="text-lg font-semibold">OnBoarding</h1>
+                        <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                      </div>
+                      <label class="switch relative inline-block w-14 h-7">
+                        <input type="checkbox" class="opacity-0 w-0 h-0" />
+                        <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-full transition-colors duration-300"></span>
+                        <span class="slider:before absolute w-5 h-5 bg-white rounded-full transform -translate-y-1/2 left-1 top-1/2 transition-transform duration-300"></span>
+                      </label>
+                    </div>
+                    <div class="notification-item flex items-center justify-between mb-4">
+                      <div class="content">
+                        <h1 class="text-lg font-semibold">OnBoarding</h1>
+                        <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                      </div>
+                      <label class="switch relative inline-block w-14 h-7">
+                        <input type="checkbox" class="opacity-0 w-0 h-0" />
+                        <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-full transition-colors duration-300"></span>
+                        <span class="slider:before absolute w-5 h-5 bg-white rounded-full transform -translate-y-1/2 left-1 top-1/2 transition-transform duration-300"></span>
+                      </label>
+                    </div>
+                    <div class="notification-item no-emails flex items-center justify-between mb-4 border-t border-black pt-2.5">
+                      <div class="content">
+                        <h1 class="text-lg font-semibold">Don't send me any emails</h1>
+                        <p class="text-gray-700">You only receive necessary emails such as for password reset. All the above will be turned off.</p>
+                      </div>
+                      <label class="switch relative inline-block w-14 h-7">
+                        <input type="checkbox" class="opacity-0 w-0 h-0" />
+                        <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-400 rounded-full transition-colors duration-300"></span>
+                        <span class="slider:before absolute w-5 h-5 bg-white rounded-full transform -translate-y-1/2 left-1 top-1/2 transition-transform duration-300"></span>
+                      </label>
+                    </div>
+                    <div>
+                      <button class="btn btn-primary text-white font-semibold bg-pink-500 hover:bg-pink-600 transition-colors duration-500">Save All Changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    const myHash = (id) => {
+      location.hash = id;
+      let x = 'http://127.0.0.1:5502/accountSettings.html ' + location.hash;
+      localStorage.setItem('lastTab', id);
+    };
+    document.getElementById('defaultslideHistoryTabLinks').click();
+
+    function slideHistoryTab(evt, cityName) {
+      console.log(cityName);
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName('slideHistoryTabContent');
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+      }
+      tablinks = document.getElementsByClassName('slideHistoryTabLinks');
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(
+          "activeSlide",
+          ""
+        ).replace("text-[#ec1ee2]","").replace("border-b-2","").replace("border-black","").replace("border-solid","");
+      }
+      document.getElementById(cityName).style.display = 'flex';
+      evt.currentTarget.classList.add("activeSlide", "text-[#ec1ee2]", "border-b-2", "border-black", "border-solid");;
+    }
+    const closeBanner = document.querySelector('.close_banner');
+    const banner = document.querySelector('.my_progress_third_card');
+    closeBanner.addEventListener('click', () => {
+      banner.style.display = 'none';
+    });
+  </script>
+</html>

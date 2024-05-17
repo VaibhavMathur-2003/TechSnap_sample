@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+			rel="stylesheet"
+			href="https://unpkg.com/swiper/swiper-bundle.min.css"
+		/>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="bg-white fixed shadow-md py-2 text-lg w-full z-50">
+        <div
+          class="sub_header relative container mx-auto flex justify-between items-center"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-5 w-[410px]">
+            <div class="Icons flex items-center mr-4 w-[300px]">
+              <div
+                class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-between rounded-full px-3 py-2 mr-4"
+              >
+                <p class="flex items-center font-medium text-base mr-2">
+                  <span>🔥</span> 0
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span>🎯</span> 0
+                </p>
+              </div>
+              <div class="score flex items-center">
+                <p class="flex items-center font-medium text-base mr-4">
+                  <span>⚡</span> 200
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span
+                    ><img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mx-2.5"
+                  /></span>
+                  50
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/bell.svg"
+              alt="notifiction"
+              class="notification_bell w-6 h-6 mr-4 cursor-pointer"
+            />
+            <div class="notification_dropdown"></div>
+            <div class="relative">
+              <img
+                src="assets/profile.jpg"
+                alt="avatar"
+                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+              />
+              <div
+                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+              >
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Dashboard</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Profile</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Edit</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/windows/32/000000/exit.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] flex flex-col transition-all duration-300 z-20 min-w-[220px] align-center w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <a
+              href="index.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Progress</p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4 mr-2" />
+              <p>Competitions</p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/leaderboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Leaderboard</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">catalog</h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Career Paths</p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Courses</p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Projects</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4 mr-2" />
+              <p>Practice</p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/clipboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Assessments</p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Live Events</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">PROFILE</h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My profile</p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/edit (1).png"
+                alt="bookmark"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Edit profile</p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/user (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Account Settings</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/logout (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Logout</p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-5 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+        
+        <div class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]">
+            <section class="live_event_section text-center">
+              <div class="heading_holder px-10">
+                <h1 class="text-3xl font-semibold my-5">Upcoming Events For You</h1>
+                <p class="text-center">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                  incidunt? <span class="text-yellow-500">join now</span>
+                </p>
+              </div>
+              <div class="upcoming_cards_holder justify-center flex flex-wrap justify-between max-[900px]:justify-center flex-wrap px-20 mt-5 md:px-0">
+                <!-- Upcoming Cards -->
+                <div class="upcoming_cards max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[390px] bg-pink my-4 md:mx-3 rounded-2xl">
+                  <div class="card_poster_holder h-[55%]">
+                    <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                  </div>
+                  <div class="card_body h-[45%] flex flex-col justify-evenly items-center px-10 bg-gray-900 rounded-b-lg">
+                    <h1 class="text-xl text-white">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                    <p class="text-gray-500">Bluelearn</p>
+                    <p class="text-gray-500">Jul 5, 2022 8.00pm</p>
+                  </div>
+                </div>
+                <div class="upcoming_cards max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[390px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[55%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[45%] flex flex-col justify-evenly items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <p class="text-gray-500">Bluelearn</p>
+                      <p class="text-gray-500">Jul 5, 2022 8.00pm</p>
+                    </div>
+                  </div>
+                  <div class="upcoming_cards max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[390px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[55%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[45%] flex flex-col justify-evenly items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <p class="text-gray-500">Bluelearn</p>
+                      <p class="text-gray-500">Jul 5, 2022 8.00pm</p>
+                    </div>
+                  </div>
+                  <div class="upcoming_cards max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[390px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[55%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[45%] flex flex-col justify-evenly items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <p class="text-gray-500">Bluelearn</p>
+                      <p class="text-gray-500">Jul 5, 2022 8.00pm</p>
+                    </div>
+                  </div>
+                <!-- Repeat for other upcoming cards -->
+              </div>
+              <!-- Sticky Heading Holder -->
+              <div class="heading_holder sticky top-0  px-10 md:px-0">
+                <h1 class="text-3xl font-semibold my-8">If you missed something, access it right here</h1>
+                <!-- Tab Buttons -->
+                <div class="tab flex justify-between min-[900px]:w-[50%] mx-auto text-xl">
+                  <button class="tablinks bg-transparent hover:text-pink-500 border-b-2 border-transparent focus:outline-none" onclick="openCity(event, 'Active')" id="defaultOpen">Active</button>
+                  <button class="tablinks bg-transparent hover:text-pink-500 border-b-2 border-transparent focus:outline-none" onclick="openCity(event, 'Closed')">Closed</button>
+                  <button class="tablinks bg-transparent hover:text-pink-500 border-b-2 border-transparent focus:outline-none" onclick="openCity(event, 'Upcoming')">Upcoming</button>
+                </div>
+              </div>
+              <!-- Tab Content -->
+              <div id="Active" class="tabcontent">
+                <div class="upcoming_cards_holder justify-center flex flex-wrap px-20 md:px-0">
+                  <!-- Missing Cards for Active Tab -->
+                  <div class="missing_card max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[340px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[60%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[40%] flex flex-col justify-center items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white mb-2">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <button class="bg-transparent w-full border border-white text-white px-4 py-2 rounded-2xl hover:bg-white hover:text-gray-900 transition duration-300 ease-in-out">Watch Now</button>
+                    </div>
+                  </div>
+                  <!-- Repeat for other missing cards -->
+                </div>
+              </div>
+              <div id="Closed" class="tabcontent">
+                <div class="upcoming_cards_holder justify-center flex flex-wrap px-20 md:px-0">
+                  <!-- Missing Cards for Active Tab -->
+                  <div class="missing_card max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[340px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[60%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[40%] flex flex-col justify-center items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white mb-2">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <button class="bg-transparent w-full border border-white text-white px-4 py-2 rounded-2xl hover:bg-white hover:text-gray-900 transition duration-300 ease-in-out">Watch Now</button>
+                    </div>
+                  </div>
+                  <!-- Repeat for other missing cards -->
+                </div>
+              </div>
+              <div id="Upcoming" class="tabcontent">
+                <div class="upcoming_cards_holder justify-center flex flex-wrap px-20 md:px-0">
+                  <!-- Missing Cards for Active Tab -->
+                  <div class="missing_card max-w-[30%] min-w-[300px] max-[900px]:max-w-[100%] h-[340px] bg-pink my-4 md:mx-3 rounded-2xl">
+                    <div class="card_poster_holder h-[60%]">
+                      <img src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&amp;w=1920&amp;q=60" alt="" class="w-full h-full rounded-t-lg">
+                    </div>
+                    <div class="card_body h-[40%] flex flex-col justify-center items-center px-10 bg-gray-900 rounded-b-lg">
+                      <h1 class="text-xl text-white mb-2">Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                      <button class="bg-transparent w-full border border-white text-white px-4 py-2 rounded-2xl hover:bg-white hover:text-gray-900 transition duration-300 ease-in-out">Watch Now</button>
+                    </div>
+                  </div>
+                  <!-- Repeat for other missing cards -->
+                </div>
+              </div>
+              <!-- Repeat for Closed and Upcoming tabs -->
+            </section>
+          </div>
+          
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById("defaultOpen").click();
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName('tabcontent');
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = 'none';
+        }
+        tablinks = document.getElementsByClassName('tablinks');
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(' active text-[#ec1ee2] border-b-2 border-black border-solid', '');
+        }
+        document.getElementById(cityName).style.display = 'block';
+        evt.currentTarget.className += ' active text-[#ec1ee2] border-b-2 border-black border-solid';
+    }
+  </script>
+</html>

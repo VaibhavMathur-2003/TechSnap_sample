@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="flex items-center justify-between px-4 py-2">
+        <div class="flex items-center">
+          <img src="assets/icon.svg" alt="TechSnap Logo" class="h-8 mr-2">
+        </div>
+        <div class="flex items-center">
+            <div class="flex">
+                <p><span>🔥 </span>0</p>
+                <p><span>🎯 </span> 0</p>
+            </div>
+<p><span>⚡ </span> 200</p>
+
+
+          <div class="flex">
+            <img src="assets/coin (3).png" alt="User Avatar" class="h-6 w-6 rounded-full">
+           
+            <span class="text-yellow-500 mr-4">50</span>
+
+          </div>
+          <div class=" rounded-full">
+            <img src="assets/bell.svg" alt="User Avatar" class="h-6 w-6 rounded-full">
+          </div>
+
+          <div class=" rounded-full">
+            <img src="assets/profile.jpg" alt="User Avatar" class="h-10 w-10 rounded-full">
+          </div>
+        </div>
+      </nav>
+</body>
+</html>
+
+
+<header>
+    <div class="sub_header">
+        <div class="Header_icon">
+            <div class="ham" onclick="slideMenu()">
+                <img
+                    id="ham_icon"
+                    src="https://img.icons8.com/android/96/000000/menu.png"
+                />
+            </div>
+            <img src="assets/icon.svg" alt="Logo" />
+        </div>
+
+        <div class="Header_Profile">
+            <div class="Icons">
+                <div class="points">
+                    <p><span>🔥 </span>0</p>
+                    <p><span>🎯 </span> 0</p>
+                </div>
+                <div class="score">
+                    <p><span>⚡ </span> 200</p>
+                    <p>
+                        <span
+                            ><img src="assets/coin (3).png" alt="notifiction"
+                        /></span>
+                        50
+                    </p>
+                </div>
+            </div>
+            <img
+                src="assets/bell.svg"
+                alt="notifiction"
+                class="notification_bell"
+            />
+            <div class="notification_dropdown">
+                <h1>Notifications</h1>
+            </div>
+            <img
+                class="profile_pic avatar"
+                src="assets/profile.jpg"
+                alt="avatar"
+            />
+            <div class="profile_dropDown">
+                <a href="#" class="profile_dropDown_item">
+                    <span
+                        ><img
+                            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                    /></span>
+                    <p>View Dashboard</p>
+                </a>
+                <a href="#" class="profile_dropDown_item">
+                    <span
+                        ><img src="https://img.icons8.com/ios/50/000000/user.png"
+                    /></span>
+                    <p>View Profile</p>
+                </a>
+                <a href="#" class="profile_dropDown_item">
+                    <span
+                        ><img
+                            src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                    /></span>
+                    <p>Edit</p>
+                </a>
+                <a href="#" class="profile_dropDown_item">
+                    <span
+                        ><img src="https://img.icons8.com/windows/32/000000/exit.png"
+                    /></span>
+                    <p>Logout</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+.profile_dropDown {
+    width: 220px;
+    height: 250px;
+    background-color: #ffffff;
+    -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: absolute;
+    top: 58px;
+    right: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+    z-index: 555;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .profile_dropDown_item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    max-width: 220px;
+    width: 100%;
+    z-index: 5;
+    text-decoration: none !important;
+    color: #000;
+    border-left: solid 5px transparent;
+    font-weight: 500;
+  }
+  
+  .profile_dropDown_item:hover {
+    border-left-color: #ec45d0;
+    background-color: #e0e0e0;
+    color: #ec45d0;
+    font-weight: 600;
+  }
+  
+  .profile_dropDown_item span {
+    margin: 10px;
+  }
+  
+  .profile_dropDown_item span img {
+    width: 22px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+
+  
+header .sub_header {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  @media (max-width: 600px) {
+    header .sub_header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+    }
+  }
+  
+  header .sub_header .Icons {
+    width: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  
+  @media (max-width: 800px) {
+    header .sub_header .Icons {
+      width: 150px;
+    }
+  }
+  
+  header .sub_header .Icons .points {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 120px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    background-color: rgba(247, 0, 255, 0.295);
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 800px) {
+    header .sub_header .Icons .points {
+      display: none;
+    }
+  }
+  
+  header .sub_header .Icons .points p {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  header .sub_header .Icons .points p span {
+    margin-right: 2px;
+  }
+  
+  header .sub_header .Icons .score {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 150px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  
+  @media (max-width: 800px) {
+    header .sub_header .Icons .score {
+      width: 50px;
+    }
+  }
+  
+  header .sub_header .Icons .score p {
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  header .sub_header .Icons .score p span {
+    margin-right: 2px;
+  }
+  
+  header .sub_header .Header_icon {
+    margin-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  header .sub_header .Header_icon img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 150px;
+  }
+  
+  @media (max-width: 800px) {
+    header .sub_header .Header_icon img {
+      display: none;
+    }
+  }
+  
+  header .sub_header .Header_Profile {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-right: 20px;
+  }
+  
+  header .sub_header .Header_Profile img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 25px;
+    margin: 0 10px;
+  }
+  
+  header .sub_header .Header_Profile .profile_pic {
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+    cursor: pointer;
+  }
+
+
+  header .sub_header .Header_icon {
+    margin-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  header .sub_header .Header_icon img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 150px;
+  }
+  
+  @media (max-width: 800px) {
+    header .sub_header .Header_icon img {
+      display: none;
+    }
+  }
+  
+  header .sub_header .Header_Profile {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-right: 20px;
+  }
+  
+  header .sub_header .Header_Profile img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 25px;
+    margin: 0 10px;
+  }
+  
+  header .sub_header .Header_Profile .profile_pic {
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+    cursor: pointer;
+  }
+  
+
+
+
+  <aside class="sideMenu">
+    <div class="myMenu">
+        <a href="index.html">
+            <img src="assets/self-growth3.png" alt="progress" />
+            <p>My Progress</p>
+        </a>
+        <a href="Competitions.html">
+            <img src="assets/stage.png" alt="bookmark" />
+            <p>Competitions</p>
+        </a>
+        <a href="leaderBoard.html" id="active">
+            <img src="assets/leaderboard.png" alt="leader" />
+            <p>Leaderboard</p>
+        </a>
+    </div>
+    <div class="myMenu">
+        <div class="title">
+            <h4>catalog</h4>
+        </div>
+        <a href="career.html">
+            <img src="assets/career-choice.png" alt="progress" />
+            <p>Career Paths</p>
+        </a>
+        <a href="courses.html">
+            <img src="assets/online-course2.png" alt="leader" />
+            <p>Courses</p>
+        </a>
+        <a href="projects.html">
+            <img src="assets/project-management (2).png" alt="leader" />
+            <p>Projects</p>
+        </a>
+        <a href="##">
+            <img src="assets/project.png" alt="leader" />
+            <p>Practice</p>
+        </a>
+        <a href="assesments.html">
+            <img src="assets/clipboard.png" alt="leader" />
+            <p>Assessments</p>
+        </a>
+        <a href="liveEvents.html">
+            <img src="assets/deadline.png" alt="leader" />
+            <p>Live Events</p>
+        </a>
+    </div>
+    <div class="myMenu">
+        <div class="title">
+            <h4>PROFILE</h4>
+        </div>
+        <a href="myProfile.html">
+            <img src="assets/account (1).png" alt="progress" />
+            <p>My profile</p>
+        </a>
+        <a href="editProfile.html">
+            <img src="assets/edit (1).png" alt="bookmark" />
+            <p>Edit profile</p>
+        </a>
+        <a href="accountSettings.html">
+            <img src="assets/user (1).png" alt="leader" />
+            <p>Account Settings</p>
+        </a>
+        <a href="##">
+            <img src="assets/logout (1).png" alt="leader" />
+            <p>Logout</p>
+        </a>
+    </div>
+    <button>Contact us</button>
+</aside>
+
+  aside {
+    width: 250px;
+    max-width: 220px;
+    height: calc(100vh - 60px);
+    background-color: #0a182e;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 1000px) {
+    aside {
+      position: absolute;
+      z-index: 21;
+      left: -250px;
+      top: 60px;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+  }
+  
+  aside::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+  
+  aside::-webkit-scrollbar {
+    border-radius: 7px;
+  }
+  
+  aside::-webkit-scrollbar-thumb {
+    background-color: #cfcfcf;
+    height: 50px;
+  }
+  
+  aside button {
+    margin: 0 auto;
+    width: 90%;
+    min-height: 40px;
+    border: none;
+    outline: none;
+    background: #7933ff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  aside .myMenu {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 18px;
+    margin-top: 10px;
+  }
+  
+  aside .myMenu::after {
+    content: "";
+    width: 80%;
+    height: 0.5px;
+    background-color: rgba(255, 255, 255, 0.315);
+  }
+  
+  aside .myMenu .title {
+    width: 100%;
+    padding-left: 30px;
+    margin: 10px 0;
+  }
+  
+  aside .myMenu .title h4 {
+    font-size: 1.05rem;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  aside .myMenu a {
+    text-decoration: none;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 40px;
+  }
+  
+  aside .myMenu a img {
+    width: 16px;
+    height: 16px;
+    color: #fff;
+  }
+  
+  aside .myMenu a p {
+    text-align: left;
+    width: 70%;
+    margin-left: 10px;
+    font-size: 14px;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+  }
+  
+  aside .myMenu a p:hover {
+    color: #aeb6be;
+  }
+  
+
+
+  .profile-tab-nav {
+    min-width: 250px;
+    height: 368px;
+    margin-right: 20px;
+    margin-left: 40px;
+    margin-top: 50px;
+    border: solid 1px #000 !important;
+  }
+
+  .max_width_holder {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+
+  .leader_board_section {
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+  }
+  
+  @media (max-width: 1500px) {
+    .leader_board_section {
+      min-width: 1100px;
+      max-width: 1100px;
+    }
+  }
+  
+  @media (max-width: 1300px) {
+    .leader_board_section {
+      min-width: auto;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .leader_board_section {
+      padding: 0px 0px;
+      overflow-x: scroll;
+      width: 100%;
+    }
+  }
+  
+  .leader_board_section h2 {
+    font-size: 1.5rem;
+    min-width: 100%;
+    white-space: nowrap;
+    margin-top: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0px;
+  }
+
+  .leader_title {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -2px;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .leader_title h1 {
+    font-size: 1.5rem;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+  
+  .leader_title .leader_board_switch {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-bottom: 2px solid rgba(141, 141, 141, 0.414);
+    background: whitesmoke;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks h1 {
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks:hover {
+    border-color: #1a1a1a;
+  }
+
+  
+  .leader_title .leader_board_switch {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-bottom: 2px solid rgba(141, 141, 141, 0.414);
+    background: whitesmoke;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks h1 {
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks:hover {
+    border-color: #1a1a1a;
+  }
+
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks h1 {
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .leader_title .leader_board_switch .leaderBoard_tablinks:hover {
+    border-color: #1a1a1a;
+  }
+
+
+
+  .assesment_section {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    background: #fff;
+    max-width: 1400px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  @media (max-width: 1500px) {
+    .assesment_section {
+      min-width: 1100px;
+      max-width: 1100px;
+    }
+  }
+  
+  @media (max-width: 1300px) {
+    .assesment_section {
+      min-width: auto;
+    }
+  }
+
+
+
+  <div class="all_title">
+    <div>
+      <p>All courses</p>
+      <span>86 results on techsnap</span>
+    </div>
+    <div class="search">
+      <form class="search-container">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="search courses"
+        />
+        <a href="#"
+          ><img
+            class="search-icon"
+            src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+        /></a>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="course_popular_card_section">
+    <div class="title">
+      <p>Popular Courses</p>
+    </div>
+    <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="my_progess_trending_card swiper-slide">
+        <div class="my_progess_trending_card_header">
+          <img src="assets/python_logo.png" alt="course-logo" />
+          <div class="resolution">
+            <p>1250xp</p>
+          </div>
+        </div>
+        <div class="my_progess_trending_card_body">
+          <h1>Introduction to SQL</h1>
+          <div class="my_progess_trending_card_options_holder">
+            <div class="my_progess_trending_card_option">
+              <img src="assets/time.svg" alt="time" />
+              <p>15 hours</p>
+            </div>
+            <div class="my_progess_trending_card_option">
+              <img src="assets/lessons.svg" alt="time" />
+              <p>9 lessons</p>
+            </div>
+            <div class="my_progess_trending_card_option">
+              <img src="assets/coin.svg" alt="time" />
+              <p>779 coins</p>
+            </div>
+          </div>
+        </div>
+        <div class="my_progress_trending_card_footer">
+          <button>Start Course</button>
+        </div>
+      </div>
+      <div class="my_progess_trending_card swiper-slide">
+        <div class="my_progess_trending_card_header">
+          <img src="assets/python_logo.png" alt="course-logo" />
+          <div class="resolution">
+            <p>1250xp</p>
+          </div>
+        </div>
+        <div class="my_progess_trending_card_body">
+          <h1>Introduction to SQL</h1>
+          <div class="my_progess_trending_card_options_holder">
+            <div class="my_progess_trending_card_option">
+              <img src="assets/time.svg" alt="time" />
+              <p>15 hours</p>
+            </div>
+            <div class="my_progess_trending_card_option">
+              <img src="assets/lessons.svg" alt="time" />
+              <p>9 lessons</p>
+            </div>
+            <div class="my_progess_trending_card_option">
+              <img src="assets/coin.svg" alt="time" />
+              <p>779 coins</p>
+            </div>
+          </div>
+        </div>
+        <div class="my_progress_trending_card_footer">
+          <button>Start Course</button>
+        </div>
+      </div>
+      
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
+  <div class="white_ban">
+    <div class="tabs_wrap">
+      <ul>
+        <li
+          class="slideProfileLinks"
+          id="defaultProfileLinks"
+          onclick="slideProfile(event,'Browse')"
+        >
+          <span><img src="assets/bell.svg" alt="icon" /></span>
+          Browse
+        </li>
+        <li
+          class="slideProfileLinks"
+          onclick="slideProfile(event,'Our')"
+        >
+          <span><img src="assets/bell.svg" alt="icon" /></span>
+          Picks
+        </li>
+        <li
+          class="slideProfileLinks"
+          onclick="slideProfile(event,'News')"
+        >
+          <span><img src="assets/bell.svg" alt="icon" /></span>
+          News
+        </li>
+        <li
+          class="slideProfileLinks"
+          onclick="slideProfile(event,'Early')"
+        >
+          <span><img src="assets/bell.svg" alt="icon" /></span>
+          Access
+        </li>
+        <li
+          class="slideProfileLinks"
+          onclick="slideProfile(event,'Free')"
+        >
+          <span><img src="assets/bell.svg" alt="icon" /></span>
+          Free
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="slideProfileContent" id="Browse">
+    <div class="cards_section">
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <div class="slideProfileContent" id="Our">
+    <div class="cards_section">
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="slideProfileContent" id="News">
+    <div class="cards_section">
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slideProfileContent" id="Early">
+    <div class="cards_section">
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+  <div class="slideProfileContent" id="Free">
+    <div class="cards_section">
+      <div class="course_card">
+        <div class="image">
+          <img src="assets/card_banner.svg" alt="card" />
+        </div>
+        <div class="course_body">
+          <div class="author_holder">
+            <svg
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 400"
+              height="26px"
+              class="text-logo dark:text-white"
+            >
+              <path
+                d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+              ></path>
+              <rect
+                x="68"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="126"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="184"
+                y="63"
+                width="38.1"
+                height="38.1"
+                rx="2.4"
+              ></rect>
+              <rect
+                x="200"
+                y="295"
+                width="114.3"
+                height="38.1"
+                rx="3.3"
+              ></rect>
+              <path
+                d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+              ></path>
+            </svg>
+            <h2>Educative</h2>
+          </div>
+          <h3>Unit testing Java Application</h3>
+        </div>
+
+        <div class="course_footer">
+          <p>Intermidate</p>
+          <button>Preview</button>
+        </div>
+      </div>
+    </div>
+  </div>

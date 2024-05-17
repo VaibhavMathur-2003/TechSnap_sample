@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <header class="bg-white fixed shadow-md py-2 text-lg w-full z-50">
+        <div
+          class="sub_header relative container mx-auto flex justify-between items-center"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-5 w-[410px]">
+            <div class="Icons flex items-center mr-4 w-[300px]">
+              <div
+                class="points flex items-center max-[900px]:hidden bg-purple-200 w-[120px] justify-between rounded-full px-3 py-2 mr-4"
+              >
+                <p class="flex items-center font-medium text-base mr-2">
+                  <span>🔥</span> 0
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span>🎯</span> 0
+                </p>
+              </div>
+              <div class="score flex items-center">
+                <p class="flex items-center font-medium text-base mr-4">
+                  <span>⚡</span> 200
+                </p>
+                <p class="flex items-center font-medium text-base">
+                  <span
+                    ><img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mx-2.5"
+                  /></span>
+                  50
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/bell.svg"
+              alt="notifiction"
+              class="notification_bell w-6 h-6 mr-4 cursor-pointer"
+            />
+            <div class="notification_dropdown"></div>
+            <div class="relative">
+              <img
+                src="assets/profile.jpg"
+                alt="avatar"
+                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+              />
+              <div
+                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden z-10 transition duration-500 opacity-0 min-[900px]:hidden w-[220px] h-[250px] flex flex-col justify-between"
+              >
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Dashboard</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>View Profile</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Edit</p>
+                </a>
+                <a
+                  href="#"
+                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                >
+                  <span
+                    ><img
+                      src="https://img.icons8.com/windows/32/000000/exit.png"
+                      class="w-5 h-5 mr-2"
+                  /></span>
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] flex flex-col transition-all duration-300 z-20 max-w-[220px] align-center w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <a
+              href="index.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My Progress</p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4 mr-2" />
+              <p>Competitions</p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/leaderboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Leaderboard</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">catalog</h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Career Paths</p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Courses</p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Projects</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4 mr-2" />
+              <p>Practice</p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/clipboard.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Assessments</p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Live Events</p>
+            </a>
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-5 mt-2 ml-3.5">
+            <div class="title w-full pl-8 mb-2">
+              <h4 class="text-white uppercase my-2.5 text-2xl">PROFILE</h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4 mr-2"
+              />
+              <p>My profile</p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/edit (1).png"
+                alt="bookmark"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Edit profile</p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/user (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Account Settings</p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/logout (1).png"
+                alt="leader"
+                class="w-4 h-4 mr-2"
+              />
+              <p>Logout</p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-5 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+        <div
+          class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px]"
+        >
+          <div
+            class="my_profile_bar flex items-center bg-white rounded-md shadow-md p-4"
+          >
+            <div class="my_profile_dp w-24 h-24 overflow-hidden">
+              <img
+                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt="Profile Picture"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="my_profile_name ml-4">
+              <h1 class="text-2xl font-semibold">Sai Pavan Saketh</h1>
+              <p class="text-sm text-gray-500">@saketh333</p>
+            </div>
+          </div>
+          <div
+            class="white_ban bg-white overflow-hidden font-bold mt-4 border-b border-black shadow-md"
+          >
+            <div class="tabs_wrap sticky top-0">
+              <li
+                class="mobile_view min-[900px]:hidden cursor-pointer flex items-center justify-between px-4 py-2 bg-gray-100 rounded-t-md"
+                onclick="mobileDropdown('')"
+              >
+                <h1 class="text-lg font-semibold">Personal Information</h1>
+                <span class="text-xl font-bold">&#94;</span>
+              </li>
+              
+              <ul class="flex justify-evenly max-[900px]:flex-col">
+                <li
+                  class="slideProfileLinks cursor-pointer flex items-center px-4 py-2 hover:bg-gray-100"
+                  onclick="slideProfile(event,'Personal'); mobileDropdown('Personal Information');"
+                >
+                  <span
+                    ><img src="assets/bell.svg" alt="icon" class="w-4 h-4 mr-2"
+                  /></span>
+                  Personal Information
+                </li>
+                <li
+                  class="slideProfileLinks cursor-pointer flex items-center px-4 py-2 hover:bg-gray-100"
+                  onclick="slideProfile(event,'Education'); mobileDropdown('Education and Experience');"
+                >
+                  <span
+                    ><img src="assets/bell.svg" alt="icon" class="w-4 h-4 mr-2"
+                  /></span>
+                  Education and Experience
+                </li>
+                <li
+                  class="slideProfileLinks cursor-pointer flex items-center px-4 py-2 hover:bg-gray-100"
+                  onclick="slideProfile(event,'Blogs'); mobileDropdown('Blogs');"
+                >
+                  <span
+                    ><img src="assets/bell.svg" alt="icon" class="w-4 h-4 mr-2"
+                  /></span>
+                  Blogs
+                </li>
+                <li
+                  class="slideProfileLinks cursor-pointer flex items-center px-4 py-2 hover:bg-gray-100"
+                  id="defaultProfileLinks"
+                  onclick="slideProfile(event,'Teammates'); mobileDropdown('Teammates');"
+                >
+                  <span
+                    ><img src="assets/bell.svg" alt="icon" class="w-4 h-4 mr-2"
+                  /></span>
+                  Teammates
+                </li>
+                <li
+                  class="slideProfileLinks cursor-pointer flex items-center px-4 py-2 hover:bg-gray-100"
+                  onclick="slideProfile(event,'Posts'); mobileDropdown('Posts');"
+                >
+                  <span
+                    ><img src="assets/bell.svg" alt="icon" class="w-4 h-4 mr-2"
+                  /></span>
+                  Posts
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="slideProfileContent" id="Personal">
+            <div class="my_profile_content_holder p-6">
+              <div class="card_heading mb-4">
+                <h1 class="text-2xl font-bold">Profile Information</h1>
+              </div>
+              <div class="form_details big_answer mb-6">
+                <h1 class="answer text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. A,
+                  earum placeat. Accsciunt vel deleniti sit, perspiciatis
+                  necessitatibus praesentium voluptates velit dolorem minima?
+                </h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Mobile :
+                </h1>
+                <h1 class="answer text-gray-800">9731990672</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Email :
+                </h1>
+                <h1 class="answer text-gray-800">akhilsv@gmail.com</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Country :
+                </h1>
+                <h1 class="answer text-gray-800">India</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Linkdin :
+                </h1>
+                <h1 class="answer text-gray-800">India</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Skills :
+                </h1>
+                <h1 class="answer text-gray-800">
+                  Html &nbsp; Css &nbsp; Python &nbsp; Reactjs &nbsp; Nodejs
+                </h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Languages :
+                </h1>
+                <h1 class="answer text-gray-800">Kannada</h1>
+              </div>
+            </div>
+          </div>
+          <div class="slideProfileContent" id="Education">
+            <div class="my_profile_content_holder p-6">
+              <div class="card_heading mb-4">
+                <h1 class="text-2xl font-bold">Education and Experience</h1>
+              </div>
+              <div class="form_details big_answer mb-6">
+                <h1 class="answer text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. A,
+                  earum placeat. Accsciunt vel deleniti sit, perspiciatis
+                  necessitatibus praesentium voluptates velit dolorem minima?
+                </h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Mobile :
+                </h1>
+                <h1 class="answer text-gray-800">9731990672</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Email :
+                </h1>
+                <h1 class="answer text-gray-800">akhilsv@gmail.com</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Country :
+                </h1>
+                <h1 class="answer text-gray-800">India</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Linkdin :
+                </h1>
+                <h1 class="answer text-gray-800">India</h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Skills :
+                </h1>
+                <h1 class="answer text-gray-800">
+                  Html &nbsp; Css &nbsp; Python &nbsp; Reactjs &nbsp; Nodejs
+                </h1>
+              </div>
+              <div class="form_details flex mb-4">
+                <h1 class="question text-gray-700 font-semibold mr-4">
+                  Languages :
+                </h1>
+                <h1 class="answer text-gray-800">Kannada</h1>
+              </div>
+            </div>
+          </div>
+          <div class="slideProfileContent" id="Blogs">
+            <div class="my_profile_blogs_section p-6">
+              <div
+                class="blogs_card_holder grid grid-cols-1 md:grid-cols-3 gap-6"
+              >
+                <div
+                  class="blogs_card bg-white rounded-lg shadow-md overflow-hidden"
+                >
+                  <div class="blog_image">
+                    <img
+                      src="https://miro.medium.com/max/820/1*Y4Td-XMRtuFAW_8CpO7KyA.png"
+                      alt="blogs"
+                      class="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h1 class="text-xl font-bold mb-2">Blogs 1</h1>
+                    <h2 class="text-lg mb-2">Introduction to front-end</h2>
+                    <p class="text-gray-700 mb-4">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Veniam optio animi debitis tenetur pariatur quo deleniti
+                      architecto consequuntur molestiae ipsum
+                    </p>
+                    <button
+                      class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg"
+                    >
+                      View Blog
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="blogs_card bg-white rounded-lg shadow-md overflow-hidden"
+                >
+                  <div class="blog_image">
+                    <img
+                      src="https://miro.medium.com/max/820/1*Y4Td-XMRtuFAW_8CpO7KyA.png"
+                      alt="blogs"
+                      class="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h1 class="text-xl font-bold mb-2">Blogs 1</h1>
+                    <h2 class="text-lg mb-2">Introduction to front-end</h2>
+                    <p class="text-gray-700 mb-4">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Veniam optio animi debitis tenetur pariatur quo deleniti
+                      architecto consequuntur molestiae ipsum
+                    </p>
+                    <button
+                      class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg"
+                    >
+                      View Blog
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="blogs_card add_blog bg-white rounded-lg shadow-md flex justify-center items-center"
+                >
+                  <div class="text-center">
+                    <h1 class="text-5xl font-bold mb-2">+</h1>
+                    <h2 class="text-lg">Add new blog</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slideProfileContent flex-col px-4" id="Teammates">
+            <div class="card_heading my-8">
+              <h1 class="text-2xl font-semibold">Project Manager</h1>
+            </div>
+            <div
+              class="teammate_cards_holder grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
+            >
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <!-- Add more teammate cards here -->
+            </div>
+
+            <div class="card_heading mt-12 my-8">
+              <h1 class="text-2xl font-semibold">Teammates</h1>
+            </div>
+            <div
+              class="teammate_cards_holder grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            >
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <div
+                class="my_profile_teammate_card bg-white rounded-lg shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden text-center h-[280px] flex flex-col justify-center items-center"
+              >
+                <div class="teammate_dp">
+                  <img
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="teammate"
+                    class="w-[110px] rounded-full h-[110px] object-cover"
+                  />
+                </div>
+                <div class="teammate_details p-4">
+                  <h1 class="text-lg font-semibold mb-1">Alan Biju</h1>
+                  <p class="text-gray-600">Full Stack Developer at Techsnap</p>
+                </div>
+                <h6
+                  class="border border-[#e51db0] text-[#e51db0] transition-all duration-800 ease-in-out hover:text-white hover:bg-[#e51db0] py-2 px-8 rounded-full text-center cursor-pointer"
+                >
+                  View Profile
+                </h6>
+              </div>
+              <!-- Add more teammate cards here -->
+            </div>
+          </div>
+          <div class="slideProfileContent" id="Posts">
+            <div class="post_section p-6 min-[900px]:w-[70%] mx-auto">
+                <div class="post_box bg-white rounded-lg shadow-md mb-8">
+                    <div class="avater_section flex items-center p-4">
+                        <div class="profile flex items-center">
+                            <img src="assets/profile.png" alt="profile" class="w-12 h-12 rounded-full mr-4" />
+                            <div class="name">
+                                <p class="text-lg font-semibold">Alan Biju</p>
+                                <span class="text-gray-600">TechSnap DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="para p-4">
+                        <p class="text-gray-700">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit minima dolorem deleniti consequatur quas, alias quis. Quam quo harum inventore, hic rerum ab. Laudantium numquam inventore iste provident labore!
+                        </p>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/banner.png" alt="banner" class="w-full" />
+                    </div>
+                    <div class="post_tages flex justify-between items-center p-4">
+                        <div class="tags_box flex">
+                            <div class="tags bg-purple-500 hover:bg-purple-600 text-white py-1 px-2 rounded-md mr-2">React Js</div>
+                            <div class="tags bg-purple-500 hover:bg-purple-600 text-white py-1 px-2 rounded-md">React Js</div>
+                        </div>
+                        <div class="time text-gray-600">posted 3 Jan</div>
+                    </div>
+                    <div class="post_icons flex justify-end p-4">
+                        <img src="https://img.icons8.com/ios/50/000000/like--v1.png" class="w-6 h-6 mr-4 cursor-pointer" />
+                        <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png" class="w-6 h-6 cursor-pointer" />
+                    </div>
+                </div>
+                <div class="post_box bg-white rounded-lg shadow-md mb-8">
+                    <div class="avater_section flex items-center p-4">
+                        <div class="profile flex items-center">
+                            <img src="assets/profile.png" alt="profile" class="w-12 h-12 rounded-full mr-4" />
+                            <div class="name">
+                                <p class="text-lg font-semibold">Alan Biju</p>
+                                <span class="text-gray-600">TechSnap DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="para p-4">
+                        <p class="text-gray-700">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit minima dolorem deleniti consequatur quas, alias quis. Quam quo harum inventore, hic rerum ab. Laudantium numquam inventore iste provident labore!
+                        </p>
+                    </div>
+                    <div class="photo">
+                        <img src="assets/profile.jpg" alt="banner" class="w-full" />
+                    </div>
+                    <div class="post_tages flex justify-between items-center p-4">
+                        <div class="tags_box flex">
+                            <div class="tags bg-purple-500 hover:bg-purple-600 text-white py-1 px-2 rounded-md mr-2">React Js</div>
+                            <div class="tags bg-purple-500 hover:bg-purple-600 text-white py-1 px-2 rounded-md">React Js</div>
+                        </div>
+                        <div class="time text-gray-600">posted 3 Jan</div>
+                    </div>
+                    <div class="post_icons flex justify-end p-4">
+                        <img src="https://img.icons8.com/ios/50/000000/like--v1.png" class="w-6 h-6 mr-4 cursor-pointer" />
+                        <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png" class="w-6 h-6 cursor-pointer" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById("defaultProfileLinks").click();
+
+    function slideProfile(evt, cityName) {
+      console.log(cityName);
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("slideProfileContent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("slideProfileLinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(
+          "activeSlide",
+          ""
+        );
+      }
+      document.getElementById(cityName).style.display = "flex";
+      evt.currentTarget.className += " activeSlide";
+    }
+
+    const tabs_wrap = document.querySelector(".tabs_wrap ul");
+    const he = document.querySelector(".mobile_view h1");
+    const hes = document.querySelector(".mobile_view span");
+    const mobileDropdown = (text) => {
+      var x = window.matchMedia("(max-width: 700px)");
+      if (text != "") {
+        he.innerHTML = text;
+      }
+      if (x.matches) {
+        if (tabs_wrap.style.display === "flex") {
+          tabs_wrap.style.display = "none";
+          hes.innerHTML = "˅";
+        } else {
+          tabs_wrap.style.display = "flex";
+          hes.innerHTML = "^";
+        }
+      }
+    };
+  </script>
+</html>
