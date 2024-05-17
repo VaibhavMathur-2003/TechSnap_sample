@@ -19,12 +19,12 @@ const notification_dropDown = document.querySelector('.notification_dropdown');
 
 notification_bell.addEventListener('click', () => {
     console.log('here');
-    if (notification_dropDown.style.opacity === '1') {
-        notification_dropDown.classList.remove('opacity-100', 'pointer-events-auto');
-        notification_dropDown.classList.add('opacity-0', 'pointer-events-none');
+    if (notification_dropDown.classList.contains('visible')) {
+        notification_dropDown.classList.remove('visible');
+        notification_dropDown.classList.add( 'hidden');
     } else {
-        notification_dropDown.classList.remove('opacity-0', 'pointer-events-none');
-        notification_dropDown.classList.add('opacity-100', 'pointer-events-auto');
+        notification_dropDown.classList.remove('hidden');
+        notification_dropDown.classList.add('visible');
     }
 });
 
@@ -33,10 +33,12 @@ const goalsSection = document.querySelector('.goals_DropDown');
 const goalButton = document.querySelector('.points');
 
 const goalsDrop = () => {
-    if (goalsSection.style.visibility == 'visible') {
-        goalsSection.style.visibility = 'hidden';
+    if (goalsSection.classList.contains('visible')) {
+        goalsSection.classList.remove('visible');
+        goalsSection.classList.add( 'hidden');
     } else {
-        goalsSection.style.visibility = 'visible';
+        goalsSection.classList.remove('hidden');
+        goalsSection.classList.add('visible');
     }
 };
 
@@ -44,18 +46,22 @@ const powerSection = document.querySelector('.power_dropDown');
 const coinSection = document.querySelector('.coin_dropDown');
 
 const powerhandler = () => {
-    if (powerSection.style.visibility == 'visible') {
-        powerSection.style.visibility = 'hidden';
+    if (powerSection.classList.contains('visible')) {
+        powerSection.classList.remove('visible');
+        powerSection.classList.add( 'hidden');
     } else {
-        powerSection.style.visibility = 'visible';
+        powerSection.classList.remove('hidden');
+        powerSection.classList.add('visible');
     }
 };
 
 const Coinhandler = () => {
-    if (coinSection.style.visibility == 'visible') {
-        coinSection.style.visibility = 'hidden';
+    if (coinSection.classList.contains('visible')) {
+        coinSection.classList.remove('visible');
+        coinSection.classList.add( 'hidden');
     } else {
-        coinSection.style.visibility = 'visible';
+        coinSection.classList.remove('hidden');
+        coinSection.classList.add('visible');
     }
 };
 
@@ -78,20 +84,23 @@ document.addEventListener('click', function (event) {
     }
 
     if (!isClickInsideShock) {
-        powerSection.style.visibility = 'hidden';
+        powerSection.classList.remove('visible');
+        powerSection.classList.add( 'hidden');
     }
 
     if (!isClickInsideCoin) {
-        coinSection.style.visibility = 'hidden';
+        coinSection.classList.remove('visible');
+        coinSection.classList.add( 'hidden');
     }
 
     if (!isClickInsideGoal && !isClickInsideGoalSection) {
-        goalsSection.style.visibility = 'hidden';
+        goalsSection.classList.remove('visible');
+        goalsSection.classList.add( 'hidden');
     }
 
     if (!isClickInsideBell && !isClickInsideDropdown) {
-        notification_dropDown.classList.remove('opacity-100', 'pointer-events-auto');
-        notification_dropDown.classList.add('opacity-0', 'pointer-events-none');
+        notification_dropDown.classList.remove('visible');
+        notification_dropDown.classList.add( 'hidden');
     }
 });
 
