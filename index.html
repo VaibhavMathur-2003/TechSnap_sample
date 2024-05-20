@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -134,7 +136,7 @@
         left: 45%;
       }
 
-      .notification_dropdown::after {
+      .notification_dropdown::after, .profile_dropDown::after {
         content: "";
         width: 20px;
         height: 20px;
@@ -145,16 +147,29 @@
         transform: rotate(45deg);
         right: 12%;
       }
+      .swiper-button-next,
+.swiper-button-prev {
+  border: solid 1px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+}
     </style>
   </head>
-  <body>
+  <body class="bg-[#f6f6f6]">
     <div class="flex flex-col">
       <header
-        class="bg-white fixed py-2 text-lg w-full z-50"
+        class="bg-white fixed py-2 text-lg w-full z-50 "
         style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
       >
         <div
-          class="sub_header relative mx-auto flex justify-between items-center"
+          class="sub_header relative mx-auto flex justify-between items-center max-[900px]:min-h-[45px]"
         >
           <div class="Header_icon flex items-center">
             <div class="ham" onclick="slideMenu()">
@@ -472,14 +487,18 @@
                 </div>
               </div>
   
-              <div class="relative">
+              <div class="relative max-[900px]:hidden">
                 <img
                   src="assets/profile.jpg"
                   alt="avatar"
                   class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
                 />
                 <div
-                  class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md  transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"  style="
+                  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                    5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                    -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                "
                 >
                   <a
                     href="#"
@@ -534,7 +553,7 @@
       </header>
       <div class="flex flex-row pt-[60px]">
         <aside
-          class="sideMenu bg-[#0a182e] min-w-[220px] flex flex-col transition-all duration-300 z-20 max-w-[220px] w-[250px] overflow-x-hidden overflow-y-scroll"
+          class="sideMenu bg-[#0a182e] min-w-[220px] flex flex-col transition-all duration-300 z-40 max-w-[220px] w-[250px] overflow-x-hidden overflow-y-scroll"
         >
           <div class="myMenu flex flex-col justify-center mb-4 mt-2">
             <a
@@ -732,38 +751,38 @@
         </aside>
 
         <div
-          class="min-[900px]:pl-10 w-[90%] mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll overflow-x-hidden overflow-y-scroll"
+          class="w-[100%] max_width_holder mx-auto max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll overflow-x-hidden overflow-y-scroll"
         >
           <div
-            class="my_progress_section flex bg-white rounded-r-2xl rounded-l-2xl overflow-hidden justify-evenly w-[90%] font-bold my-8 text-center border border-black max-[900px]:flex-col max-[900px]:mx-auto"
+            class="my_progress_section flex bg-white rounded-r-2xl rounded-l-2xl overflow-hidden justify-evenly w-[90%] font-bold my-5 text-center border border-black max-[900px]:flex-col mx-auto"
           >
             <div
-              class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
+              class="px-4 py-3 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
               id="defaultslidebtnOpen"
               onclick="slidebtn(event,'my_course_btn','in_progress','progress_1'); "
             >
               Progress
             </div>
             <div
-              class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
+              class="px-4 py-3 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
               onclick="slidebtn(event,'my_projects_btn','project_progress','progress_3');  "
             >
               Projects
             </div>
             <div
-              class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
+              class="px-4 py-3 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
               onclick="slidebtn(event,'my_careerpath_btn','career_progress','progress_2');"
             >
               Careerpath
             </div>
             <div
-              class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
+              class="px-4 py-3 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
               onclick="slidebtn(event,'my_internship_btn','internship_progress','progress_4'); "
             >
               Internship
             </div>
             <div
-              class="px-4 py-2.5 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
+              class="px-4 py-3 w-full border-x border-black hover:bg-[#cd27ff] hover:text-white transition ease delay-150 cursor-pointer slidebtnLinks"
               onclick="slidebtn(event,'my_certificate_btn','certificate_progress','progress_4'); "
             >
               Certification
@@ -771,103 +790,105 @@
           </div>
           <div
             id="my_course_btn"
-            class="my_progress_button_detail_section flex-col slidebtnContent"
+            class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
-            <div class="my_progess_header flex mt-8 mx-4">
+            <div class="my_progess_header flex mt-8 h-[40px]">
               <h1
-                class="slideTabLinks progress_1 activeSlide font-bold py-2 px-4 cursor-pointer rounded-tl-lg"
+                class="slideTabLinks progress_1 activeSlide font-semibold py-0 cursor-pointer mr-5 rounded-tl-lg text-xl"
                 onclick="slideTab('progress_1','in_progress')"
                 id="defaultslideTabOpen"
               >
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_1 text-gray-600 font-bold py-2 px-4 cursor-pointer"
+                class="slideTabLinks completed_1 font-semibold py-0  cursor-pointer text-xl"
                 onclick="slideTab('completed_1','completed')"
               >
                 Completed
               </h1>
+              
             </div>
+            <hr class="border-gray-500 w-full mx-auto pt-2" />
             <div
-              class="my_progess_first_cards_holder slideTabContent flex justify-center items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
+              class="my_progess_first_cards_holder slideTabContent flex justify-center my-5 items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
               id="completed"
             >
               <h6 class="">No Completed Projects</h6>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex flex-wrap"
+              class="my_progess_first_cards_holder slideTabContent flex flex-wrap justify-between"
               id="in_progress"
             >
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
@@ -878,103 +899,103 @@
           </div>
           <div
             id="my_projects_btn"
-            class="my_progress_button_detail_section flex-col slidebtnContent"
+            class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
-            <div class="my_progess_header flex mt-8 mx-4">
+            <div class="my_progess_header flex mt-8 h-[40px]">
               <h1
-                class="slideTabLinks progress_3 activeSlide font-bold py-2 px-4 cursor-pointer rounded-tl-lg"
+                class="slideTabLinks progress_3 activeSlide font-semibold py-0 cursor-pointer mr-5 rounded-tl-lg text-xl"
                 onclick="slideTab('progress_3','project_progress')"
                 id="defaultslideTabOpen"
               >
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_3 text-gray-600 font-bold py-2 px-4 cursor-pointer"
+                class="slideTabLinks completed_3 font-semibold py-0  cursor-pointer text-xl"
                 onclick="slideTab('completed_3','completed_3')"
               >
                 Completed
               </h1>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex justify-center items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
+              class="my_progess_first_cards_holder slideTabContent flex justify-center my-5 items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
               id="completed_3"
             >
               <h6 class="">No Completed Projects</h6>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex flex-wrap"
+              class="my_progess_first_cards_holder slideTabContent flex flex-wrap justify-between"
               id="project_progress"
             >
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
@@ -985,103 +1006,103 @@
           </div>
           <div
             id="my_careerpath_btn"
-            class="my_progress_button_detail_section flex-col slidebtnContent"
+            class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
-            <div class="my_progess_header flex mt-8 mx-4">
+            <div class="my_progess_header flex mt-8 h-[40px]">
               <h1
-                class="slideTabLinks progress_2 activeSlide font-bold py-2 px-4 cursor-pointer rounded-tl-lg"
+                class="slideTabLinks progress_2 activeSlide font-semibold py-0 cursor-pointer mr-5 rounded-tl-lg text-xl"
                 onclick="slideTab('progress_2','career_progress')"
                 id="defaultslideTabOpen"
               >
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_2 text-gray-600 font-bold py-2 px-4 cursor-pointer"
+                class="slideTabLinks completed_2 font-semibold py-0  cursor-pointer text-xl"
                 onclick="slideTab('completed_2','career_completed')"
               >
                 Completed
               </h1>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex justify-center items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
+              class="my_progess_first_cards_holder slideTabContent flex justify-center my-5 items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
               id="career_completed"
             >
               <h6 class="">No Completed Projects</h6>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex flex-wrap"
+              class="my_progess_first_cards_holder slideTabContent flex flex-wrap justify-between"
               id="career_progress"
             >
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
@@ -1092,103 +1113,104 @@
           </div>
           <div
             id="my_internship_btn"
-            class="my_progress_button_detail_section flex-col slidebtnContent"
+            class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
-            <div class="my_progess_header flex mt-8 mx-4">
+            <div class="my_progess_header flex mt-8 h-[40px]">
               <h1
-                class="slideTabLinks progress_4 activeSlide font-bold py-2 px-4 cursor-pointer rounded-tl-lg"
+                class="slideTabLinks progress_4 activeSlide font-semibold py-0 cursor-pointer mr-5 rounded-tl-lg text-xl"
                 onclick="slideTab('progress_4','internship_progress')"
                 id="defaultslideTabOpen"
               >
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_4 text-gray-600 font-bold py-2 px-4 cursor-pointer"
+                class="slideTabLinks completed_4 font-semibold py-0  cursor-pointer text-xl"
                 onclick="slideTab('completed_4','internship_completed')"
               >
                 Completed
               </h1>
+              <hr>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex justify-center items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
+              class="my_progess_first_cards_holder slideTabContent flex justify-center my-5 items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
               id="internship_completed"
             >
               <h6 class="">No Completed Projects</h6>
             </div>
             <div
-              class="my_progess_first_cards_holder slideTabContent flex flex-wrap"
+              class="my_progess_first_cards_holder slideTabContent flex flex-wrap justify-between"
               id="internship_progress"
             >
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
                 </div>
               </div>
               <div
-                class="my_progess_first_card bg-white rounded-lg shadow-md m-4 w-[28%] max-[900px]:w-[90%]"
+                class="my_progess_first_card bg-white flex flex-col justify-around rounded-lg shadow-xl my-5 mr-2.5 h-[220px] w-[32%] max-[900px]:w-full"
               >
                 <div class="my_progess_first_card_header flex items-center p-4">
                   <img
                     src="assets/python_logo.png"
                     alt="course-logo"
-                    class="w-12 h-12 mr-4"
+                    class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-lg font-bold">Introduction to Python</h1>
+                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 text-[0.8rem]">
                     Master the basics of data analysis in Python. Expand your
                     skillset by learning scientific computing with numpy.
                   </p>
                 </div>
                 <div class="my_progess_first_card_footer p-4 text-center">
                   <button
-                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-[#cd27ff] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
                   >
                     Go to Course
                   </button>
@@ -1199,7 +1221,7 @@
           </div>
           <div
             id="my_certificate_btn"
-            class="my_progress_button_detail_section flex-col slidebtnContent"
+            class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
             <div
               class="swiper mySwiper max-w-[1150px] w-full m-0 my_progess_first_cards_holder slideTabContent"
@@ -1207,7 +1229,7 @@
             >
               <div class="swiper-wrapper">
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -1218,11 +1240,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1232,7 +1254,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1242,7 +1264,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1254,7 +1276,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -1267,15 +1289,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -1283,14 +1305,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -1301,11 +1323,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1315,7 +1337,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1325,7 +1347,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1337,7 +1359,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -1350,15 +1372,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -1366,14 +1388,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -1384,11 +1406,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1398,7 +1420,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1408,7 +1430,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1420,7 +1442,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -1433,15 +1455,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -1449,14 +1471,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -1467,11 +1489,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1481,7 +1503,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1491,7 +1513,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -1503,7 +1525,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -1516,15 +1538,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -1532,7 +1554,7 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
@@ -1540,22 +1562,23 @@
                 </div>
                 <!-- Add more slides here -->
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
+              
             </div>
+            <div class="swiper-button-next absolute"></div>
+              <div class="swiper-button-prev absolute"></div>
+              <div class="swiper-pagination"></div>
           </div>
           <div
-            class="flex flex-col md:flex-row gap-4 w-[90%] max-[900px]:mx-auto"
+            class="flex flex-col md:flex-row gap-4 w-[90%] mx-auto my-5"
           >
-            <div class="bg-white rounded-lg shadow-md p-4 md:w-2/3">
+            <div class=" rounded-lg my-5 md:w-2/3">
               <div class="mb-4 flex justify-between">
-                <h1 class="text-lg font-bold">Your buddy</h1>
+                <h1 class="text-base font-bold ">Your buddy</h1>
                 <p class="text-gray-600">Need help?</p>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2 border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1571,7 +1594,7 @@
                   <h1 class="text-md">Projects : 5</h1>
                 </div>
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2 border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1587,7 +1610,7 @@
                   <h1 class="text-md">Projects : 5</h1>
                 </div>
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2 border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1604,11 +1627,11 @@
                 </div>
               </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md p-4 md:w-1/3">
+            <div class="rounded-lg  p-4 md:w-1/3">
               <div class="mb-4">
-                <h1 class="text-lg font-bold">Top 3 of your campus</h1>
+                <h1 class="text-base font-bold ">Top 3 of your campus</h1>
               </div>
-              <div class="bg-gray-100 rounded-lg p-4">
+              <div class="bg-white rounded-lg shadow-md p-4">
                 <div class="flex justify-between mb-2">
                   <h6 class="w-1/4 font-bold">Rank</h6>
                   <h6 class="w-1/2 font-bold">Name</h6>
@@ -1654,7 +1677,7 @@
             </div>
           </div>
           <div
-            class="my_progress_third_card my-8 bg-[#7933ff] text-white w-[90%] p-5 flex flex-col relative"
+            class="my_progress_third_card my-8 bg-[#7933ff] text-white w-[90%] mx-auto p-5 flex flex-col relative"
           >
             <h1 class="text-lg w-9/12 font-medium">
               Please take your skill test so that we can improve your
@@ -1672,14 +1695,14 @@
               X
             </p>
           </div>
-          <div class="course_popular_card_section">
-            <div class="title text-xl font-semibold mb-4">
-              <p>Popular Courses</p>
+          <div class="course_popular_card_section w-[90%] mx-auto mt-5">
+            <div class="title text-lg font-semibold mb-4">
+              <p>Trending Courses</p>
             </div>
-            <div class="swiper mySwiper max-w-[1150px] w-full m-0">
+            <div class="swiper mySwiper max-w-[1150px] w-full m-0 py-5">
               <div class="swiper-wrapper">
                 <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-md flex flex-col justify-between p-4"
+                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                 >
                   <div
                     class="my_progess_trending_card_header flex items-center justify-between"
@@ -1747,7 +1770,7 @@
                   </div>
                 </div>
                 <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-md flex flex-col justify-between p-4"
+                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                 >
                   <div
                     class="my_progess_trending_card_header flex items-center justify-between"
@@ -1815,7 +1838,7 @@
                   </div>
                 </div>
                 <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-md flex flex-col justify-between p-4"
+                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                 >
                   <div
                     class="my_progess_trending_card_header flex items-center justify-between"
@@ -1883,7 +1906,7 @@
                   </div>
                 </div>
                 <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-md flex flex-col justify-between p-4"
+                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                 >
                   <div
                     class="my_progess_trending_card_header flex items-center justify-between"
@@ -1951,7 +1974,7 @@
                   </div>
                 </div>
                 <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-md flex flex-col justify-between p-4"
+                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                 >
                   <div
                     class="my_progess_trending_card_header flex items-center justify-between"
@@ -2025,14 +2048,14 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="course_popular_card_section">
-            <div class="title text-xl font-semibold mb-4">
+          <div class="course_popular_card_section w-[90%] mx-auto mt-5">
+            <div class="title text-lg font-semibold mb-4">
               <p>Trending Projects</p>
             </div>
             <div class="swiper mySwiper max-w-[1150px] w-full m-0">
               <div class="swiper-wrapper">
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -2043,11 +2066,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2057,7 +2080,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2067,7 +2090,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2079,7 +2102,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -2092,15 +2115,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -2108,14 +2131,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -2126,11 +2149,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2140,7 +2163,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2150,7 +2173,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2162,7 +2185,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -2175,15 +2198,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -2191,14 +2214,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -2209,11 +2232,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2223,7 +2246,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2233,7 +2256,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2245,7 +2268,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -2258,15 +2281,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -2274,14 +2297,14 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
                   </div>
                 </div>
                 <div
-                  class="course_card project_card min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
                 >
                   <div class="image h-[150px] max-[900px]:mb-4">
                     <img
@@ -2292,11 +2315,11 @@
                   </div>
                   <div class="course_body flex flex-col justify-between">
                     <div class="title p-4 pb-2">
-                      <p class="font-bold">Introduction to Python</p>
+                      <p class="font-bold text-lg">Introduction to Python</p>
                     </div>
 
-                    <div class="icons flex justify-between p-2">
-                      <div class="icon_item flex items-center">
+                    <div class="icons flex justify-between p-2 px-4">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2306,7 +2329,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2316,7 +2339,7 @@
                         </span>
                         <p>16 hours</p>
                       </div>
-                      <div class="icon_item flex items-center">
+                      <div class="icon_item flex items-center text-xs">
                         <span>
                           <img
                             src="assets/card_time.svg"
@@ -2328,7 +2351,7 @@
                       </div>
                       <!-- Repeat for other icons -->
                     </div>
-                    <div class="author_tag flex items-center p-2 text-sm">
+                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
                       <p class="text-gray-700 font-semibold">Author:</p>
                       <div class="name flex items-center ml-2">
                         <span>
@@ -2341,15 +2364,15 @@
                         <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                       </div>
                     </div>
-                    <div class="card_tags p-2 text-sm">
+                    <div class="card_tags px-4 text-sm pt-1">
                       <div class="tags_box flex items-center">
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>React</p>
                         </div>
                         <div
-                          class="tags bg-purple-200 py-1 px-2 rounded-lg mr-2"
+                          class="tags text-purple-600 text-xs rounded-lg mr-2"
                         >
                           <p>Kodo</p>
                         </div>
@@ -2357,7 +2380,7 @@
                       </div>
                     </div>
                     <button
-                      class="w-full bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
                     >
                       View in Detail
                     </button>
@@ -2370,14 +2393,14 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="title text-xl font-semibold mb-4">
+          <div class="title text-lg font-semibold mb-4 w-[90%] mx-auto mt-5">
             <p>Trending Career Paths</p>
           </div>
           <div
-            class="career_section flex flex-wrap justify-start items-center max-[900px]:justify-center px-30 max-w-[1400px] max-[1500px]:max-w-[1100px]"
+            class="career_section w-[90%] mx-auto flex flex-wrap justify-between items-center max-[900px]:justify-center"
           >
             <div
-              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[30%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
+              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[31%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
             >
               <div
                 class="trending_third_card_header bg-red-500 flex flex-col justify-between p-3 rounded-t-lg"
@@ -2410,7 +2433,7 @@
                 </div>
               </div>
               <div class="career_path_cards_body p-2">
-                <p class="text-gray-700 text-sm m-2">
+                <p class="text-gray-700 text-[0.8rem] m-2">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Officia maxime esse blanditiis vitae animi eaque adipisci,
                   beatae laboriosam vel hic illum eum omnis consequuntur quas.
@@ -2433,7 +2456,7 @@
               </div>
             </div>
             <div
-              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[30%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
+              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[31%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
             >
               <div
                 class="trending_third_card_header bg-red-500 flex flex-col justify-between p-3 rounded-t-lg"
@@ -2466,7 +2489,7 @@
                 </div>
               </div>
               <div class="career_path_cards_body p-2">
-                <p class="text-gray-700 text-sm m-2">
+                <p class="text-gray-700 text-[0.8rem] m-2">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Officia maxime esse blanditiis vitae animi eaque adipisci,
                   beatae laboriosam vel hic illum eum omnis consequuntur quas.
@@ -2489,7 +2512,7 @@
               </div>
             </div>
             <div
-              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[30%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
+              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[31%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
             >
               <div
                 class="trending_third_card_header bg-red-500 flex flex-col justify-between p-3 rounded-t-lg"
@@ -2522,119 +2545,7 @@
                 </div>
               </div>
               <div class="career_path_cards_body p-2">
-                <p class="text-gray-700 text-sm m-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Officia maxime esse blanditiis vitae animi eaque adipisci,
-                  beatae laboriosam vel hic illum eum omnis consequuntur quas.
-                </p>
-
-                <div class="mt-2">✔ Free Career HandBook</div>
-
-                <div class="mt-2">✔ Free Career HandBook</div>
-                <div class="mt-2">✔ Free Career HandBook</div>
-                <!-- </p> -->
-              </div>
-              <div
-                class="my_progress_trending_card_footer flex items-center justify-center h-16"
-              >
-                <button
-                  class="w-5/6 h-10 border border-black rounded-md text-black font-semibold hover:bg-gray-200"
-                >
-                  Start Course
-                </button>
-              </div>
-            </div>
-            <div
-              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[30%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
-            >
-              <div
-                class="trending_third_card_header bg-red-500 flex flex-col justify-between p-3 rounded-t-lg"
-              >
-                <div class="flex justify-between mb-4">
-                  <h1 class="text-lg">Data Scientist</h1>
-                  <p class="bg-white text-red-400 px-2 text-sm">Free</p>
-                </div>
-                <div
-                  class="my_progess_trending_card_options_holder flex justify-between items-end"
-                >
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/time.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">15 hours</p>
-                  </div>
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/lessons.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">9 lessons</p>
-                  </div>
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/coin.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">779 coins</p>
-                  </div>
-                </div>
-              </div>
-              <div class="career_path_cards_body p-2">
-                <p class="text-gray-700 text-sm m-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Officia maxime esse blanditiis vitae animi eaque adipisci,
-                  beatae laboriosam vel hic illum eum omnis consequuntur quas.
-                </p>
-
-                <div class="mt-2">✔ Free Career HandBook</div>
-
-                <div class="mt-2">✔ Free Career HandBook</div>
-                <div class="mt-2">✔ Free Career HandBook</div>
-                <!-- </p> -->
-              </div>
-              <div
-                class="my_progress_trending_card_footer flex items-center justify-center h-16"
-              >
-                <button
-                  class="w-5/6 h-10 border border-black rounded-md text-black font-semibold hover:bg-gray-200"
-                >
-                  Start Course
-                </button>
-              </div>
-            </div>
-            <div
-              class="career_path_card min-w-[300px] max-[900px]:min-w-[90%] w-[30%] m-2 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-white rounded-lg m-25 p-6 flex flex-col"
-            >
-              <div
-                class="trending_third_card_header bg-red-500 flex flex-col justify-between p-3 rounded-t-lg"
-              >
-                <div class="flex justify-between mb-4">
-                  <h1 class="text-lg">Data Scientist</h1>
-                  <p class="bg-white text-red-400 px-2 text-sm">Free</p>
-                </div>
-                <div
-                  class="my_progess_trending_card_options_holder flex justify-between items-end"
-                >
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/time.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">15 hours</p>
-                  </div>
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/lessons.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">9 lessons</p>
-                  </div>
-                  <div
-                    class="my_progess_trending_card_option flex items-center"
-                  >
-                    <img src="assets/coin.svg" alt="time" class="w-5 h-5" />
-                    <p class="white text-sm ml-2">779 coins</p>
-                  </div>
-                </div>
-              </div>
-              <div class="career_path_cards_body p-2">
-                <p class="text-gray-700 text-sm m-2">
+                <p class="text-gray-700 text-[0.8rem] m-2">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Officia maxime esse blanditiis vitae animi eaque adipisci,
                   beatae laboriosam vel hic illum eum omnis consequuntur quas.
@@ -2662,7 +2573,7 @@
       </div>
     </div>
 
-    <div class="fixed bottom-0 left-0 z-50 w-full h-16 bg-[#0a182e] min-[900px]:hidden border-t border-gray-200">
+    <div class="bottombar fixed bottom-0 left-0 z-20 w-full h-16 bg-[#0a182e] min-[900px]:hidden border-t border-gray-200">
       <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
         <a href="index.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group">
           <img
@@ -2693,7 +2604,6 @@
    
 
   </body>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="./app.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>

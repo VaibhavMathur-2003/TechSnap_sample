@@ -109,6 +109,7 @@ const slideMenu = () => {
     const sideMenu = document.querySelector('aside');
     const ham = document.querySelector('#ham_icon');
     const blurBack = document.querySelector('.max_width_holder');
+    const blurBottom = document.querySelector('.bottombar');
 
     if (sideMenu.classList.contains('left-0')) {
         sideMenu.classList.remove('left-0');
@@ -116,12 +117,16 @@ const slideMenu = () => {
         ham.src = 'https://img.icons8.com/android/96/000000/menu.png';
         blurBack.classList.remove('pointer-events-none', 'filter', 'blur');
         blurBack.classList.add('pointer-events-all', 'filter', 'blur-none');
+        blurBottom.classList.remove('pointer-events-none', 'filter', 'blur');
+        blurBottom.classList.add('pointer-events-all', 'filter', 'blur-none');
     } else {
         ham.src = 'https://img.icons8.com/material-outlined/24/000000/delete-sign.png';
         sideMenu.classList.remove('-left-60');
         sideMenu.classList.add('left-0', 'bottom-0');
         blurBack.classList.remove('pointer-events-all', 'filter', 'blur-none');
-        blurBack.classList.add('pointer-events-none', 'filter', 'blur','overflow-x-hidden', 'h-[92vh]');
+        blurBack.classList.add('pointer-events-none', 'filter', 'blur','overflow-x-hidden');
+        blurBottom.classList.remove('pointer-events-all', 'filter', 'blur-none');
+        blurBottom.classList.add('pointer-events-none', 'filter', 'blur','overflow-x-hidden');
     }
 };
 
