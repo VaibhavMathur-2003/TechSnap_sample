@@ -171,12 +171,12 @@
             />
           </div>
 
-          <div class="Header_Profile flex items-center mr-5 w-[480px]">
+          <div class="Header_Profile flex items-center mr-4 ">
             <div
-              class="Icons flex items-center min-[900px]:mr-6 w-[350px] justify-end"
+              class="Icons flex items-center min-[900px]:mr-4  justify-end"
             >
               <div
-                class="points relative items-center max-[900px]:hidden bg-purple-200 w-[220px] rounded-full px-3 py-2 mr-4 cursor-pointer"
+                class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
                 onclick="goalsDrop()"
               >
                 <div class="flex justify-between">
@@ -294,17 +294,17 @@
                 </div>
               </div>
 
-              <div class="score relative flex items-center mr-4">
+              <div class="score relative flex items-center mr-2">
                 <div>
                   <p
-                    class="flex items-center font-medium text-base mr-5 shock cursor-pointer"
+                    class="flex items-center font-medium text-base mr-3 shock cursor-pointer"
                     onclick="powerhandler()"
                   >
                     <span>⚡</span> 200
                   </p>
                 </div>
                 <div
-                  class="power_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-90%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  class="power_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-110%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -340,7 +340,7 @@
                   </p>
                 </div>
                 <div
-                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px]  right-[-120%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px]  right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -362,172 +362,173 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="mr-8 relative notification_bell cursor-pointer">
-              <div class="">
-                <img
-                  src="assets/bell.svg"
-                  alt="notifiction"
-                  class="notification_bell w-6 h-6 ml-1 "
-                />
-                <span
-                  class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
-                >
-                  3
-                </span>
-              </div>
-              <div
-                class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px]  right-[-140%] shadow-lg hidden"
-                style="
-                  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
-                    5px 0 10px -5px rgba(0, 0, 0, 0.35),
-                    -5px 0 10px -5px rgba(0, 0, 0, 0.35);
-                "
-              >
-                <div class="notification_item flex p-4 border-b">
-                  <div class="notification_item_icon mr-4">
-                    <div class="icon_holder">
-                      <img
-                        src="assets/profile.jpg"
-                        alt="prifle"
-                        class="w-10 h-10 rounded-full"
-                      />
-                    </div>
-                  </div>
-                  <div class="notification_content flex-1 text-sm">
-                    <p class="text-gray-700">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolore
-                    </p>
-                    <button
-                      class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
-                    >
-                      Join Community
-                    </button>
-                  </div>
-                  <div class="time ml-4">
-                    <p class="text-gray-500">2h</p>
-                    <h1 class="notification_dots text-gray-500">...</h1>
-                  </div>
-                </div>
-                <div class="notification_item flex p-4 border-b">
-                  <div class="notification_item_icon mr-4">
-                    <div class="icon_holder">
-                      <img
-                        src="assets/profile.jpg"
-                        alt="prifle"
-                        class="w-10 h-10 rounded-full"
-                      />
-                    </div>
-                  </div>
-                  <div class="notification_content flex-1 text-sm">
-                    <p class="text-gray-700">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolore
-                    </p>
-                    <button
-                      class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
-                    >
-                      Join Community
-                    </button>
-                  </div>
-                  <div class="time ml-4">
-                    <p class="text-gray-500">2h</p>
-                    <h1 class="notification_dots text-gray-500">...</h1>
-                  </div>
-                </div>
-                <div class="notification_item flex p-4 border-b">
-                  <div class="notification_item_icon mr-4">
-                    <div class="icon_holder">
-                      <img
-                        src="assets/profile.jpg"
-                        alt="prifle"
-                        class="w-10 h-10 rounded-full"
-                      />
-                    </div>
-                  </div>
-                  <div class="notification_content flex-1 text-sm">
-                    <p class="text-gray-700">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolore
-                    </p>
-                    <button
-                      class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
-                    >
-                      Join Community
-                    </button>
-                  </div>
-                  <div class="time ml-4">
-                    <p class="text-gray-500">2h</p>
-                    <h1 class="notification_dots text-gray-500">...</h1>
-                  </div>
-                </div>
-
-                <div class="see_all_notifications p-3 text-center">
-                  <a
-                    href="notification.html"
-                    class="text-blue-500 hover:text-blue-700"
-                    >See all notifications</a
+              <div class="mr-8 relative notification_bell cursor-pointer">
+                <div class="">
+                  <img
+                    src="assets/bell.svg"
+                    alt="notifiction"
+                    class="notification_bell w-6 h-6 ml-1 "
+                  />
+                  <span
+                    class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
                   >
+                    3
+                  </span>
+                </div>
+                <div
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px]  right-[-140%] shadow-lg hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+  
+                  <div class="see_all_notifications p-3 text-center">
+                    <a
+                      href="notification.html"
+                      class="text-blue-500 hover:text-blue-700"
+                      >See all notifications</a
+                    >
+                  </div>
+                </div>
+              </div>
+  
+              <div class="relative">
+                <img
+                  src="assets/profile.jpg"
+                  alt="avatar"
+                  class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+                />
+                <div
+                  class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                >
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Dashboard</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Profile</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Edit</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/windows/32/000000/exit.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Logout</p>
+                  </a>
                 </div>
               </div>
             </div>
-
-            <div class="relative">
-              <img
-                src="assets/profile.jpg"
-                alt="avatar"
-                class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
-              />
-              <div
-                class="profile_dropDown absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-10 transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
-              >
-                <a
-                  href="#"
-                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
-                >
-                  <span
-                    ><img
-                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
-                      class="w-5 h-5 mr-2"
-                  /></span>
-                  <p>View Dashboard</p>
-                </a>
-                <a
-                  href="#"
-                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
-                >
-                  <span
-                    ><img
-                      src="https://img.icons8.com/ios/50/000000/user.png"
-                      class="w-5 h-5 mr-2"
-                  /></span>
-                  <p>View Profile</p>
-                </a>
-                <a
-                  href="#"
-                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
-                >
-                  <span
-                    ><img
-                      src="https://img.icons8.com/ios/50/000000/user-not-found.png"
-                      class="w-5 h-5 mr-2"
-                  /></span>
-                  <p>Edit</p>
-                </a>
-                <a
-                  href="#"
-                  class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
-                >
-                  <span
-                    ><img
-                      src="https://img.icons8.com/windows/32/000000/exit.png"
-                      class="w-5 h-5 mr-2"
-                  /></span>
-                  <p>Logout</p>
-                </a>
-              </div>
-            </div>
+           
           </div>
         </div>
       </header>
