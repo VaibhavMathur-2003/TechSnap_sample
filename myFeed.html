@@ -1033,7 +1033,7 @@
                   </div>
                 </div>
               </div>
-              <div class="comment_section hidden bg-gray-100 p-4">
+              <div class="comment_section hidden p-4 max-[900px]:p-0">
                 <div class="comment_input flex items-center mb-4">
                   <img
                     class="w-10 h-10 rounded-full mr-4"
@@ -1050,20 +1050,22 @@
                 </div>
                 <button
                   id="submit_comment"
-                  class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
                 >
                   Submit
                 </button>
-                <div class="comments_box mt-4">
+                <div class="comments_box w-full max-[900px]:px-[5px] mt-4">
                   <div class="comment mb-4">
-                    <div class="main_comment flex">
-                      <img
+                    <div class="main_comment flex flex-col overflow-hidden">
+                      
+                      <div class="main_info flex-1 flex">
+                        <img
                         class="w-10 h-10 rounded-full mr-4"
                         src="assets/profile.jpg"
                         alt="profile"
                       />
-                      <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                        <div class="comment_info">
+                      <div class="flex flex-col">
+                        <div class="comment_info max-[900px]:text-sm bg-gray-200 p-[10px] rounded-lg">
                           <div class="comment_name flex items-center mb-2">
                             <p class="font-bold mr-2">Alan Biju</p>
                             <span class="text-gray-600">Developer</span>
@@ -1078,21 +1080,21 @@
                             </p>
                           </div>
                         </div>
-                        <div class="likes flex items-center mb-4">
+                        <div class="likes max-[900px]:text-sm flex items-center mb-4">
                           <span class="mr-2">Like . 51 ||</span>
                           <span
                             class="comment_reply_btn text-blue-500 cursor-pointer"
                             >Reply</span
                           >
                         </div>
-                        <div class="comment_input reply flex items-center mb-4">
+                        <div class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4">
                           <img
                             class="w-8 h-8 rounded-full mr-4"
                             src="assets/profile.jpg"
                             alt="profile"
                           />
                           <input
-                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none max-[900px]:w-[50%]"
                             type="text"
                             name="comment"
                             id="comment"
@@ -1100,80 +1102,79 @@
                           />
                           <button
                             id="submit_comment"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2"
+                            class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
                           >
                             Submit
                           </button>
                         </div>
-                        <div class="sub_comment flex mb-4">
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">
-                                  Thank you Nuseir Yassin for taking us this
-                                  through this amazing Odyssey 💕👌😊, surreal
-                                  experience and Dubai has done it again a giant
-                                  time capsule.........Yet again millenials will
-                                  throng the Booking counters eager to catch a
-                                </p>
-                              </div>
+                      </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
                             </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">
+                                Thank you Nuseir Yassin for taking us this
+                                through this amazing Odyssey 💕👌😊, surreal
+                                experience and Dubai has done it again a giant
+                                time capsule.........Yet again millenials will
+                                throng the Booking counters eager to catch a
+                              </p>
                             </div>
                           </div>
-                        </div>
-                        <div class="sub_comment flex mb-4">
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">Thank you</p>
-                              </div>
-                            </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
-                            </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
                           </div>
                         </div>
-                        <div
-                          class="sub_comment hidden_comment hidden flex mb-4"
-                        >
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">Ur right bro</p>
-                              </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
                             </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">Thank you</p>
                             </div>
+                          </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full hidden_comment hidden flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info   flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
+                            </div>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">Ur right bro</p>
+                            </div>
+                          </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
                           </div>
                         </div>
                       </div>
@@ -1187,7 +1188,7 @@
                   </div>
                 </div>
                 <button
-                  class="loadMorebutton bg-blue-500 text-white px-1 py-1 rounded-lg"
+                  class="loadMorebutton bg-blue-500 text-white px-2 py-1 rounded-lg"
                 >
                   Load More
                 </button>
@@ -1275,7 +1276,7 @@
                   </div>
                 </div>
               </div>
-              <div class="comment_section hidden bg-gray-100 p-4">
+              <div class="comment_section hidden p-4 max-[900px]:p-0">
                 <div class="comment_input flex items-center mb-4">
                   <img
                     class="w-10 h-10 rounded-full mr-4"
@@ -1292,20 +1293,22 @@
                 </div>
                 <button
                   id="submit_comment"
-                  class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
                 >
                   Submit
                 </button>
-                <div class="comments_box mt-4">
+                <div class="comments_box w-full max-[900px]:px-[5px] mt-4">
                   <div class="comment mb-4">
-                    <div class="main_comment flex">
-                      <img
+                    <div class="main_comment flex flex-col overflow-hidden">
+                      
+                      <div class="main_info flex-1 flex">
+                        <img
                         class="w-10 h-10 rounded-full mr-4"
                         src="assets/profile.jpg"
                         alt="profile"
                       />
-                      <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                        <div class="comment_info">
+                      <div class="flex flex-col">
+                        <div class="comment_info max-[900px]:text-sm bg-gray-200 p-[10px] rounded-lg">
                           <div class="comment_name flex items-center mb-2">
                             <p class="font-bold mr-2">Alan Biju</p>
                             <span class="text-gray-600">Developer</span>
@@ -1320,21 +1323,21 @@
                             </p>
                           </div>
                         </div>
-                        <div class="likes flex items-center mb-4">
+                        <div class="likes max-[900px]:text-sm flex items-center mb-4">
                           <span class="mr-2">Like . 51 ||</span>
                           <span
                             class="comment_reply_btn text-blue-500 cursor-pointer"
                             >Reply</span
                           >
                         </div>
-                        <div class="comment_input reply flex items-center mb-4">
+                        <div class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4">
                           <img
                             class="w-8 h-8 rounded-full mr-4"
                             src="assets/profile.jpg"
                             alt="profile"
                           />
                           <input
-                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none"
+                            class="flex-1 bg-white rounded-full px-4 py-2 outline-none max-[900px]:w-[50%]"
                             type="text"
                             name="comment"
                             id="comment"
@@ -1342,78 +1345,79 @@
                           />
                           <button
                             id="submit_comment"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2"
+                            class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
                           >
                             Submit
                           </button>
                         </div>
-                        <div class="sub_comment flex mb-4">
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">
-                                  Thank you Nuseir Yassin for taking us this
-                                  through this amazing Odyssey 💕👌😊, surreal
-                                  experience and Dubai has done it again a giant
-                                  time capsule.........Yet again millenials will
-                                  throng the Booking counters eager to catch a
-                                </p>
-                              </div>
+                      </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
                             </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">
+                                Thank you Nuseir Yassin for taking us this
+                                through this amazing Odyssey 💕👌😊, surreal
+                                experience and Dubai has done it again a giant
+                                time capsule.........Yet again millenials will
+                                throng the Booking counters eager to catch a
+                              </p>
                             </div>
                           </div>
-                        </div>
-                        <div class="sub_comment flex mb-4">
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">Thank you</p>
-                              </div>
-                            </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
-                            </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
                           </div>
                         </div>
-                        <div class="sub_comment hidden_comment flex mb-4">
-                          <img
-                            class="w-8 h-8 rounded-full mr-4"
-                            src="assets/profile.jpg"
-                            alt="profile"
-                          />
-                          <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
-                            <div class="comment_info">
-                              <div class="comment_name flex items-center mb-2">
-                                <p class="font-bold mr-2">Alan Biju</p>
-                                <span class="text-gray-600">Developer</span>
-                              </div>
-                              <div class="para mb-2">
-                                <p class="text-gray-700">Ur right bro</p>
-                              </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
                             </div>
-                            <div class="likes">
-                              <span>Like . 51</span>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">Thank you</p>
                             </div>
+                          </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full hidden_comment hidden flex mb-4">
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="main_info   flex-1 bg-gray-200 p-2 rounded-lg">
+                          <div class="comment_info">
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2">Alan Biju</p>
+                              <span class="text-gray-600">Developer</span>
+                            </div>
+                            <div class="para mb-2">
+                              <p class="text-gray-700">Ur right bro</p>
+                            </div>
+                          </div>
+                          <div class="likes">
+                            <span>Like . 51</span>
                           </div>
                         </div>
                       </div>
@@ -1427,7 +1431,7 @@
                   </div>
                 </div>
                 <button
-                  class="loadMorebutton bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  class="loadMorebutton bg-blue-500 text-white px-2 py-1 rounded-lg"
                 >
                   Load More
                 </button>
