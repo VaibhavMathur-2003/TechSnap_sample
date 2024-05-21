@@ -136,7 +136,8 @@
         left: 45%;
       }
 
-      .notification_dropdown::after, .profile_dropDown::after {
+      .notification_dropdown::after,
+      .profile_dropDown::after {
         content: "";
         width: 20px;
         height: 20px;
@@ -148,24 +149,27 @@
         right: 12%;
       }
       .swiper-button-next,
-.swiper-button-prev {
-  border: solid 1px rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
-}
+      .swiper-button-prev,.swiper-button-next2,
+      .swiper-button-prev2 {
+        border: solid 1px rgba(0, 0, 0, 0.6);
+        background-color: rgb(218, 213, 213);
+        border-radius: 50%;
+        width: 40px !important;
+        height: 40px !important;
+      }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 1rem !important;
-  font-weight: 800 !important;
-}
+      .swiper-button-next::after,
+      .swiper-button-prev::after, .swiper-button-next2,
+      .swiper-button-prev2 {
+        font-size: 1rem !important;
+        font-weight: 800 !important;
+      }
     </style>
   </head>
   <body class="bg-[#f6f6f6]">
     <div class="flex flex-col">
       <header
-        class="bg-white fixed py-2 text-lg w-full z-50 "
+        class="bg-white fixed py-2 text-lg w-full z-50"
         style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
       >
         <div
@@ -186,10 +190,8 @@
             />
           </div>
 
-          <div class="Header_Profile flex items-center mr-4 ">
-            <div
-              class="Icons flex items-center min-[900px]:mr-4  justify-end"
-            >
+          <div class="Header_Profile flex items-center mr-4">
+            <div class="Icons flex items-center min-[900px]:mr-4 justify-end">
               <div
                 class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
                 onclick="goalsDrop()"
@@ -355,7 +357,7 @@
                   </p>
                 </div>
                 <div
-                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px]  right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -382,7 +384,7 @@
                   <img
                     src="assets/bell.svg"
                     alt="notifiction"
-                    class="notification_bell w-6 h-6 ml-1 "
+                    class="notification_bell w-6 h-6 ml-1"
                   />
                   <span
                     class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
@@ -391,7 +393,7 @@
                   </span>
                 </div>
                 <div
-                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px]  right-[-140%] shadow-lg hidden"
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px] right-[-140%] shadow-lg hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -476,7 +478,7 @@
                       <h1 class="notification_dots text-gray-500">...</h1>
                     </div>
                   </div>
-  
+
                   <div class="see_all_notifications p-3 text-center">
                     <a
                       href="notification.html"
@@ -486,7 +488,7 @@
                   </div>
                 </div>
               </div>
-  
+
               <div class="relative max-[900px]:hidden">
                 <img
                   src="assets/profile.jpg"
@@ -494,11 +496,12 @@
                   class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
                 />
                 <div
-                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md  transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"  style="
-                  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
-                    5px 0 10px -5px rgba(0, 0, 0, 0.35),
-                    -5px 0 10px -5px rgba(0, 0, 0, 0.35);
-                "
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
                 >
                   <a
                     href="#"
@@ -547,7 +550,6 @@
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </header>
@@ -801,12 +803,11 @@
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_1 font-semibold py-0  cursor-pointer text-xl"
+                class="slideTabLinks completed_1 font-semibold py-0 cursor-pointer text-xl"
                 onclick="slideTab('completed_1','completed')"
               >
                 Completed
               </h1>
-              
             </div>
             <hr class="border-gray-500 w-full mx-auto pt-2" />
             <div
@@ -828,7 +829,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python</h1>
+                  <h1 class="text-base font-bold">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -853,7 +854,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python</h1>
+                  <h1 class="text-base font-bold">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -878,7 +879,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python</h1>
+                  <h1 class="text-base font-bold">Introduction to Python</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -910,7 +911,7 @@
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_3 font-semibold py-0  cursor-pointer text-xl"
+                class="slideTabLinks completed_3 font-semibold py-0 cursor-pointer text-xl"
                 onclick="slideTab('completed_3','completed_3')"
               >
                 Completed
@@ -935,7 +936,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -960,7 +961,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -985,7 +986,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 2</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 2</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1017,7 +1018,7 @@
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_2 font-semibold py-0  cursor-pointer text-xl"
+                class="slideTabLinks completed_2 font-semibold py-0 cursor-pointer text-xl"
                 onclick="slideTab('completed_2','career_completed')"
               >
                 Completed
@@ -1042,7 +1043,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1067,7 +1068,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1092,7 +1093,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 3</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 3</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1124,12 +1125,12 @@
                 In Progress
               </h1>
               <h1
-                class="slideTabLinks completed_4 font-semibold py-0  cursor-pointer text-xl"
+                class="slideTabLinks completed_4 font-semibold py-0 cursor-pointer text-xl"
                 onclick="slideTab('completed_4','internship_completed')"
               >
                 Completed
               </h1>
-              <hr>
+              <hr />
             </div>
             <div
               class="my_progess_first_cards_holder slideTabContent flex justify-center my-5 items-center h-64 bg-[rgba(4, 4, 255, 0.048)] border border-dotted border-black"
@@ -1150,7 +1151,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1175,7 +1176,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1200,7 +1201,7 @@
                     alt="course-logo"
                     class="w-7 h-7 mr-4 rounded-2xl"
                   />
-                  <h1 class="text-base font-bold ">Introduction to Python 4</h1>
+                  <h1 class="text-base font-bold">Introduction to Python 4</h1>
                 </div>
                 <div class="my_progess_first_card_body p-4">
                   <p class="text-gray-700 text-[0.8rem]">
@@ -1224,361 +1225,228 @@
             class="my_progress_button_detail_section w-[90%] mx-auto flex-col slidebtnContent"
           >
             <div
-              class="swiper mySwiper max-w-[1150px] w-full m-0 my_progess_first_cards_holder slideTabContent"
+              class="max-w-[1150px] flex mx-auto w-full m-0 my_progess_first_cards_holder slideTabContent"
               id="certificate_progress"
             >
-              <div class="swiper-wrapper">
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
-                    </div>
-
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
-                        </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
-                        </div>
-                        <!-- Repeat for other tags -->
-                      </div>
-                    </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
-                  </div>
+              <div
+                class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 w-[31.2%] h-[400px] min-w-[31.2%] mb-20 shadow-lg rounded-xl flex flex-col"
+              >
+                <div class="image h-[220px] max-[900px]:mb-4 rounded-xl">
+                  <img
+                    src="assets/banner.png"
+                    alt="card"
+                    class="w-full h-full"
+                  />
                 </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
+                <div class="course_body flex flex-col justify-between">
+                  <div class="title p-4 pb-2">
+                    <p class="font-bold text-lg">Introduction to Python</p>
                   </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
-                    </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
+                  <div class="icons flex justify-between p-2 px-4">
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
                     </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
                     </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
-                        </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
-                        </div>
-                        <!-- Repeat for other tags -->
-                      </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
                     </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
+                    <!-- Repeat for other icons -->
                   </div>
-                </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
+                  <div class="author_tag flex items-center px-4 pt-2 text-xs">
+                    <p class="text-gray-700 font-semibold">Author:</p>
+                    <div class="name flex items-center ml-2">
+                      <span>
+                        <img
+                          src="assets/coin.svg"
+                          alt="indian"
+                          class="w-4 h-4"
+                        />
+                      </span>
+                      <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
                     </div>
+                  </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
-                        </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
-                        </div>
-                        <!-- Repeat for other tags -->
-                      </div>
-                    </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
-                  </div>
+                  <button
+                    class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                  >
+                    View in Detail
+                  </button>
                 </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
-                    </div>
-
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
-                        </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
-                        </div>
-                        <!-- Repeat for other tags -->
-                      </div>
-                    </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
-                  </div>
-                </div>
-                <!-- Add more slides here -->
               </div>
-              
+              <div
+                class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 w-[31.2%] h-[400px] min-w-[31.2%] mb-20 shadow-lg rounded-xl flex flex-col"
+              >
+                <div class="image h-[220px] max-[900px]:mb-4">
+                  <img
+                    src="assets/banner.png"
+                    alt="card"
+                    class="w-full h-full"
+                  />
+                </div>
+                <div class="course_body flex flex-col justify-between">
+                  <div class="title p-4 pb-2">
+                    <p class="font-bold text-lg">Introduction to Python</p>
+                  </div>
+
+                  <div class="icons flex justify-between p-2 px-4">
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <!-- Repeat for other icons -->
+                  </div>
+                  <div class="author_tag flex items-center px-4 pt-2 text-xs">
+                    <p class="text-gray-700 font-semibold">Author:</p>
+                    <div class="name flex items-center ml-2">
+                      <span>
+                        <img
+                          src="assets/coin.svg"
+                          alt="indian"
+                          class="w-4 h-4"
+                        />
+                      </span>
+                      <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                  >
+                    View in Detail
+                  </button>
+                </div>
+              </div>
+              <div
+                class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 w-[31.2%] h-[400px] min-w-[31.2%] mb-20 shadow-lg rounded-xl flex flex-col"
+              >
+                <div class="image h-[220px] max-[900px]:mb-4">
+                  <img
+                    src="assets/banner.png"
+                    alt="card"
+                    class="w-full h-full"
+                  />
+                </div>
+                <div class="course_body flex flex-col justify-between">
+                  <div class="title p-4 pb-2">
+                    <p class="font-bold text-lg">Introduction to Python</p>
+                  </div>
+
+                  <div class="icons flex justify-between p-2 px-4">
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <div class="icon_item flex items-center text-xs">
+                      <span>
+                        <img
+                          src="assets/card_time.svg"
+                          alt="time"
+                          class="w-5 h-5"
+                        />
+                      </span>
+                      <p>16 hours</p>
+                    </div>
+                    <!-- Repeat for other icons -->
+                  </div>
+                  <div class="author_tag flex items-center px-4 pt-2 text-xs">
+                    <p class="text-gray-700 font-semibold">Author:</p>
+                    <div class="name flex items-center ml-2">
+                      <span>
+                        <img
+                          src="assets/coin.svg"
+                          alt="indian"
+                          class="w-4 h-4"
+                        />
+                      </span>
+                      <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                  >
+                    View in Detail
+                  </button>
+                </div>
+              </div>
+              <!-- Add more slides here -->
             </div>
-            <div class="swiper-button-next absolute"></div>
-              <div class="swiper-button-prev absolute"></div>
-              <div class="swiper-pagination"></div>
           </div>
-          <div
-            class="flex flex-col md:flex-row gap-4 w-[90%] mx-auto my-5"
-          >
-            <div class=" rounded-lg my-5 md:w-2/3">
+          <div class="flex flex-col md:flex-row gap-4 w-[90%] mx-auto my-5">
+            <div class="rounded-lg my-5 md:w-2/3">
               <div class="mb-4 flex justify-between">
-                <h1 class="text-base font-bold ">Your buddy</h1>
+                <h1 class="text-base font-bold">Your buddy</h1>
                 <p class="text-gray-600">Need help?</p>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2 shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1594,7 +1462,7 @@
                   <h1 class="text-md">Projects : 5</h1>
                 </div>
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2 shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1610,7 +1478,7 @@
                   <h1 class="text-md">Projects : 5</h1>
                 </div>
                 <div
-                  class="flex flex-col justify-between h-[170px] border-2  shadow-xl border-black rounded-lg p-4"
+                  class="flex flex-col justify-between h-[170px] border-2 shadow-xl border-black rounded-lg p-4"
                 >
                   <h2 class="flex items-center mb-2 text-[#7933ff] text-lg">
                     <span
@@ -1627,9 +1495,9 @@
                 </div>
               </div>
             </div>
-            <div class="rounded-lg  p-4 md:w-1/3">
+            <div class="rounded-lg p-4 md:w-1/3">
               <div class="mb-4">
-                <h1 class="text-base font-bold ">Top 3 of your campus</h1>
+                <h1 class="text-base font-bold">Top 3 of your campus</h1>
               </div>
               <div class="bg-white rounded-lg shadow-md p-4">
                 <div class="flex justify-between mb-2">
@@ -1695,356 +1563,373 @@
               X
             </p>
           </div>
-          <div class="course_popular_card_section w-[90%] mx-auto mt-5">
+          <div
+            class="course_popular_card_section relative w-[90%] mx-auto mt-5"
+          >
             <div class="title text-lg font-semibold mb-4">
               <p>Trending Courses</p>
             </div>
-            <div class="swiper mySwiper max-w-[1150px] w-full m-0 py-5">
-              <div class="swiper-wrapper">
-                <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
-                >
+            <div class="relative ">
+              <div
+                class="swiper mySwiper2 max-w-[1150px] w-full m-0 mx-auto py-5"
+              >
+                <div class="swiper-wrapper mx-auto">
                   <div
-                    class="my_progess_trending_card_header flex items-center justify-between"
+                    class="my_progess_trending_card swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                   >
-                    <img
-                      src="assets/python_logo.png"
-                      alt="course-logo"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="resolution bg-yellow-300 px-2 py-1 rounded-sm">
-                      <p class="text-xs font-semibold">1250xp</p>
-                    </div>
-                  </div>
-                  <div class="my_progess_trending_card_body mt-4">
-                    <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                     <div
-                      class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      class="my_progess_trending_card_header flex items-center justify-between"
                     >
+                      <img
+                        src="assets/python_logo.png"
+                        alt="course-logo"
+                        class="w-10 h-10 rounded-full"
+                      />
                       <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                        class="resolution bg-yellow-300 px-2 py-1 rounded-sm"
                       >
-                        <img
-                          src="assets/time.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          15 hours
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
-                      >
-                        <img
-                          src="assets/lessons.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          9 lessons
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center"
-                      >
-                        <img
-                          src="assets/coin.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          779 coins
-                        </p>
+                        <p class="text-xs font-semibold">1250xp</p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
-                  >
-                    <button
-                      class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
-                    >
-                      Start Course
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
-                >
-                  <div
-                    class="my_progess_trending_card_header flex items-center justify-between"
-                  >
-                    <img
-                      src="assets/python_logo.png"
-                      alt="course-logo"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="resolution bg-yellow-300 px-2 py-1 rounded-sm">
-                      <p class="text-xs font-semibold">1250xp</p>
+                    <div class="my_progess_trending_card_body mt-4">
+                      <h1 class="text-lg font-semibold">Introduction to SQL</h1>
+                      <div
+                        class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      >
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/time.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            15 hours
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/lessons.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            9 lessons
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center"
+                        >
+                          <img
+                            src="assets/coin.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            779 coins
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="my_progess_trending_card_body mt-4">
-                    <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                     <div
-                      class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
                     >
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                      <button
+                        class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
                       >
-                        <img
-                          src="assets/time.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          15 hours
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
-                      >
-                        <img
-                          src="assets/lessons.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          9 lessons
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center"
-                      >
-                        <img
-                          src="assets/coin.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          779 coins
-                        </p>
-                      </div>
+                        Start Course
+                      </button>
                     </div>
                   </div>
                   <div
-                    class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    class="my_progess_trending_card swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                   >
-                    <button
-                      class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
-                    >
-                      Start Course
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
-                >
-                  <div
-                    class="my_progess_trending_card_header flex items-center justify-between"
-                  >
-                    <img
-                      src="assets/python_logo.png"
-                      alt="course-logo"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="resolution bg-yellow-300 px-2 py-1 rounded-sm">
-                      <p class="text-xs font-semibold">1250xp</p>
-                    </div>
-                  </div>
-                  <div class="my_progess_trending_card_body mt-4">
-                    <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                     <div
-                      class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      class="my_progess_trending_card_header flex items-center justify-between"
                     >
+                      <img
+                        src="assets/python_logo.png"
+                        alt="course-logo"
+                        class="w-10 h-10 rounded-full"
+                      />
                       <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                        class="resolution bg-yellow-300 px-2 py-1 rounded-sm"
                       >
-                        <img
-                          src="assets/time.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          15 hours
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
-                      >
-                        <img
-                          src="assets/lessons.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          9 lessons
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center"
-                      >
-                        <img
-                          src="assets/coin.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          779 coins
-                        </p>
+                        <p class="text-xs font-semibold">1250xp</p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
-                  >
-                    <button
-                      class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
-                    >
-                      Start Course
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
-                >
-                  <div
-                    class="my_progess_trending_card_header flex items-center justify-between"
-                  >
-                    <img
-                      src="assets/python_logo.png"
-                      alt="course-logo"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="resolution bg-yellow-300 px-2 py-1 rounded-sm">
-                      <p class="text-xs font-semibold">1250xp</p>
+                    <div class="my_progess_trending_card_body mt-4">
+                      <h1 class="text-lg font-semibold">Introduction to SQL</h1>
+                      <div
+                        class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      >
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/time.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            15 hours
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/lessons.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            9 lessons
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center"
+                        >
+                          <img
+                            src="assets/coin.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            779 coins
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="my_progess_trending_card_body mt-4">
-                    <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                     <div
-                      class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
                     >
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                      <button
+                        class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
                       >
-                        <img
-                          src="assets/time.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          15 hours
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
-                      >
-                        <img
-                          src="assets/lessons.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          9 lessons
-                        </p>
-                      </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center"
-                      >
-                        <img
-                          src="assets/coin.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          779 coins
-                        </p>
-                      </div>
+                        Start Course
+                      </button>
                     </div>
                   </div>
                   <div
-                    class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    class="my_progess_trending_card swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
+                    style="margin-right: 0px"
                   >
-                    <button
-                      class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
-                    >
-                      Start Course
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="my_progess_trending_card max-w-[350px] swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
-                >
-                  <div
-                    class="my_progess_trending_card_header flex items-center justify-between"
-                  >
-                    <img
-                      src="assets/python_logo.png"
-                      alt="course-logo"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="resolution bg-yellow-300 px-2 py-1 rounded-sm">
-                      <p class="text-xs font-semibold">1250xp</p>
-                    </div>
-                  </div>
-                  <div class="my_progess_trending_card_body mt-4">
-                    <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                     <div
-                      class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      class="my_progess_trending_card_header flex items-center justify-between"
                     >
+                      <img
+                        src="assets/python_logo.png"
+                        alt="course-logo"
+                        class="w-10 h-10 rounded-full"
+                      />
                       <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                        class="resolution bg-yellow-300 px-2 py-1 rounded-sm"
                       >
-                        <img
-                          src="assets/time.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          15 hours
-                        </p>
+                        <p class="text-xs font-semibold">1250xp</p>
                       </div>
+                    </div>
+                    <div class="my_progess_trending_card_body mt-4">
+                      <h1 class="text-lg font-semibold">Introduction to SQL</h1>
                       <div
-                        class="my_progess_trending_card_option flex items-center mr-4"
+                        class="my_progess_trending_card_options_holder flex items-center mt-2"
                       >
-                        <img
-                          src="assets/lessons.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          9 lessons
-                        </p>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/time.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            15 hours
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/lessons.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            9 lessons
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center"
+                        >
+                          <img
+                            src="assets/coin.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            779 coins
+                          </p>
+                        </div>
                       </div>
-                      <div
-                        class="my_progess_trending_card_option flex items-center"
+                    </div>
+                    <div
+                      class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    >
+                      <button
+                        class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
                       >
-                        <img
-                          src="assets/coin.svg"
-                          alt="time"
-                          class="w-4 h-4 mr-2"
-                        />
-                        <p class="text-sm font-semibold text-gray-600">
-                          779 coins
-                        </p>
-                      </div>
+                        Start Course
+                      </button>
                     </div>
                   </div>
                   <div
-                    class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    class="my_progess_trending_card swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
                   >
-                    <button
-                      class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
+                    <div
+                      class="my_progess_trending_card_header flex items-center justify-between"
                     >
-                      Start Course
-                    </button>
+                      <img
+                        src="assets/python_logo.png"
+                        alt="course-logo"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <div
+                        class="resolution bg-yellow-300 px-2 py-1 rounded-sm"
+                      >
+                        <p class="text-xs font-semibold">1250xp</p>
+                      </div>
+                    </div>
+                    <div class="my_progess_trending_card_body mt-4">
+                      <h1 class="text-lg font-semibold">Introduction to SQL</h1>
+                      <div
+                        class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      >
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/time.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            15 hours
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/lessons.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            9 lessons
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center"
+                        >
+                          <img
+                            src="assets/coin.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            779 coins
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    >
+                      <button
+                        class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
+                      >
+                        Start Course
+                      </button>
+                    </div>
                   </div>
+                  <div
+                    class="my_progess_trending_card swiper-slide bg-white rounded-lg shadow-lg flex flex-col justify-between p-4"
+                  >
+                    <div
+                      class="my_progess_trending_card_header flex items-center justify-between"
+                    >
+                      <img
+                        src="assets/python_logo.png"
+                        alt="course-logo"
+                        class="w-10 h-10 rounded-full"
+                      />
+                      <div
+                        class="resolution bg-yellow-300 px-2 py-1 rounded-sm"
+                      >
+                        <p class="text-xs font-semibold">1250xp</p>
+                      </div>
+                    </div>
+                    <div class="my_progess_trending_card_body mt-4">
+                      <h1 class="text-lg font-semibold">Introduction to SQL</h1>
+                      <div
+                        class="my_progess_trending_card_options_holder flex items-center mt-2"
+                      >
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/time.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            15 hours
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center mr-4"
+                        >
+                          <img
+                            src="assets/lessons.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            9 lessons
+                          </p>
+                        </div>
+                        <div
+                          class="my_progess_trending_card_option flex items-center"
+                        >
+                          <img
+                            src="assets/coin.svg"
+                            alt="time"
+                            class="w-4 h-4 mr-2"
+                          />
+                          <p class="text-sm font-semibold text-gray-600">
+                            779 coins
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="my_progress_trending_card_footer mt-4 pt-4 border-t border-gray-200"
+                    >
+                      <button
+                        class="w-full bg-white text-black font-semibold py-2 px-4 border border-black rounded-md hover:bg-gray-100"
+                      >
+                        Start Course
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Add more slides here -->
                 </div>
-                <!-- Add more slides here -->
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next swiper-button-next2 absolute right-[-3%]"></div>
+              <div class="swiper-button-prev swiper-button-prev2 absolute left-[-3%]"></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -2052,344 +1937,354 @@
             <div class="title text-lg font-semibold mb-4">
               <p>Trending Projects</p>
             </div>
-            <div class="swiper mySwiper max-w-[1150px] w-full m-0">
-              <div class="swiper-wrapper">
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
+            <div class="relative">
+              <div class="swiper mySwiper max-w-[1150px] w-full mx-auto">
+                <div class="swiper-wrapper">
+                  <div
+                    class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  >
+                    <div class="image h-[150px] max-[900px]:mb-4">
+                      <img
+                        src="assets/banner.png"
+                        alt="card"
+                        class="w-full object-cover"
+                      />
                     </div>
+                    <div class="course_body flex flex-col justify-between">
+                      <div class="title p-4 pb-2">
+                        <p class="font-bold text-lg">Introduction to Python</p>
+                      </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
+                      <div class="icons flex justify-between p-2 px-4">
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <!-- Repeat for other tags -->
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
+                        </div>
+                        <!-- Repeat for other icons -->
                       </div>
+                      <div
+                        class="author_tag flex items-center px-4 pt-2 text-xs"
+                      >
+                        <p class="text-gray-700 font-semibold">Author:</p>
+                        <div class="name flex items-center ml-2">
+                          <span>
+                            <img
+                              src="assets/coin.svg"
+                              alt="indian"
+                              class="w-4 h-4"
+                            />
+                          </span>
+                          <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                        </div>
+                      </div>
+                      <div class="card_tags px-4 text-sm pt-1">
+                        <div class="tags_box flex items-center">
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>React</p>
+                          </div>
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>Kodo</p>
+                          </div>
+                          <!-- Repeat for other tags -->
+                        </div>
+                      </div>
+                      <button
+                        class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      >
+                        View in Detail
+                      </button>
                     </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
                   </div>
-                </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
+                  <div
+                    class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  >
+                    <div class="image h-[150px] max-[900px]:mb-4">
+                      <img
+                        src="assets/banner.png"
+                        alt="card"
+                        class="w-full object-cover"
+                      />
                     </div>
+                    <div class="course_body flex flex-col justify-between">
+                      <div class="title p-4 pb-2">
+                        <p class="font-bold text-lg">Introduction to Python</p>
+                      </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
+                      <div class="icons flex justify-between p-2 px-4">
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <!-- Repeat for other tags -->
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
+                        </div>
+                        <!-- Repeat for other icons -->
                       </div>
+                      <div
+                        class="author_tag flex items-center px-4 pt-2 text-xs"
+                      >
+                        <p class="text-gray-700 font-semibold">Author:</p>
+                        <div class="name flex items-center ml-2">
+                          <span>
+                            <img
+                              src="assets/coin.svg"
+                              alt="indian"
+                              class="w-4 h-4"
+                            />
+                          </span>
+                          <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                        </div>
+                      </div>
+                      <div class="card_tags px-4 text-sm pt-1">
+                        <div class="tags_box flex items-center">
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>React</p>
+                          </div>
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>Kodo</p>
+                          </div>
+                          <!-- Repeat for other tags -->
+                        </div>
+                      </div>
+                      <button
+                        class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      >
+                        View in Detail
+                      </button>
                     </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
                   </div>
-                </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
+                  <div
+                    class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  >
+                    <div class="image h-[150px] max-[900px]:mb-4">
+                      <img
+                        src="assets/banner.png"
+                        alt="card"
+                        class="w-full object-cover"
+                      />
                     </div>
+                    <div class="course_body flex flex-col justify-between">
+                      <div class="title p-4 pb-2">
+                        <p class="font-bold text-lg">Introduction to Python</p>
+                      </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
+                      <div class="icons flex justify-between p-2 px-4">
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <!-- Repeat for other tags -->
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
+                        </div>
+                        <!-- Repeat for other icons -->
                       </div>
+                      <div
+                        class="author_tag flex items-center px-4 pt-2 text-xs"
+                      >
+                        <p class="text-gray-700 font-semibold">Author:</p>
+                        <div class="name flex items-center ml-2">
+                          <span>
+                            <img
+                              src="assets/coin.svg"
+                              alt="indian"
+                              class="w-4 h-4"
+                            />
+                          </span>
+                          <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                        </div>
+                      </div>
+                      <div class="card_tags px-4 text-sm pt-1">
+                        <div class="tags_box flex items-center">
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>React</p>
+                          </div>
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>Kodo</p>
+                          </div>
+                          <!-- Repeat for other tags -->
+                        </div>
+                      </div>
+                      <button
+                        class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      >
+                        View in Detail
+                      </button>
                     </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
                   </div>
-                </div>
-                <div
-                  class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
-                >
-                  <div class="image h-[150px] max-[900px]:mb-4">
-                    <img
-                      src="assets/banner.png"
-                      alt="card"
-                      class="w-full object-cover"
-                    />
-                  </div>
-                  <div class="course_body flex flex-col justify-between">
-                    <div class="title p-4 pb-2">
-                      <p class="font-bold text-lg">Introduction to Python</p>
+                  <div
+                    class="course_card project_card bg-white min-[900px]:ml-0 min-[900px]:m-5 swiper-slide w-[426px] h-[350px] min-w-[320px] mb-20 shadow-md flex flex-col"
+                  >
+                    <div class="image h-[150px] max-[900px]:mb-4">
+                      <img
+                        src="assets/banner.png"
+                        alt="card"
+                        class="w-full object-cover"
+                      />
                     </div>
+                    <div class="course_body flex flex-col justify-between">
+                      <div class="title p-4 pb-2">
+                        <p class="font-bold text-lg">Introduction to Python</p>
+                      </div>
 
-                    <div class="icons flex justify-between p-2 px-4">
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <div class="icon_item flex items-center text-xs">
-                        <span>
-                          <img
-                            src="assets/card_time.svg"
-                            alt="time"
-                            class="w-5 h-5"
-                          />
-                        </span>
-                        <p>16 hours</p>
-                      </div>
-                      <!-- Repeat for other icons -->
-                    </div>
-                    <div class="author_tag flex items-center px-4 pt-2 text-xs">
-                      <p class="text-gray-700 font-semibold">Author:</p>
-                      <div class="name flex items-center ml-2">
-                        <span>
-                          <img
-                            src="assets/coin.svg"
-                            alt="indian"
-                            class="w-4 h-4"
-                          />
-                        </span>
-                        <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
-                      </div>
-                    </div>
-                    <div class="card_tags px-4 text-sm pt-1">
-                      <div class="tags_box flex items-center">
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>React</p>
+                      <div class="icons flex justify-between p-2 px-4">
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <div
-                          class="tags text-purple-600 text-xs rounded-lg mr-2"
-                        >
-                          <p>Kodo</p>
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
                         </div>
-                        <!-- Repeat for other tags -->
+                        <div class="icon_item flex items-center text-xs">
+                          <span>
+                            <img
+                              src="assets/card_time.svg"
+                              alt="time"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                          <p>16 hours</p>
+                        </div>
+                        <!-- Repeat for other icons -->
                       </div>
+                      <div
+                        class="author_tag flex items-center px-4 pt-2 text-xs"
+                      >
+                        <p class="text-gray-700 font-semibold">Author:</p>
+                        <div class="name flex items-center ml-2">
+                          <span>
+                            <img
+                              src="assets/coin.svg"
+                              alt="indian"
+                              class="w-4 h-4"
+                            />
+                          </span>
+                          <h3 class="text-gray-700 font-semibold">Alan Biju</h3>
+                        </div>
+                      </div>
+                      <div class="card_tags px-4 text-sm pt-1">
+                        <div class="tags_box flex items-center">
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>React</p>
+                          </div>
+                          <div
+                            class="tags text-purple-600 text-xs rounded-lg mr-2"
+                          >
+                            <p>Kodo</p>
+                          </div>
+                          <!-- Repeat for other tags -->
+                        </div>
+                      </div>
+                      <button
+                        class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
+                      >
+                        View in Detail
+                      </button>
                     </div>
-                    <button
-                      class="w-[90%] mx-auto bg-white text-black h-9 border border-black font-semibold rounded-md mt-4"
-                    >
-                      View in Detail
-                    </button>
                   </div>
+                  <!-- Add more slides here -->
                 </div>
-                <!-- Add more slides here -->
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next1 swiper-button-next absolute right-[-3%]"></div>
+              <div class="swiper-button-prev1 swiper-button-prev absolute left-[-3%]"></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -2573,36 +2468,61 @@
       </div>
     </div>
 
-    <div class="bottombar fixed bottom-0 left-0 z-20 w-full h-16 bg-[#0a182e] min-[900px]:hidden border-t border-gray-200">
+    <div
+      class="bottombar fixed bottom-0 left-0 z-20 w-full h-16 bg-[#0a182e] min-[900px]:hidden border-t border-gray-200"
+    >
       <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
-        <a href="index.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group">
+        <a
+          href="index.html"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+        >
+          <img src="assets/self-growth3.png" alt="progress" class="w-6 h-6" />
+          <span class="text-sm text-white group-hover:text-pink-600">Home</span>
+        </a>
+        <a
+          href="myFeed.html"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+        >
           <img
-                src="assets/self-growth3.png"
-                alt="progress"
-                class="w-6 h-6"
-              />
-              <span class="text-sm text-white  group-hover:text-pink-600 ">Home</span>
-            </a>
-        <a href="myFeed.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group"> <img
-          src="assets/self-growth3.png"
-          alt="progress"
-          class="w-6 h-6"
-        /><span class="text-sm text-white  group-hover:text-pink-600 ">Post</span></a>
-        <a href="courses.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group"><img
-          src="assets/online-course2.png"
-          alt="leader"
-          class="w-6 h-6"
-        /><span class="text-sm text-white  group-hover:text-pink-600 ">Courses</span></a>
-        <a href="myProfile.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group"><img
-          src="assets/account (1).png"
-          alt="progress"
-          class="w-6 h-6"
-        /><span class="text-sm text-white  group-hover:text-pink-600 ">Profile</span></a>
-          <a href="liveEvents.html"  class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950  group"><img src="assets/deadline.png" alt="leader" class="w-6 h-6" /><span class="text-sm text-white  group-hover:text-pink-600 ">Events</span></a>
+            src="assets/self-growth3.png"
+            alt="progress"
+            class="w-6 h-6"
+          /><span class="text-sm text-white group-hover:text-pink-600"
+            >Post</span
+          ></a
+        >
+        <a
+          href="courses.html"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+          ><img
+            src="assets/online-course2.png"
+            alt="leader"
+            class="w-6 h-6"
+          /><span class="text-sm text-white group-hover:text-pink-600"
+            >Courses</span
+          ></a
+        >
+        <a
+          href="myProfile.html"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+          ><img
+            src="assets/account (1).png"
+            alt="progress"
+            class="w-6 h-6"
+          /><span class="text-sm text-white group-hover:text-pink-600"
+            >Profile</span
+          ></a
+        >
+        <a
+          href="liveEvents.html"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+          ><img src="assets/deadline.png" alt="leader" class="w-6 h-6" /><span
+            class="text-sm text-white group-hover:text-pink-600"
+            >Events</span
+          ></a
+        >
       </div>
     </div>
-   
-
   </body>
   <script src="./app.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -2611,8 +2531,60 @@
       slidesPerView: 3,
       spaceBetween: 30,
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next1",
+        prevEl: ".swiper-button-prev1",
+      },
+      breakpoints: {
+        300: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        400: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        580: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        680: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1240: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1440: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1540: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1840: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      },
+    });
+
+    let swiper2 = new Swiper(".mySwiper2", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next2",
+        prevEl: ".swiper-button-prev2",
       },
       breakpoints: {
         300: {
