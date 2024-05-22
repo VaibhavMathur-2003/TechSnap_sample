@@ -12,6 +12,33 @@
     <style>
       .assesment_card_section {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      } 
+ 
+ .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
       }
       .ham #ham_icon {
         width: 20px;
@@ -120,7 +147,7 @@
   <body>
     <div class="flex flex-col">
       <header
-        class="bg-white fixed py-2 text-lg w-full z-50 "
+        class="bg-white fixed py-2 text-lg w-full z-50"
         style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
       >
         <div
@@ -141,10 +168,8 @@
             />
           </div>
 
-          <div class="Header_Profile flex items-center mr-4 ">
-            <div
-              class="Icons flex items-center min-[900px]:mr-4  justify-end"
-            >
+          <div class="Header_Profile flex items-center mr-4">
+            <div class="Icons flex items-center min-[900px]:mr-4 justify-end">
               <div
                 class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
                 onclick="goalsDrop()"
@@ -158,7 +183,7 @@
                   </p>
                 </div>
                 <div
-                  class="goals_DropDown bg-white rounded-md h-[280px] w-[400px] absolute right-[-70%] top-[65px] hidden"
+                  class="goals_DropDown bg-white rounded-md  w-[400px] absolute right-[-70%] top-[65px] hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -188,7 +213,7 @@
                     >
                   </div>
                   <div class="goals_section flex px-4 py-2 text-sm">
-                    <div class="left_section w-1/2 pr-2">
+                    <div class="left_section w-1/2 pr-2 mb-4">
                       <div
                         class="total_streak_day bg-[#ffecee] rounded-md px-2 h-[60%]"
                       >
@@ -201,7 +226,7 @@
                             class="w-3 h-3"
                           />
                         </div>
-                        <div class="streak_body flex items-center h-[40px]">
+                        <div class="streak_body flex items-center justify-center h-[40px] pt-[10px]">
                           <img
                             src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
                             class="w-8 h-8 mr-2"
@@ -213,9 +238,9 @@
                         </div>
                       </div>
                       <div
-                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md px-2 h-[40%]"
+                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md mt-3 px-2 h-[40%] "
                       >
-                        <div class="streak_body flex items-center">
+                        <div class="streak_body flex justify-center items-center pt-[10px]">
                           <img
                             src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
                             class="w-8 h-8 mr-2"
@@ -227,8 +252,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="right_section w-1/2 pl-2">
-                      <div class="right_box bg-[#fff7ea] rounded-md px-2">
+                    <div class="right_section w-1/2 pl-2 mb-3" >
+                      <div class="right_box bg-[#fff7ea] rounded-md px-2 py-4">
                         <div class="title flex justify-between mb-2 flex-col">
                           <p class="text-gray-600 font-bold mb-2">Daily Goal</p>
                           <div
@@ -310,7 +335,7 @@
                   </p>
                 </div>
                 <div
-                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px]  right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -337,7 +362,7 @@
                   <img
                     src="assets/bell.svg"
                     alt="notifiction"
-                    class="notification_bell w-6 h-6 ml-1 "
+                    class="notification_bell w-6 h-6 ml-1"
                   />
                   <span
                     class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
@@ -346,7 +371,7 @@
                   </span>
                 </div>
                 <div
-                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px]  right-[-140%] shadow-lg hidden"
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px] right-[-140%] shadow-lg hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -431,7 +456,7 @@
                       <h1 class="notification_dots text-gray-500">...</h1>
                     </div>
                   </div>
-  
+
                   <div class="see_all_notifications p-3 text-center">
                     <a
                       href="notification.html"
@@ -441,7 +466,7 @@
                   </div>
                 </div>
               </div>
-  
+
               <div class="relative max-[900px]:hidden">
                 <img
                   src="assets/profile.jpg"
@@ -449,11 +474,12 @@
                   class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
                 />
                 <div
-                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md  transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"  style="
-                  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
-                    5px 0 10px -5px rgba(0, 0, 0, 0.35),
-                    -5px 0 10px -5px rgba(0, 0, 0, 0.35);
-                "
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
                 >
                   <a
                     href="#"
@@ -502,7 +528,6 @@
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </header>
@@ -705,14 +730,14 @@
           </button>
         </aside>
 
-        <div class="max_width_holder w-full max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll">
-            <section class="topic_section ml-8 max-[900px]:ml-0">
-                <div class="heading flex my-4 ">
-                    <h1 class="text-2xl font-semibold mx-4">Trending Tags</h1>
+        <div class="max_width_holder grid place-items-center w-full  max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll">
+            <section class="topic_section p-[30px] max-[900px]:ml-0 max-w-[1400px]">
+                <div class="heading flex">
+                    <h1 class="text-2xl font-semibold mr-4">Trending Tags</h1>
                     <button class="outline-none border border-blue-600 rounded-full px-4 py-1 font-semibold text-blue-600 text-md">See all tags</button>
                 </div>
-                <div class="tags_holder flex my-16 flex-wrap justify-between max-[630px]:justify-center">
-                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white rounded-md p-2">
+                <div class="tags_holder flex my-10 flex-wrap justify-between max-[900px]:justify-center">
+                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white h-[80px] my-0.5 rounded-md p-2">
                         <img src="https://brillup.com/wp-content/uploads/Learn-JavaScript.jpg" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Javascript</h1>
@@ -720,7 +745,7 @@
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white rounded-md p-2">
+                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white h-[80px] my-0.5 rounded-md p-2">
                         <img src="https://brillup.com/wp-content/uploads/Learn-JavaScript.jpg" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Javascript</h1>
@@ -728,7 +753,7 @@
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white rounded-md p-2">
+                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white h-[80px] my-0.5 rounded-md p-2">
                         <img src="https://brillup.com/wp-content/uploads/Learn-JavaScript.jpg" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Javascript</h1>
@@ -736,7 +761,7 @@
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white rounded-md p-2">
+                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white h-[80px] my-0.5 rounded-md p-2">
                         <img src="https://brillup.com/wp-content/uploads/Learn-JavaScript.jpg" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Javascript</h1>
@@ -744,7 +769,7 @@
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white rounded-md p-2">
+                    <div class="tag flex items-center bg-gray-300 min-w-[300px] border border-white h-[80px] my-0.5 rounded-md p-2">
                         <img src="https://brillup.com/wp-content/uploads/Learn-JavaScript.jpg" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Javascript</h1>
@@ -753,30 +778,30 @@
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
                 </div>
-                <p id="light_heading" class="text-xl font-semibold mx-4 justify-between">Newly Added Tags</p>
-                <div class="tags_holder flex flex-wrap my-8  max-[630px]:justify-center">
-                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px]">
+                <p id="light_heading" class="text-xl font-semibold mr-4 justify-between">Newly Added Tags</p>
+                <div class="tags_holder flex flex-wrap my-10 justify-between max-[900px]:justify-center">
+                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px] h-[80px] my-0.5">
                         <img src="data:image/png;base64,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" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Lindo</h1>
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px]">
+                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px] h-[80px] my-0.5">
                         <img src="data:image/png;base64,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" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Lindo</h1>
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px]">
+                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px] h-[80px] my-0.5">
                         <img src="data:image/png;base64,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" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Lindo</h1>
                         </div>
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
-                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px]">
+                    <div class="tag newly flex items-center bg-gray-300 border border-white rounded-md p-2 min-w-[300px] h-[80px] my-0.5">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABLFBMVEX///8Ap10AAABTZldWYldWaloArWAAql5VZFcjmFxUZVdSZVYAp1sAq14Ao1MApVdFW0oAoloAhUoAnFdLX0/v7+/f39/T09P39/cAf0dCWEddXV2/v7+5ubnp6ekAjE5KW04oMSo+TUE2Qzlubm6goKAmJiZ/f3+KiooVFRUATSsACwYAQSQzPzYAMBsAVjAAbDylrKcAGw8Ak1IAXjQ5Tz4AdkI5OTlKSkqbm5uIkoq2u7cAKRdEVEgXHBghKSN0gHY3eFM+cFIAFAsAHxFMrnqHwaHi7ee72Mhkc2dISEiCgoIvLy+CjYSOoZaOuqBwr4teqX9JoHEvo2bL3NO02sSSxqkrildpvY7W5dxEZ1E1glYARgtft4ahyLNVmXNmkHczXEMjXTwrQC+q/UUfAAAO6ElEQVR4nN2daUPbSBKGfUrGNjbGN7ExOBDMEXMYyJBwJIHMbJLJzOxmd9gNu7NH/v9/WEmto9V3tySr7fdrgtFDq6q6q6vKmUw8ag93cnubMX2Yfupcvco52umk/ShJqDvZzwV61k37eWLWYCeHaokY28NnGJ6jH5aCcXP3ExnP0atB2s8XUb5nWU7G7mceHdCLYdpPqiSCZ1kiRqpnYWg37YcWF9uzLDxjd/JCDc/RVS/t5+eou7fPp2Broi9jbyjjWViM7bRRSGqf/hAPnqM93RgFgro0o0aHq/BxIT5pc7j6ORE8jRjb98kRanK4+nhzmCTjD+n7nC+V/MsECe9/SRswc9rKF7duE+I7GK3+mjZgpruWz+eLzxPAezhpGGY9fcLeRt5GrNzFzHc0MsxsNlv/LW3ATKZcyTuMNzHindnLl7VV/3PafJnM61beVVwe52jdxbNU/UvafJnMG5+wuBXD7ubwpBnw6UHYWcv7iuxx4OUDhCtp81muBiLMF1sRPM7heRPhswi/ps1n6WMlDzOOVZevbxhZTNVG2ngZ2NUAVbYV+AjL5xJqcOR/gxBagUPS40z7JmH5gHQghF2NiygVOGjLB1RLf+udyWyghHnxreq0n6Uunz6Ebys4opjHOZ6xlk8fQtTVuIhljse5vsxy+SzCn9LGyxBcje9xGIdjgeUDhP9IG8/SJsEQXVE8jtjyAcK/po1nq0UyRLrHORiJ4tmEf0qbztZHKiG+VX3wD0aLRHhKMUSACB+OpZZPI8IBFvPDjGOAdya5fIDwb2nT2WK4Glfb9sHIlMbThpDharxlXFNYPkf139OGc0Tc1YRUUMKzCX9MG84R09UAwoYqoQbJtoybNGUTrqi9pNn639OGc7TJJSw9LjZhhk/4bsEJv/BcTfm9ImH1Q9psQHxX01pVJNQh2ZYRcTVlRWdababNBtTj7moKTTXCrCaEmSLPEJXDRS1tNFdcV6McLnQh5Loa5XChCyHX1SiHi5oGKWFbfFfTUiXUIdlma4vratQA9SEkJ01hwpkioQ7pRFu0pGlAqBgutCHkuprS04ITcl2NarjQI9lmi5U0tVX+prb31iQVlRFwNcWqGuEfaZN54rsatb23PoT4VTBKqBYuanqkE21d8AjV9t4aEfJcjWK40IiQ52oU996apIRt8VyNYrioapJsywjczxSUCOuaJNss9Xj3M2rhQpd0oi2eqymsLDohL5OhFi50SZja4lwFW+FCxRB1IuS5GrVwoUX9pae37EVUCxda1F/62mWvYkkps69Lsg2ou8HypyoXwdWaPhHf0WaZ4VALI1lDrNY+6JLECPSFboyymf1q7WuEqrZuYjMM3lDfVLlUjcUXIUXT3snl9pNi7LYob6pMuKjWGlFSULugDOtVQi2avY8UROGLYIsvSgKqG/TuPkuoZfo1OWwUxJJR1Vo9SnKmF54LsJdMtBkQjVEsVWPWfo/yUEOsoDWZcRvEsCGS2TfNxyi/t0MaOpKQyyHs4fipGtNYP8t9UredPXLZdUIu5xRD5IYLYzaN8l7hL2igRFzOFWqLnL230TzwnkelS32TM5ojdpcz/Dm3jS4iK7NvZs/h55E2nQmbz9ZVrHzOHJ5bZBXpF8GmeYI8jtwyDsS6yWJzOUN/ztBNUSRcmEb/LMrjtIWnUsXjcobw3/MljEhJ1RijKfFxnglazq4on/OhkV3OEHlf7soBIzFcGM0j6uOILGNXdjBVNJdDcNiHWz4iIVwYYQeD/cV5T9NTmd0UxeUQP3DsIWLhAncwmNgjB1khkCV1l1Mgft62h1gJEVoORmC+DWu8SU8RMILLOW0Ru0dv3V1qqQnzja75TzJtstKJ7Q3l9vh/KlrjoFUkd1aCsAGFC5aDCdQ3TFaFaXtNtT2+r3pr11mjTVZwwoYfLozGscBjHFs7HWZ1YntDrT3+oale43FBnXNyly964ULAwViazpwuaB6hwlyVA+sQqpzEczqEWsQ9lBU2nFSN5WBEhktduq1SrJRwGyQTJJfx0ohSEejeQJEdwLhohQshB5M7bnihk9XO7d2VyCzjofNqqFfmujdQRXIL8HZJzMFcj4I2ffSvPclNMMK80wEopKlt21F6ANreX3VM/Px95g7G0yXcyxcmHNj//qKL/La88LCKc/Cnq/9LmdAbq5Qvbgn+UTEdNEJzFmCfsOkdIiYYodiwinX3o6P0xPnNiMWK0pQz+AVFCa+C/7bvLGP4zpI75eg6MO4I+Vj4slshUp1gzbR+S343/Pz2MqK1ZhTzd3UcfHaUos5ulLFKyAsKPwx+yrWWESvcZc0c6UOfHaV8HDYNyWB8hr6g4GGcBPgV6QcmXTwrS1vGsxn84ZEmioTL9iUGgOEvqE/YpUwRvStihJRlPMrCH17NRgDMfEH+roK7/6MmZVJN7Q/GKfd2i8SIG8dJ+MOjVXigBW5s63d1v06dxFP9N/Mnn5MQ0TMc+vpHa03FrX/MBaS8oI7MS/bP8pdx2kA/PVrFYxsfHMUJ/tQXVIgQyefhy3hO8M/R6uPL2M1ascwI/vfooD2UsM8jzO0Tl3EM/pH0/kcce0OspaUG//Ms57rGXOcSWsuYxxmdsSrXTdLHR+ymItbSUoL/lPmCAsKRAGFu/4ZojQeUCBQJkNIhRAr+h32BgSDmTIQwh98D5e2aVvIov6jlgJSyfezkf8x7QYGaYoS5Q3wZKVW7Uc5Ojqi1tKHgP51xX1A5QsIyUgrNIs8ToZbtw8H/UnhijTghtowV8oVl5EYcetm+H/wFX1BHDXFCaxlD7w/l0jlyQ1yHXoUJgv+16AsqTxi+sqQRRm69ZZXtW8Ff/AUFkiMMbkmodWbRpzEyy/YLUgtoyZQc3X/k/ypK8UcMldXMsn3pjmBD7gsYLpsFn5BcwBNDdTyzbF96gIRBuOOn6rpprBQ4vyqGsT7Msn3pjmDjQRzw2DTNgJDyusTRLcZ6S6W7EgyRWwAg+xxhPpZ8QnLddRy9xcwJbrLzhgxypQYucNKFCYnVLbUPMVRHsV2NLKHITUfOz8WYTwEhadNWi6WjkTmAQLaJzTjg0+WCXMzqu4AQf0mrMTX4Mye4yTaxGSLXxUG2ECLcwgjrjbgmicQZLgyB+6rLYBcBEX7DbgjiMEEg1lgl2SY2PuEDnClYfV92fxHmteMxQSCWqym/lyM0eYTHoVTF6jcKYVwmCMRyNbJNbLyyhn54n7tKKTKLzwQdMWedSDaxsROmUzQVswqZA3yVHHe7LZ40DSQZLszHMR3wHD+Jlf3fE7i0apwmCPSGsYiSTWzmeon2bUuHhPu4RgknjNcEXZ3SESXDxaq1DSOnW4+wCwlLTXzTFrMJeqKvouTp4sk+K5Du6C+JR+ngeOhZQ+wmyEWUOV2YzW/eEyMXAw/kXEH9t3GYMAET9EXufsrLnC7Mp4LvOMJZc0q+Plv7qVNwg3GlkU3IBH3R+oJFx9NBCwgeOXA4fVqyx86jTS78P2RCJuirQ0YUnDe0+hgsoLuMzylBECK0a/G7Ny2ws4hxIyqFKJSMWkUWECA6DocQBANCgPR5w94dJmiCAeIaAVFk3pDxWCrjP5kvWg6HfudvmV3V/cWDm6138xn21iakh/nhwmwcEWsQ7B9mvgBBLrT3+j9zmirZLmEPyT1dGM7N9jYRkX2ATmW08mCMPSl7PJ29gI5uywRGDuH8Z6HY5T4YIjNcGFBpAqEEgU04/6lLoOsKNSnG6cLMhhJP+PpzCOc8R6PjfSc5UvJCDxfGOnIPgxXLcAjnO/3sc/CgYa9BCxdmFs+r3elL2KM/KCVcGCPSRRrSicomnOuMvs499UGJqRrTpCVGtyQI5znvtNcKn3cOofxbBSc0RtR7wv9KEM71a8w+ol1eUK8l6kxNes5w2ngqCRJW5zzu9JcWWlvqVxGg4cKYUa9BrW22KGG9MeeRRG9aWPmsF97CPc+MBbQvXKD7MiZh7eu8p2bZvQIoohv7Q+HCmFFveZ1ckyBhLYVvTnJ65xBEEMGhVI1p0HPa4ErQfCzwCedtgkDOVTCaCHRif3C6MGbUS+x7N9ckQjh3EwQC9zMootNC0KpyF/DAuxI0R1zC5LMVZHmtegiiHfvB6cJo0u/ooWzojEeYhgk62qS16rXAcxr0O5fQlSCHMB0TBPIyGBjiVmnFZC1gOBvKJkzJBIGCVj0UcfzEWEA0G9pkEaZlgkDBVTCG+D96DQlWX88iTM0EgaCrYPE2Njwb2ijTCKtpf3dCqItVEBHPhlY/vKqQCVM1QSD4KlgIEe9Rsq+Tep9aJMJ0TRAoVOAmgHhCSmfbzQM7FzjhPHL2XIWrTngtXqRLa5cwM/leDBOmboJAaNUJE/GIUsAPGkCGLqJLqIEJOsJa9RiI5EvrrD+XvXsHEc7/LEgTdi9DQzyjF7h7mfr2y5ZHmHIUhIX3z5ARDxgtJsF90rMNhzDNjSgmQv9MS+YNdRR0D+x9LxZWdDFBIEKBW7GC5n0fOF2IULvg7vfCTBsTdEQscEMQj3lfuw43RA52fk0Nhixi/0wFLv9hXVrjhPqJ3KoXIDLKKgJCrV5LVJRWPW+0C6usIiDU5WseiaJ9mRdAJG/TMEKdfCcu6pd53ZJrC0mEc71ukRa1Va9EGHawkITUrmDxr9bRnJDaqideZqrPF1kSRW3VEy8z1WkbStKEtojCXQl6nHUZekuxRNEmtsSqmOMT5QsvBLsStEjH8ERGFCqk1SQdw1VBtZBWr7MgQz0SokAhrQ4ZUUG1Cd++XnrHczULYYKeNm8wRF4T26KYoKdNbAvOIUy6kSB+4SNPmG16C2SCvrroKrK+a26hTNDXAEGkh4tke3kSFIJIbdNbPBP0NQzZIq2rexFN0Feo8ZIcEJNsp5uHdqGzFDFcLKwJ+noNIZZwwgU2QV/QkFo8IC60CfoKTsTY+WnBTdCXf1xEqn8W3wR9eZ264YC4DCboyTsuhgLicpigp17JQYQTistigp7AiTgIiEtkgp42nR7oimeCzeUxQV+di+D8tAAZURXZx0UnXCz6RpQuC9EOF0togr4GG6Unc5miIK7hxbta1LnMmmvwfp49nzz9Hx34ujbcjyFZAAAAAElFTkSuQmCC" alt="" class="w-10 h-10 mr-4">
                         <div class="details_holder flex-1">
                             <h1 class="text-lg font-semibold">Lindo</h1>
@@ -784,9 +809,9 @@
                         <button class="outline-none bg-white border-none w-9 h-9 text-blue-600 rounded-full text-lg font-semibold">+</button>
                     </div>
                 </div>
-                <p id="light_heading" class="text-lg font-semibold mt-4 justify-between mx-4">All Tags</p>
-                <div class="tags_holder flex flex-wrap max-[630px]:justify-center">
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                <p id="light_heading" class="text-lg font-semibold mt-4 justify-between mr-4">All Tags</p>
+                <div class="tags_holder flex flex-wrap justify-between mt-4 max-[900px]:justify-center">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder green h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="green" class="text-green-600">#</span>Javascript</h1>
@@ -797,7 +822,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder yellow h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="yellow" class="text-yellow-600">#</span>Javascript</h1>
@@ -808,7 +833,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder green h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="green" class="text-green-600">#</span>Javascript</h1>
@@ -819,7 +844,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder yellow h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="yellow" class="text-yellow-600">#</span>Javascript</h1>
@@ -830,7 +855,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder green h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="green" class="text-green-600">#</span>Javascript</h1>
@@ -841,7 +866,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder yellow h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="yellow" class="text-yellow-600">#</span>Javascript</h1>
@@ -852,7 +877,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder green h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="green" class="text-green-600">#</span>Javascript</h1>
@@ -863,7 +888,7 @@
                             <button class="bg-gray-300 border-none outline-none rounded-lg px-4 py-1 font-semibold">Follow</button>
                         </div>
                     </div>
-                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg m-2">
+                    <div class="tag_card flex flex-col min-w-[300px] max-w-[300px] bg-white border border-gray-400 rounded-lg my-1">
                         <div class="color_holder yellow h-5 rounded-t-lg"></div>
                         <div class="details_holder p-4">
                             <h1 class="text-lg font-semibold"><span id="yellow" class="text-yellow-600">#</span>Javascript</h1>

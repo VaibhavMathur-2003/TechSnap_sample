@@ -28,6 +28,33 @@
       .assesment_card_section {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       }
+
+      .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
+      }
       .ham #ham_icon {
         width: 20px;
         -o-object-fit: contain;
@@ -136,7 +163,7 @@
   <body>
     <div class="flex flex-col">
       <header
-        class="bg-white fixed py-2 text-lg w-full z-50 "
+        class="bg-white fixed py-2 text-lg w-full z-50"
         style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
       >
         <div
@@ -157,10 +184,8 @@
             />
           </div>
 
-          <div class="Header_Profile flex items-center mr-4 ">
-            <div
-              class="Icons flex items-center min-[900px]:mr-4  justify-end"
-            >
+          <div class="Header_Profile flex items-center mr-4">
+            <div class="Icons flex items-center min-[900px]:mr-4 justify-end">
               <div
                 class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
                 onclick="goalsDrop()"
@@ -174,7 +199,7 @@
                   </p>
                 </div>
                 <div
-                  class="goals_DropDown bg-white rounded-md h-[280px] w-[400px] absolute right-[-70%] top-[65px] hidden"
+                  class="goals_DropDown bg-white rounded-md  w-[400px] absolute right-[-70%] top-[65px] hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -204,7 +229,7 @@
                     >
                   </div>
                   <div class="goals_section flex px-4 py-2 text-sm">
-                    <div class="left_section w-1/2 pr-2">
+                    <div class="left_section w-1/2 pr-2 mb-4">
                       <div
                         class="total_streak_day bg-[#ffecee] rounded-md px-2 h-[60%]"
                       >
@@ -217,7 +242,7 @@
                             class="w-3 h-3"
                           />
                         </div>
-                        <div class="streak_body flex items-center h-[40px]">
+                        <div class="streak_body flex items-center justify-center h-[40px] pt-[10px]">
                           <img
                             src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
                             class="w-8 h-8 mr-2"
@@ -229,9 +254,9 @@
                         </div>
                       </div>
                       <div
-                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md px-2 h-[40%]"
+                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md mt-3 px-2 h-[40%] "
                       >
-                        <div class="streak_body flex items-center">
+                        <div class="streak_body flex justify-center items-center pt-[10px]">
                           <img
                             src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
                             class="w-8 h-8 mr-2"
@@ -243,8 +268,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="right_section w-1/2 pl-2">
-                      <div class="right_box bg-[#fff7ea] rounded-md px-2">
+                    <div class="right_section w-1/2 pl-2 mb-3" >
+                      <div class="right_box bg-[#fff7ea] rounded-md px-2 py-4">
                         <div class="title flex justify-between mb-2 flex-col">
                           <p class="text-gray-600 font-bold mb-2">Daily Goal</p>
                           <div
@@ -326,7 +351,7 @@
                   </p>
                 </div>
                 <div
-                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px]  right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -353,7 +378,7 @@
                   <img
                     src="assets/bell.svg"
                     alt="notifiction"
-                    class="notification_bell w-6 h-6 ml-1 "
+                    class="notification_bell w-6 h-6 ml-1"
                   />
                   <span
                     class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
@@ -362,7 +387,7 @@
                   </span>
                 </div>
                 <div
-                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px]  right-[-140%] shadow-lg hidden"
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px] right-[-140%] shadow-lg hidden"
                   style="
                     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
                       5px 0 10px -5px rgba(0, 0, 0, 0.35),
@@ -447,7 +472,7 @@
                       <h1 class="notification_dots text-gray-500">...</h1>
                     </div>
                   </div>
-  
+
                   <div class="see_all_notifications p-3 text-center">
                     <a
                       href="notification.html"
@@ -457,7 +482,7 @@
                   </div>
                 </div>
               </div>
-  
+
               <div class="relative max-[900px]:hidden">
                 <img
                   src="assets/profile.jpg"
@@ -465,11 +490,12 @@
                   class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
                 />
                 <div
-                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md  transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"  style="
-                  box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
-                    5px 0 10px -5px rgba(0, 0, 0, 0.35),
-                    -5px 0 10px -5px rgba(0, 0, 0, 0.35);
-                "
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
                 >
                   <a
                     href="#"
@@ -518,7 +544,6 @@
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </header>
@@ -721,20 +746,20 @@
           </button>
         </aside>
 
-        <div class="max_width_holder w-full">
+        <div
+          class="w-[100%] min-[900px]:p-[30px] max_width_holder mx-auto max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll overflow-x-hidden overflow-y-scroll"
+        >
           <section
             class="leader_board_section w-full h-full box-border relative"
           >
+            <h1 class="text-2xl m-2 font-semibold min-w-full whitespace-nowrap">
+              Groups and Leaderboard
+            </h1>
             <div
               class="leader_title w-full flex items-center justify-center flex-col sticky top-[-0.5rem] left-0 z-10"
             >
-              <h1
-                class="text-2xl m-2 font-semibold min-w-full whitespace-nowrap"
-              >
-                Groups and Leaderboard
-              </h1>
               <div
-                class="leader_board_switch w-full h-12 mb-5 flex items-end justify-center border-b-2 border-gray-400"
+                class="leader_board_switch w-full h-12 mb-5 bg-white flex items-end justify-center border-b-2 border-gray-400"
               >
                 <div
                   class="leaderBoard_tablinks font-semibold text-base mr-7 cursor-pointer"
@@ -774,6 +799,7 @@
                 id="example"
                 id="London"
                 class="display compact w-full shadow-[0_15px_30px_-15px_rgba(0,0,0,0.5)]"
+                style="width: 100%"
               >
                 <thead>
                   <tr id="header" class="h-15 text-center">
@@ -792,7 +818,7 @@
       </div>
     </div>
   </body>
-  
+
   <script src="./app.js"></script>
   <script>
     const tablinks = document.querySelectorAll(".leaderBoard_tablinks");

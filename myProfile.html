@@ -12,6 +12,33 @@
     <style>
       .assesment_card_section {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      } 
+ 
+ .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
       }
       .ham #ham_icon {
         width: 20px;
