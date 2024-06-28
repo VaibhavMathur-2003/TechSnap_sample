@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside,
+      .max_width_holder {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        height: calc(100vh - 65px);
+      }
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+      .comment.show .reply {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+      }
+      .swiper-button-next,
+      .swiper-button-prev,.swiper-button-next1,
+      .swiper-button-prev1 {
+        /* border: solid 1px rgba(0, 0, 0, 0.6);
+        background-color: rgb(218, 213, 213); */
+        border-radius: 50%;
+        width: 70px !important;
+        height: 70px !important;
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after, .swiper-button-next1,
+      .swiper-button-prev1 {
+        font-size: 2rem !important;
+        font-weight: 800 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6f6f6]">
+    <div class="flex flex-col">
+      <header
+        class="bg-white fixed py-2 text-lg w-full z-50"
+        style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
+      >
+        <div
+          class="sub_header relative mx-auto flex justify-between items-center max-[900px]:min-h-[45px]"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-4">
+            <div class="Icons flex items-center min-[900px]:mr-4 justify-end">
+              <div
+                class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
+                onclick="goalsDrop()"
+              >
+                <div class="flex justify-between">
+                  <p class="flex items-center font-medium text-base mr-2">
+                    <span class="mr-1">🔥</span> 365
+                  </p>
+                  <p class="flex items-center font-medium text-base">
+                    <span class="mr-1">🎯</span> 36935
+                  </p>
+                </div>
+                <div
+                  class="goals_DropDown bg-white rounded-md  w-[400px] absolute right-[-70%] top-[65px] hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div
+                    class="title flex justify-between items-center px-4 py-2 border-b"
+                  >
+                    <h2 class="text-lg font-semibold">Daily Goals</h2>
+                    <p
+                      class="text-blue-500 hover:text-blue-700 text-base cursor-pointer"
+                    >
+                      Edit Goals
+                    </p>
+                  </div>
+                  <div
+                    class="info_text px-4 py-2 border-b flex items-center justify-between bg-gray-100 text-sm mb-2"
+                  >
+                    <p class="text-gray-600">
+                      How does streak work , know more obout here
+                    </p>
+                    <span
+                      class="text-gray-600 hover:text-gray-800 cursor-pointer"
+                      onclick="closeInfo()"
+                      >X</span
+                    >
+                  </div>
+                  <div class="goals_section flex px-4 py-2 text-sm">
+                    <div class="left_section w-1/2 pr-2 mb-4">
+                      <div
+                        class="total_streak_day bg-[#ffecee] rounded-md px-2 h-[60%]"
+                      >
+                        <div
+                          class="title flex justify-between items-center mb-2"
+                        >
+                          <p class="text-gray-600">Total Streak</p>
+                          <img
+                            src="https://img.icons8.com/color/48/000000/share--v1.png"
+                            class="w-3 h-3"
+                          />
+                        </div>
+                        <div class="streak_body flex items-center justify-center h-[40px] pt-[10px]">
+                          <img
+                            src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
+                            class="w-8 h-8 mr-2"
+                          />
+                          <div class="body_details">
+                            <p class="text-lg font-bold">0</p>
+                            <span class="text-gray-600">Day Streak</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md mt-3 px-2 h-[40%] "
+                      >
+                        <div class="streak_body flex justify-center items-center pt-[10px]">
+                          <img
+                            src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
+                            class="w-8 h-8 mr-2"
+                          />
+                          <div class="body_details">
+                            <p class="text-lg font-bold">0</p>
+                            <span class="text-gray-600">Streak Freeze</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right_section w-1/2 pl-2 mb-3" >
+                      <div class="right_box bg-[#fff7ea] rounded-md px-2 py-4">
+                        <div class="title flex justify-between mb-2 flex-col">
+                          <p class="text-gray-600 font-bold mb-2">Daily Goal</p>
+                          <div
+                            class="time_box bg-[#e9b7bbb6] rounded-full w-[120px] text-center px-2"
+                          >
+                            <span class="text-red-500">11:34:13</span>
+                          </div>
+                        </div>
+                        <div class="streak_body flex items-center mb-2">
+                          <div class="body_details">
+                            <p class="text-lg font-semibold">10/200</p>
+                            <span class="text-gray-600">Points</span>
+                          </div>
+                        </div>
+                        <div class="progress_streak">
+                          <div
+                            class="progress_bar bg-gray-300 rounded-full h-2"
+                          >
+                            <div
+                              class="bar bg-blue-500 h-2 rounded-full"
+                              style="width: 10%"
+                            ></div>
+                          </div>
+                          <button
+                            class="bg-[#21dde0] text-white font-bold py-2 px-4 rounded mt-2 w-full"
+                          >
+                            Achieve Score
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="score relative flex items-center mr-2">
+                <div>
+                  <p
+                    class="flex items-center font-medium text-base mr-3 shock cursor-pointer"
+                    onclick="powerhandler()"
+                  >
+                    <span>⚡</span> 200
+                  </p>
+                </div>
+                <div
+                  class="power_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-110%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="power_item h-[40px] font-bold">
+                    <p>Highest xp : 200</p>
+                  </div>
+                  <div class="power_item h-[40px] font-bold">
+                    <p>Curent xp : 10</p>
+                  </div>
+                  <div class="buttons">
+                    <button
+                      class="hover:bg-blue-700 text-white font-semibold px-4 rounded h-[30px] bg-[#34b2bb]"
+                    >
+                      Reedem
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="score relative flex items-center mr-4">
+                <div>
+                  <p
+                    class="flex items-center font-medium text-base coin cursor-pointer"
+                    onclick="Coinhandler()"
+                  >
+                    <img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mr-1.5"
+                    /><span>36912</span>
+                  </p>
+                </div>
+                <div
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="coin_item h-[40px] font-bold">
+                    <p>Highest coins : 200</p>
+                  </div>
+                  <div class="coin_item h-[40px] font-bold">
+                    <p>Curent coins : 10</p>
+                  </div>
+                  <div class="buttons">
+                    <button
+                      class="hover:bg-blue-700 text-white font-semibold px-4 rounded h-[30px] bg-[#34b2bb]"
+                    >
+                      Reedem
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="mr-8 relative notification_bell cursor-pointer">
+                <div class="">
+                  <img
+                    src="assets/bell.svg"
+                    alt="notifiction"
+                    class="notification_bell w-6 h-6 ml-1"
+                  />
+                  <span
+                    class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
+                  >
+                    3
+                  </span>
+                </div>
+                <div
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px] right-[-140%] shadow-lg hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+
+                  <div class="see_all_notifications p-3 text-center">
+                    <a
+                      href="notification.html"
+                      class="text-blue-500 hover:text-blue-700"
+                      >See all notifications</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative max-[900px]:hidden">
+                <img
+                  src="assets/profile.jpg"
+                  alt="avatar"
+                  class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+                />
+                <div
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Dashboard</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Profile</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Edit</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/windows/32/000000/exit.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Logout</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[65px]">
+        <aside
+          class="sideMenu bg-[#0a182e] min-w-[220px] flex flex-col transition-all duration-300 z-40 max-w-[220px] w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <a
+              href="index.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My Progress
+              </p>
+            </a>
+            <a
+              href="myFeed.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My Feed
+              </p>
+            </a>
+            <a
+              href="topics.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Topics
+              </p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Competitions
+              </p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/leaderboard.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Leaderboard
+              </p>
+            </a>
+            <hr class="border-gray-500 w-[80%] mx-auto" />
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <div class="title w-full pl-8 mb-2">
+              <h4
+                class="text-white uppercase my-1 text-lg font-bold"
+                style="font-family: Nunito"
+              >
+                catalog
+              </h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Career Paths
+              </p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Courses
+              </p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Projects
+              </p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Practice
+              </p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/clipboard.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Assessments
+              </p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/deadline.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Live Events
+              </p>
+            </a>
+            <hr class="border-gray-500 w-[80%] mx-auto" />
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <div class="title w-full pl-8 mb-2">
+              <h4
+                class="text-white uppercase my-1 text-lg font-bold"
+                style="font-family: Nunito"
+              >
+                PROFILE
+              </h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My profile
+              </p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/edit (1).png" alt="bookmark" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Edit profile
+              </p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/user (1).png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Account Settings
+              </p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/logout (1).png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Logout
+              </p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-4 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+
+        <div
+          class="w-full mx-auto max_width_holder flex flex-row max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="min-[900px]:w-[70%] mx-auto">
+            
+            <div
+              class="post_box p-4 shadow-lg my-8 rounded w-[90%] mx-auto"
+              style="font-family: 'Nunito'"
+            >
+              <div class="avater_section flex items-center justify-between">
+                <div class="profile flex items-center">
+                  <img
+                    class="w-12 h-12 rounded-full mr-4"
+                    src="assets/profile.png"
+                    alt="profile"
+                  />
+                  <div class="name">
+                    <p class="font-bold">Alan Biju</p>
+                    <span class="text-gray-600 text-xs">TechSnap DevOps</span>
+                  </div>
+                </div>
+                <div class="more cursor-pointer text-4xl" onclick="showMore()">
+                  ...
+                </div>
+              </div>
+              <div class="para mt-5 text-sm">
+                <p class="text-gray-700" id="para">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti reprehenderit minima dolorem deleniti consequatur
+                  quas, alias quis. Quam quo harum inventore, hic rerum ab.
+                  Laudantium numquam inventore iste provident labore!
+                </p>
+                <button
+                  id="seeMoreBtn"
+                  class="text-blue-500 cursor-pointer see-more-btn"
+                >
+                  See More
+                </button>
+              </div>
+              <div class="relative">
+              <div
+                class="photo cursor-pointer mt-5 swiper mySwiper"
+                onclick="window.location.href='postDetailsPage.html'"
+              >
+              <div class="swiper-wrapper">
+                <img
+                  class="w-full h-auto swiper-slide"
+                  src="assets/banner.png"
+                  alt="banner"
+                />
+                <img
+                class="w-full h-auto swiper-slide"
+                src=""
+                alt="banner"
+              />
+            </div>
+            
+              </div>
+              <div class="swiper-button-next1 swiper-button-next absolute right-[-6.5%]"></div>
+              <div class="swiper-button-prev1 swiper-button-prev absolute left-[-6.5%]"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+              <div class="post_tages flex items-center justify-between p-4">
+                <div class="tags_box flex">
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2"
+                  >
+                    React Js
+                  </div>
+                  <div
+                    class="tags bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                  >
+                    React Js
+                  </div>
+                </div>
+                <div class="time text-sm">
+                  <p class="text-gray-600">posted 3 Jan</p>
+                </div>
+              </div>
+              <div class="post_icon_conatiner p-4">
+                <div class="post_icons flex items-center">
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span id="heart" class="mr-2">
+                      <i class="far fa-heart js-heart heart"></i>
+                    </span>
+                    <span class="text-gray-600">Like</span>
+                  </div>
+                  <div
+                    class="icon comment_icon flex items-center mr-4 cursor-pointer"
+                  >
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+                    />
+                    <span class="text-gray-600">Comment</span>
+                  </div>
+                  <div class="icon flex items-center mr-4 cursor-pointer">
+                    <span class="mr-2"> </span>
+                    <span class="text-gray-600">Bookmark</span>
+                  </div>
+                  <div class="icon flex items-center cursor-pointer">
+                    <img
+                      class="w-6 h-6 mr-2"
+                      src="https://cdn-icons-png.flaticon.com/512/25/25419.png"
+                    />
+                    <span class="text-gray-600">Share</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment_section p-4 max-[900px]:p-0">
+                <div class="comment_input1 flex items-center mb-4">
+                  <img
+                    class="w-10 h-10 rounded-full mr-4"
+                    src="assets/profile.jpg"
+                    alt="profile"
+                  />
+                  <input
+                    class="flex-1 bg-white rounded-full px-4 py-2 border border-gray-300"
+                    type="text"
+                    name="comment"
+                    id="comment"
+                    placeholder="Write a comment..."
+                  />
+                </div>
+                <button
+                  id="submit_comment"
+                  class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
+                >
+                  Submit
+                </button>
+                <div class="comments_box w-full max-[900px]:px-[5px] mt-4">
+                  <div class="comment mb-4">
+                    <div class="main_comment flex flex-col overflow-hidden">
+                      <div class="main_info flex-1 flex">
+                        <img
+                          class="w-10 h-10 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="flex flex-col">
+                          <div
+                            class="comment_info max-[900px]:text-sm bg-gray-200 p-[10px] rounded-lg"
+                          >
+                            <div class="comment_name flex items-center mb-2">
+                              <p class="font-bold mr-2 text-sm">Alan Biju</p>
+                              <span class="text-gray-600 text-xs"
+                                >Developer</span
+                              >
+                            </div>
+                            <div class="para mb-2 text-sm">
+                              <p class="text-gray-700">
+                                Thank you Nuseir Yassin for taking us this
+                                through this amazing Odyssey 💕👌😊, surreal
+                                experience and Dubai has done it again a giant
+                                time capsule.........Yet again millenials will
+                                throng the Booking counters eager to catch a
+                              </p>
+                            </div>
+                          </div>
+                          <div class="likes flex items-center mb-4 text-xs">
+                            <span class="mr-2">Like . 51 ||</span>
+                            <span
+                              class="comment_reply_btn text-blue-500 cursor-pointer"
+                              >Reply</span
+                            >
+                          </div>
+                          <div
+                            class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4"
+                          >
+                            <img
+                              class="w-8 h-8 rounded-full mr-4"
+                              src="assets/profile.jpg"
+                              alt="profile"
+                            />
+                            <input
+                              class="flex-1 bg-white rounded-full px-4 py-2 border border-gray-300 max-[900px]:w-[50%]"
+                              type="text"
+                              name="comment"
+                              id="comment"
+                              placeholder="Write a reply..."
+                            />
+                            <button
+                              id="submit_comment"
+                              class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full flex mb-4"
+                      >
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="flex flex-col bg-white">
+                          <div
+                            class="main_info flex-1 bg-gray-200 p-2 rounded-lg"
+                          >
+                            <div class="comment_info">
+                              <div
+                                class="comment_name flex flex-col justify-center mb-2"
+                              >
+                                <div class="flex">
+                                  <p class="font-bold mr-2 text-sm">
+                                    Alan Biju
+                                  </p>
+                                  <span class="text-gray-600 text-xs"
+                                    >Developer</span
+                                  >
+                                </div>
+                                <span class="text-gray-600 text-xs"
+                                  >Replying to @lorem</span
+                                >
+                              </div>
+                              <div class="para mb-2 text-sm">
+                                <p class="text-gray-700">
+                                  Thank you Nuseir Yassin for taking us this
+                                  through this amazing Odyssey 💕👌😊, surreal
+                                  experience and Dubai has done it again a giant
+                                  time capsule.........Yet again millenials will
+                                  throng the Booking counters eager to catch a
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="likes flex items-center mb-4 text-xs">
+                            <span class="mr-2">Like . 51 ||</span>
+                            <span
+                              class="comment_reply_btn text-blue-500 cursor-pointer"
+                              >Reply</span
+                            >
+                          </div>
+
+                          <div
+                            class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4"
+                          >
+                            <img
+                              class="w-8 h-8 rounded-full mr-4"
+                              src="assets/profile.jpg"
+                              alt="profile"
+                            />
+                            <input
+                              class="flex-1 bg-white rounded-full px-4 py-2 border border-gray-300 max-[900px]:w-[50%]"
+                              type="text"
+                              name="comment"
+                              id="comment"
+                              placeholder="Write a reply..."
+                            />
+                            <button
+                              id="submit_comment"
+                              class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="sub_sub_comment max-[900px]:text-sm ml-[95px] max-[900px]:ml-[70px] max-[900px]:w-full flex mb-4"
+                      >
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="flex flex-col bg-white">
+                          <div
+                            class="main_info flex-1 bg-gray-200 p-2 rounded-lg"
+                          >
+                            <div class="comment_info">
+                              <div
+                                class="comment_name flex flex-col justify-center mb-2"
+                              >
+                                <div class="flex">
+                                  <p class="font-bold mr-2 text-sm">
+                                    Alan Biju
+                                  </p>
+                                  <span class="text-gray-600 text-xs"
+                                    >Developer</span
+                                  >
+                                </div>
+                                <span class="text-gray-600 text-xs"
+                                  >Replying to @lorem</span
+                                >
+                              </div>
+                              <div class="para mb-2 text-sm">
+                                <p class="text-gray-700">Thank you</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="likes flex items-center mb-4 text-xs">
+                            <span class="mr-2">Like . 51 ||</span>
+                            <span
+                              class="comment_reply_btn text-blue-500 cursor-pointer"
+                              >Reply</span
+                            >
+                          </div>
+                          <div
+                            class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4"
+                          >
+                            <img
+                              class="w-8 h-8 rounded-full mr-4"
+                              src="assets/profile.jpg"
+                              alt="profile"
+                            />
+                            <input
+                              class="flex-1 bg-white rounded-full px-4 py-2 border border-gray-300 max-[900px]:w-[50%]"
+                              type="text"
+                              name="comment"
+                              id="comment"
+                              placeholder="Write a reply..."
+                            />
+                            <button
+                              id="submit_comment"
+                              class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="sub_comment max-[900px]:text-sm ml-[50px] max-[900px]:ml-[30px] max-[900px]:w-full hidden_comment hidden flex mb-4"
+                      >
+                        <img
+                          class="w-8 h-8 rounded-full mr-4"
+                          src="assets/profile.jpg"
+                          alt="profile"
+                        />
+                        <div class="flex flex-col bg-white">
+                          <div
+                            class="main_info flex-1 bg-gray-200 p-2 rounded-lg"
+                          >
+                            <div class="comment_info">
+                              <div
+                                class="comment_name flex flex-col justify-center mb-2"
+                              >
+                                <div class="flex">
+                                  <p class="font-bold mr-2 text-sm">
+                                    Alan Biju
+                                  </p>
+                                  <span class="text-gray-600 text-xs"
+                                    >Developer</span
+                                  >
+                                </div>
+                                <span class="text-gray-600 text-xs"
+                                  >Replying to @lorem</span
+                                >
+                              </div>
+                              <div class="para mb-2 text-sm">
+                                <p class="text-gray-700">Ur right bro</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="likes flex items-center mb-4 text-xs">
+                            <span class="mr-2">Like . 51 ||</span>
+                            <span
+                              class="comment_reply_btn text-blue-500 cursor-pointer"
+                              >Reply</span
+                            >
+                          </div>
+                          <div
+                            class="comment_input hidden max-[900px]:text-sm reply flex items-center mb-4"
+                          >
+                            <img
+                              class="w-8 h-8 rounded-full mr-4"
+                              src="assets/profile.jpg"
+                              alt="profile"
+                            />
+                            <input
+                              class="flex-1 bg-white rounded-full px-4 py-2 border border-gray-300 max-[900px]:w-[50%]"
+                              type="text"
+                              name="comment"
+                              id="comment"
+                              placeholder="Write a reply..."
+                            />
+                            <button
+                              id="submit_comment"
+                              class="bg-blue-500 text-white px-2 py-1 rounded-lg mx-[10%]"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onclick="ShowMoreComments()"
+                      class="showmorebutton text-blue-500 w-full"
+                    >
+                      Load More
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="loadMorebutton bg-blue-500 text-white px-2 py-1 rounded-lg"
+                >
+                  Load More
+                </button>
+              </div>
+            </div>
+            
+          </div>
+         
+        </div>
+        
+      </div>
+    </div>
+  </body>
+
+  <script src="./app.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    let swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next1",
+        prevEl: ".swiper-button-prev1",
+      },
+      breakpoints: {
+        300: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        400: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        580: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        680: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+        1240: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+        1440: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+        1540: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+        1840: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+      },
+    });
+    ///--------------------------------
+
+    ///------------------------------
+    const showMore = () => {
+      const moreSection = document.querySelector(".more_section");
+
+      if (moreSection.style.display == "grid") {
+        moreSection.style.display = "none";
+      } else {
+        moreSection.style.display = "grid";
+      }
+    };
+    const shareToBox = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      moreSection.style.display = "none";
+      shareSection.style.display = "grid";
+    };
+    const reportToBox = () => {
+      const moreSection = document.querySelector(".more_section");
+      const reportSection = document.querySelector(".report_section");
+      moreSection.style.display = "none";
+      reportSection.style.display = "grid";
+    };
+    const reportpageToBox = () => {
+      const reportSection = document.querySelector(".report_section");
+      const reportPageSection = document.querySelector(
+        ".reportconfirmPage_section"
+      );
+      reportSection.style.display = "none";
+      reportPageSection.style.display = "grid";
+    };
+    const backToMoreSection = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      const reportSection = document.querySelector(".report_section");
+      moreSection.style.display = "grid";
+      shareSection.style.display = "none";
+      reportSection.style.display = "none";
+    };
+    const moreOptionsClose = () => {
+      const moreSection = document.querySelector(".more_section");
+      const shareSection = document.querySelector(".share_to_section");
+      const reportSection = document.querySelector(".report_section");
+      const reportPageSection = document.querySelector(
+        ".reportconfirmPage_section"
+      );
+      reportPageSection.style.display = "none";
+      moreSection.style.display = "none";
+      shareSection.style.display = "none";
+      reportSection.style.display = "none";
+    };
+    document.addEventListener("DOMContentLoaded", () => {
+      const seeMoreBtns = document.querySelectorAll(".see-more-btn");
+
+      seeMoreBtns.forEach((btn) => {
+        const para = btn.previousElementSibling;
+        const fullText = para.textContent.trim();
+        const truncatedText = fullText.slice(0, 100) + "..."; // Adjust the number to the desired truncated length
+
+        let isTruncated = true;
+        para.textContent = truncatedText;
+
+        btn.addEventListener("click", () => {
+          if (isTruncated) {
+            para.textContent = fullText;
+            btn.textContent = "See Less";
+          } else {
+            para.textContent = truncatedText;
+            btn.textContent = "See More";
+          }
+          isTruncated = !isTruncated;
+        });
+      });
+    });
+
+    ////------------------------------
+    const ShowMoreComments = () => {
+      console.log("here");
+      // const ShowMoreCommentsSection =
+      // 	document.querySelector('.hidden_comment');
+      // const ShowMoreCommentsButton =
+      // 	document.querySelector('.showmorebutton');
+
+      // if (ShowMoreCommentsSection.style.display == 'flex') {
+      // 	ShowMoreCommentsSection.style.display = 'none';
+      // 	ShowMoreCommentsButton.textContent = 'Load More';
+      // } else {
+      // 	ShowMoreCommentsSection.style.display = 'flex';
+      // 	ShowMoreCommentsButton.textContent = 'Show Less';
+      // }
+    };
+    // const showmorebutton = document.querySelector('.showmorebutton').parentElement.querySelectorAll(".hidden_comment");
+    const AllmoreButton = document.querySelectorAll(".showmorebutton");
+    AllmoreButton.forEach((elt) => {
+      elt.addEventListener("click", () => {
+        const comments = elt.parentElement.querySelectorAll(".hidden_comment");
+        comments.forEach((commentItem) => {
+          if (commentItem.style.display == "flex") {
+            commentItem.style.display = "none";
+            elt.textContent = "Load More";
+          } else {
+            commentItem.style.display = "flex";
+            elt.textContent = "Show Less";
+          }
+        });
+      });
+    });
+    ///--------------------------------
+    // const showComment = () => {
+    // 	const CommentSection = document.querySelector('.comment_section');
+    // 	if (CommentSection.style.display == 'block') {
+    // 		CommentSection.style.display = 'none';
+    // 	} else {
+    // 		CommentSection.style.display = 'block';
+    // 	}
+    // };
+    // const CommentIcon = document
+    // 	.querySelector('.comment_icon')
+    // 	.parentElement.parentElement.parentElement.querySelector(
+    // 		'.comment_section',
+    // 	);
+    const CommentIcon = document.querySelectorAll(".comment_icon");
+    CommentIcon.forEach((ele) => {
+      ele.addEventListener("click", () => {
+        const CommentSection =
+          ele.parentElement.parentElement.nextElementSibling;
+
+        if (CommentSection.style.display == "block") {
+          CommentSection.style.display = "none";
+        } else {
+          CommentSection.style.display = "block";
+        }
+        console.log(CommentSection);
+      });
+    });
+    const replyButtons = document.querySelectorAll(".comment_reply_btn");
+
+    replyButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        // Close all reply sections
+        document.querySelectorAll(".comment_input").forEach((inputSection) => {
+          inputSection.classList.add("hidden");
+        });
+
+        // Open the reply section of the clicked reply button
+        const commentBlock = this.closest(
+          ".main_comment, .sub_comment, .sub_sub_comment"
+        );
+        const replySection = commentBlock.querySelector(".comment_input");
+        replySection.classList.toggle("hidden");
+      });
+    });
+
+    // console.log(CommentIcon);
+    //--------------------------------------------
+
+    const feedMoreSection = document.querySelector(".feed_more_section");
+    const closeFeedMoreSection = document.querySelector(
+      "#close_feed_container"
+    );
+    const showPostFeed = () => {
+      console.log("here");
+
+      if (feedMoreSection.style.display == "grid") {
+        feedMoreSection.style.display = "none";
+      } else {
+        feedMoreSection.style.display = "grid";
+      }
+    };
+    feedMoreSection.addEventListener("click", (e) => {
+      if (e.target.id === "feedmainconaitner") {
+        feedMoreSection.style.display = "none";
+      }
+    });
+    closeFeedMoreSection.addEventListener("click", (e) => {
+      feedMoreSection.style.display = "none";
+    });
+
+    //-------------------------------------
+    const moreSection = document.querySelector(".more_section");
+    moreSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        moreSection.style.display = "none";
+      }
+    });
+    const shareSection = document.querySelector(".share_to_section");
+    const reportSection = document.querySelector(".report_section");
+    const reportPageSection = document.querySelector(
+      ".reportconfirmPage_section"
+    );
+
+    shareSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        shareSection.style.display = "none";
+      }
+    });
+    reportPageSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        reportPageSection.style.display = "none";
+      }
+    });
+    reportSection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        reportSection.style.display = "none";
+      }
+    });
+    const fullpostsection = document.querySelector(".full_post_section");
+    fullpostsection.addEventListener("click", (e) => {
+      if (e.target.id === "conaitnerCheck") {
+        fullpostsection.style.display = "none";
+      }
+    });
+    //-------------------
+    $(document).ready(function () {
+      $("#heart").click(function () {
+        if ($("#heart").hasClass("liked")) {
+          $("#heart").html(
+            '<i class="far fa-heart js-heart heart" aria-hidden="true"></i>'
+          );
+          $("#heart").removeClass("liked");
+        } else {
+          $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+          $("#heart").addClass("liked");
+        }
+      });
+    });
+
+    //------------------------
+    const diplayPost = () => {
+      const full_post_section = document.querySelector(".full_post_section");
+      if (full_post_section.style.display == "grid") {
+        full_post_section.style.display = "none";
+      } else {
+        full_post_section.style.display = "grid";
+      }
+    };
+    //------------------------
+  </script>
+</html>
