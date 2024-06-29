@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .hashtag {
+        display: inline-block;
+        margin-right: 5px;
+        background-color: #e0e0e0;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+      .remove-hashtag {
+        margin-left: 5px;
+        color: red;
+        cursor: pointer;
+      }
+      .preview-image {
+        max-width: 200px;
+        max-height: 200px;
+        margin-right: 10px;
+      }
+      .first-image img {
+        max-width: 400px;
+        max-height: 400px;
+      }
+    </style>
+    <style>
+      .preview-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .preview-image {
+        position: relative;
+        max-width: 500px;
+        max-height: 500px;
+        margin: 5px;
+        height: 10em;
+        width: 10em;
+        /* padding: 5%; */
+      }
+
+      .image-wrapper {
+        border: 2px solid #ddd7d7;
+      }
+
+      .remove-button {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .preview-image-container {
+        position: relative;
+        margin-bottom: 50px;
+      }
+
+      .preview-image-container {
+        aspect-ratio: 16/9;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        /* Adjust the values as needed */
+      }
+
+      .preview-image-container {
+        /* Your existing styles for the sub-div */
+        /* Add additional styles as needed */
+        /* flex-basis: 25%; */
+        margin: 1%;
+        padding-top: 1%;
+        padding-bottom: 5%;
+        /* For large screens, 4 sub-divs in a row */
+      }
+
+      .arrow-button {
+        background-color: rgb(248, 248, 248);
+        border: #ffffff;
+        font-size: 1em;
+        width: 30px;
+      }
+
+      /* .allImages {
+        display: flex;
+        flex-direction: row;
+      } */
+
+      @media (max-width: 786px) {
+        .first-image {
+          display: none;
+        }
+
+        .pre-preview-div {
+          width: 100%;
+        }
+
+        .allImages {
+          display: block;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .allImages img {
+          /* display: block; */
+          height: 50vw;
+          width: 50vw;
+        }
+      }
+    </style>
+    <style>
+      .assesment_card_section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
+      }
+      .ham #ham_icon {
+        width: 20px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        margin-right: 10px;
+        display: none;
+        cursor: pointer;
+        z-index: 555;
+      }
+
+      @media (max-width: 800px) {
+        .ham #ham_icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      header .sub_header .Header_icon {
+        margin-left: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      header .sub_header .Header_icon img {
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 150px;
+      }
+
+      @media (max-width: 800px) {
+        header .sub_header .Header_icon img {
+          display: none;
+        }
+      }
+      aside,
+      .max_width_holder {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        height: calc(100vh - 60px);
+      }
+
+      @media (max-width: 1000px) {
+        aside {
+          position: absolute;
+          z-index: 21;
+          left: -250px;
+          top: 60px;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .banner .yellow_tag {
+        height: 50px;
+        width: 40%;
+        background: #f3c60c;
+        bottom: -25px;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .banner .yellow_tag {
+          width: 100vw;
+        }
+      }
+
+      .banner .yellow_tag p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 700px) {
+        .banner .yellow_tag p {
+          font-size: 0.8rem;
+          padding-left: 10px;
+        }
+      }
+
+      .banner .yellow_tag .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid transparent;
+        border-left: 50px solid transparent;
+      }
+
+      .goals_DropDown::after,
+      .power_dropDown::after,
+      .coin_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 45%;
+      }
+
+      .notification_dropdown::after,
+      .profile_dropDown::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        position: absolute;
+        top: -10px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        right: 12%;
+      }
+      .swiper-button-next,
+      .swiper-button-prev,
+      .swiper-button-next2,
+      .swiper-button-prev2 {
+        /* border: solid 1px rgba(0, 0, 0, 0.6);
+        background-color: rgb(218, 213, 213); */
+        border-radius: 50%;
+        width: 50px !important;
+        height: 50px !important;
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after,
+      .swiper-button-next2,
+      .swiper-button-prev2 {
+        font-size: 1.5rem !important;
+        font-weight: 800 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6f6f6]">
+    <div class="flex flex-col">
+      <header
+        class="bg-white fixed py-2 text-lg w-full z-50"
+        style="box-shadow: 0 6px 16px -1px rgba(0, 0, 0, 0.3)"
+      >
+        <div
+          class="sub_header relative mx-auto flex justify-between items-center max-[900px]:min-h-[45px]"
+        >
+          <div class="Header_icon flex items-center">
+            <div class="ham" onclick="slideMenu()">
+              <img
+                id="ham_icon"
+                src="https://img.icons8.com/android/96/000000/menu.png"
+              />
+            </div>
+
+            <img
+              src="assets/icon.svg"
+              alt="Logo"
+              class="w-32 h-12 object-contain"
+            />
+          </div>
+
+          <div class="Header_Profile flex items-center mr-4">
+            <div class="Icons flex items-center min-[900px]:mr-4 justify-end">
+              <div
+                class="points relative items-center max-[900px]:hidden bg-purple-200 w-[180px] rounded-full px-3 py-2 mr-4 cursor-pointer"
+                onclick="goalsDrop()"
+              >
+                <div class="flex justify-between">
+                  <p class="flex items-center font-medium text-base mr-2">
+                    <span class="mr-1">🔥</span> 365
+                  </p>
+                  <p class="flex items-center font-medium text-base">
+                    <span class="mr-1">🎯</span> 36935
+                  </p>
+                </div>
+                <div
+                  class="goals_DropDown bg-white rounded-md w-[400px] absolute right-[-70%] top-[65px] hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div
+                    class="title flex justify-between items-center px-4 py-2 border-b"
+                  >
+                    <h2 class="text-lg font-semibold">Daily Goals</h2>
+                    <p
+                      class="text-blue-500 hover:text-blue-700 text-base cursor-pointer"
+                    >
+                      Edit Goals
+                    </p>
+                  </div>
+                  <div
+                    class="info_text px-4 py-2 border-b flex items-center justify-between bg-gray-100 text-sm mb-2"
+                  >
+                    <p class="text-gray-600">
+                      How does streak work , know more obout here
+                    </p>
+                    <span
+                      class="text-gray-600 hover:text-gray-800 cursor-pointer"
+                      onclick="closeInfo()"
+                      >X</span
+                    >
+                  </div>
+                  <div class="goals_section flex px-4 py-2 text-sm">
+                    <div class="left_section w-1/2 pr-2 mb-4">
+                      <div
+                        class="total_streak_day bg-[#ffecee] rounded-md px-2 h-[60%]"
+                      >
+                        <div
+                          class="title flex justify-between items-center mb-2"
+                        >
+                          <p class="text-gray-600">Total Streak</p>
+                          <img
+                            src="https://img.icons8.com/color/48/000000/share--v1.png"
+                            class="w-3 h-3"
+                          />
+                        </div>
+                        <div
+                          class="streak_body flex items-center justify-center h-[40px] pt-[10px]"
+                        >
+                          <img
+                            src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
+                            class="w-8 h-8 mr-2"
+                          />
+                          <div class="body_details">
+                            <p class="text-lg font-bold">0</p>
+                            <span class="text-gray-600">Day Streak</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="total_streak_freeeze bg-[#ebfcfc] rounded-md mt-3 px-2 h-[40%]"
+                      >
+                        <div
+                          class="streak_body flex justify-center items-center pt-[10px]"
+                        >
+                          <img
+                            src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
+                            class="w-8 h-8 mr-2"
+                          />
+                          <div class="body_details">
+                            <p class="text-lg font-bold">0</p>
+                            <span class="text-gray-600">Streak Freeze</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right_section w-1/2 pl-2 mb-3">
+                      <div class="right_box bg-[#fff7ea] rounded-md px-2 py-4">
+                        <div class="title flex justify-between mb-2 flex-col">
+                          <p class="text-gray-600 font-bold mb-2">Daily Goal</p>
+                          <div
+                            class="time_box bg-[#e9b7bbb6] rounded-full w-[120px] text-center px-2"
+                          >
+                            <span class="text-red-500">11:34:13</span>
+                          </div>
+                        </div>
+                        <div class="streak_body flex items-center mb-2">
+                          <div class="body_details">
+                            <p class="text-lg font-semibold">10/200</p>
+                            <span class="text-gray-600">Points</span>
+                          </div>
+                        </div>
+                        <div class="progress_streak">
+                          <div
+                            class="progress_bar bg-gray-300 rounded-full h-2"
+                          >
+                            <div
+                              class="bar bg-blue-500 h-2 rounded-full"
+                              style="width: 10%"
+                            ></div>
+                          </div>
+                          <button
+                            class="bg-[#21dde0] text-white font-bold py-2 px-4 rounded mt-2 w-full"
+                          >
+                            Achieve Score
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="score relative flex items-center mr-2">
+                <div>
+                  <p
+                    class="flex items-center font-medium text-base mr-3 shock cursor-pointer"
+                    onclick="powerhandler()"
+                  >
+                    <span>⚡</span> 200
+                  </p>
+                </div>
+                <div
+                  class="power_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-110%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="power_item h-[40px] font-bold">
+                    <p>Highest xp : 200</p>
+                  </div>
+                  <div class="power_item h-[40px] font-bold">
+                    <p>Curent xp : 10</p>
+                  </div>
+                  <div class="buttons">
+                    <button
+                      class="hover:bg-blue-700 text-white font-semibold px-4 rounded h-[30px] bg-[#34b2bb]"
+                    >
+                      Reedem
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="score relative flex items-center mr-4">
+                <div>
+                  <p
+                    class="flex items-center font-medium text-base coin cursor-pointer"
+                    onclick="Coinhandler()"
+                  >
+                    <img
+                      src="assets/coin (3).png"
+                      alt="notifiction"
+                      class="w-6 h-6 mr-1.5"
+                    /><span>36912</span>
+                  </p>
+                </div>
+                <div
+                  class="coin_dropDown flex flex-col p-4 rounded-lg absolute top-[65px] right-[-85%] w-[200px] z-50 bg-white text-center justify-between text-base hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="coin_item h-[40px] font-bold">
+                    <p>Highest coins : 200</p>
+                  </div>
+                  <div class="coin_item h-[40px] font-bold">
+                    <p>Curent coins : 10</p>
+                  </div>
+                  <div class="buttons">
+                    <button
+                      class="hover:bg-blue-700 text-white font-semibold px-4 rounded h-[30px] bg-[#34b2bb]"
+                    >
+                      Reedem
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="mr-8 relative notification_bell cursor-pointer">
+                <div class="">
+                  <img
+                    src="assets/bell.svg"
+                    alt="notifiction"
+                    class="notification_bell w-6 h-6 ml-1"
+                  />
+                  <span
+                    class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs font-bold px-2 py-1"
+                  >
+                    3
+                  </span>
+                </div>
+                <div
+                  class="notification_dropdown flex flex-col bg-white rounded-md w-[350px] absolute top-[65px] right-[-140%] shadow-lg hidden"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+                  <div class="notification_item flex p-4 border-b">
+                    <div class="notification_item_icon mr-4">
+                      <div class="icon_holder">
+                        <img
+                          src="assets/profile.jpg"
+                          alt="prifle"
+                          class="w-10 h-10 rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="notification_content flex-1 text-sm">
+                      <p class="text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore
+                      </p>
+                      <button
+                        class="border border-[#ff00d4] text-[#ff00d4] font-semibold mt-2 px-2 rounded-full"
+                      >
+                        Join Community
+                      </button>
+                    </div>
+                    <div class="time ml-4">
+                      <p class="text-gray-500">2h</p>
+                      <h1 class="notification_dots text-gray-500">...</h1>
+                    </div>
+                  </div>
+
+                  <div class="see_all_notifications p-3 text-center">
+                    <a
+                      href="notification.html"
+                      class="text-blue-500 hover:text-blue-700"
+                      >See all notifications</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative max-[900px]:hidden">
+                <img
+                  src="assets/profile.jpg"
+                  alt="avatar"
+                  class="profile_pic avatar w-10 h-10 rounded-full cursor-pointer"
+                />
+                <div
+                  class="profile_dropDown absolute top-[65px] right-[-40%] mt-2 bg-white rounded-md transition duration-500 opacity-0 hidden w-[220px] h-[250px] flex flex-col justify-between"
+                  style="
+                    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.35),
+                      5px 0 10px -5px rgba(0, 0, 0, 0.35),
+                      -5px 0 10px -5px rgba(0, 0, 0, 0.35);
+                  "
+                >
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Dashboard</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>View Profile</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Edit</p>
+                  </a>
+                  <a
+                    href="#"
+                    class="profile_dropDown_item flex items-center px-4 py-2 hover:bg-gray-100 hover:text-purple-500 hover:border-l-4 hover:border-purple-500 hover:font-semibold"
+                  >
+                    <span
+                      ><img
+                        src="https://img.icons8.com/windows/32/000000/exit.png"
+                        class="w-5 h-5 mr-2"
+                    /></span>
+                    <p>Logout</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-row pt-[60px]">
+        <aside
+          class="sideMenu bg-[#0a182e] min-w-[220px] flex flex-col transition-all duration-300 z-40 max-w-[220px] w-[250px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <a
+              href="index.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My Progress
+              </p>
+            </a>
+            <a
+              href="myFeed.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My Feed
+              </p>
+            </a>
+            <a
+              href="topics.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Topics
+              </p>
+            </a>
+            <a
+              href="Competitions.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/stage.png" alt="bookmark" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Competitions
+              </p>
+            </a>
+            <a
+              href="leaderBoard.html"
+              id="active"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/leaderboard.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Leaderboard
+              </p>
+            </a>
+            <hr class="border-gray-500 w-[80%] mx-auto" />
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <div class="title w-full pl-8 mb-2">
+              <h4
+                class="text-white uppercase my-1 text-lg font-bold"
+                style="font-family: Nunito"
+              >
+                catalog
+              </h4>
+            </div>
+            <a
+              href="career.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/career-choice.png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Career Paths
+              </p>
+            </a>
+            <a
+              href="courses.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Courses
+              </p>
+            </a>
+            <a
+              href="projects.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/project-management (2).png"
+                alt="leader"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Projects
+              </p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/project.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Practice
+              </p>
+            </a>
+            <a
+              href="assesments.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/clipboard.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Assessments
+              </p>
+            </a>
+            <a
+              href="liveEvents.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/deadline.png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Live Events
+              </p>
+            </a>
+            <hr class="border-gray-500 w-[80%] mx-auto" />
+          </div>
+          <div class="myMenu flex flex-col justify-center mb-4 mt-2">
+            <div class="title w-full pl-8 mb-2">
+              <h4
+                class="text-white uppercase my-1 text-lg font-bold"
+                style="font-family: Nunito"
+              >
+                PROFILE
+              </h4>
+            </div>
+            <a
+              href="myProfile.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-4 h-4"
+              />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                My profile
+              </p>
+            </a>
+            <a
+              href="editProfile.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/edit (1).png" alt="bookmark" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Edit profile
+              </p>
+            </a>
+            <a
+              href="accountSettings.html"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/user (1).png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Account Settings
+              </p>
+            </a>
+            <a
+              href="##"
+              class="flex h-10 text-white text-[14px] w-full justify-center items-center hover:text-gray-400 transition-colors duration-300"
+            >
+              <img src="assets/logout (1).png" alt="leader" class="w-4 h-4" />
+              <p class="w-[70%] ml-[10px]" style="font-family: Nunito">
+                Logout
+              </p>
+            </a>
+          </div>
+          <button
+            class="bg-[#7933ff] text-white rounded-lg py-2 px-4 mb-4 w-4/5 mx-auto"
+          >
+            Contact us
+          </button>
+        </aside>
+        <div
+          class="bottombar fixed bottom-0 left-0 z-20 w-full h-16 bg-[#0a182e] min-[900px]:hidden border-t border-gray-200"
+        >
+          <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
+            <a
+              href="index.html"
+              class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-6 h-6"
+              />
+              <span class="text-sm text-white group-hover:text-pink-600"
+                >Home</span
+              >
+            </a>
+            <a
+              href="myFeed.html"
+              class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+            >
+              <img
+                src="assets/self-growth3.png"
+                alt="progress"
+                class="w-6 h-6"
+              /><span class="text-sm text-white group-hover:text-pink-600"
+                >Post</span
+              ></a
+            >
+            <a
+              href="courses.html"
+              class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+              ><img
+                src="assets/online-course2.png"
+                alt="leader"
+                class="w-6 h-6"
+              /><span class="text-sm text-white group-hover:text-pink-600"
+                >Courses</span
+              ></a
+            >
+            <a
+              href="myProfile.html"
+              class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+              ><img
+                src="assets/account (1).png"
+                alt="progress"
+                class="w-6 h-6"
+              /><span class="text-sm text-white group-hover:text-pink-600"
+                >Profile</span
+              ></a
+            >
+            <a
+              href="liveEvents.html"
+              class="inline-flex flex-col items-center justify-center px-5 hover:bg-blue-950 group"
+              ><img
+                src="assets/deadline.png"
+                alt="leader"
+                class="w-6 h-6"
+              /><span class="text-sm text-white group-hover:text-pink-600"
+                >Events</span
+              ></a
+            >
+          </div>
+        </div>
+        <div
+          class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll"
+        >
+          <div
+            class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 overflow-y-scroll h-[85%]"
+          >
+            <h1 class="text-2xl font-bold mb-4 text-center">Create a Post</h1>
+            <form id="post-form" enctype="multipart/form-data">
+              <div class="flex items-center mb-4">
+                <img
+                  src="https://avatars.githubusercontent.com/u/122403035?v=4"
+                  alt="Alan Biju profile picture"
+                  class="w-16 h-16 rounded-full mr-3"
+                />
+                <div>
+                  <p class="font-semibold">Alan Biju</p>
+                  <p class="text-sm text-gray-500">TechSnap DevOps</p>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700"
+                  >Message:</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="mt-1 block w-full border rounded-md shadow-sm"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="hashtags"
+                  class="block text-sm font-medium text-gray-700"
+                  >Hashtags:</label
+                >
+                <div class="flex">
+                  <input
+                    type="text"
+                    id="hashtags"
+                    name="hashtags"
+                    class="mt-1 block w-full border rounded-md shadow-sm"
+                    style="padding-right: 30px"
+                  />
+                  <button
+                    type="button"
+                    id="add-hashtag"
+                    class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+                  >
+                    Add
+                  </button>
+                </div>
+                <div id="hashtags-list" class="mt-2"></div>
+              </div>
+
+              <div class="mb-4">
+                <input
+                  type="file"
+                  id="imageUpload"
+                  accept="image/*"
+                  multiple
+                  class="hidden"
+                />
+                <label
+                  for="imageUpload"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                >
+                  Upload Images
+                </label>
+                <div class="image-section mt-2 flex justify-between">
+                  <div
+                    class="first-image flex flex-col items-center w-1/2 flex-1"
+                  ></div>
+                  <div class="preview-images flex w-1/2 flex-wrap mt-2"></div>
+                </div>
+                <div
+                  class="allImages flex flex-wrap mt-2"
+                  style="display: none"
+                ></div>
+              </div>
+              <div class="flex justify-between mx-auto">
+                <div class="mb-4"></div>
+                <div class="mb-8 w-1/2">
+                  <div id="mainImgdiv" class="mainImgdiv relative max-w-72 max-h-72">
+                    <img
+                      id="mainImage"
+                      src=""
+                      alt="Main Image"
+                      class="w-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      id="prevMain"
+                      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-r"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      id="nextMain"
+                      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-l"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-4 w-1/2" id="thumbnails">
+                  <!-- Thumbnails will be inserted here -->
+                </div>
+              </div>
+              <div class="text-center m-5">
+                <button
+                  type="button"
+                  id="toggleImagesButton"
+                  class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+                >
+                  Save
+                </button>
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+                >
+                  Post
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let images = [];
+      let currentIndex = 0;
+
+      function updateMainImage() {
+        const mainImage = document.getElementById("mainImage");
+        if (images.length > 0) {
+          mainImage.src = images[currentIndex];
+          document.getElementById("mainImgdiv").classList.remove("hidden")
+
+        } else {
+          mainImage.src = "";
+        }
+      }
+      if(images.length <=0){
+        document.getElementById("mainImgdiv").classList.add("hidden")
+      }
+  
+      function createThumbnail(src, index) {
+        const div = document.createElement("div");
+        div.className = "relative";
+        if(images.length>0){
+        div.innerHTML = `
+            <div class="h-58 w-58 m-5 border border-red-400 border-solid flex flex-col justify-between">
+              <div>
+                <img src="${src}" alt="Thumbnail" class="w-full max-w-58 max-h-58 cursor-pointer">
+                <button type="button" class="prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-r">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="prev h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button type="button" class="next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-l">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="next h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+              </div>
+              <div class="flex justify-center items-end">
+                  <button type="button" class="remove  bg-red-500 text-white px-2 py-1 text-xs">Remove</button>
+              </div>
+            </div>
+            `;
+          }
+        return div;
+      }
+
+      function updateThumbnails() {
+        const thumbnails = document.getElementById("thumbnails");
+        thumbnails.innerHTML = "";
+        images.forEach((src, index) => {
+          thumbnails.appendChild(createThumbnail(src, index));
+        });
+      }
+
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const files = event.target.files;
+          for (let file of files) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              images.push(e.target.result);
+              updateThumbnails();
+              if (images.length === 1) {
+                updateMainImage();
+              }
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+      document.getElementById("prevMain").addEventListener("click", (e) => {
+        e.preventDefault();
+        if (images.length > 0) {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          updateMainImage();
+        }
+      });
+
+      document.getElementById("nextMain").addEventListener("click", (e) => {
+        e.preventDefault();
+        if (images.length > 0) {
+          currentIndex = (currentIndex + 1) % images.length;
+          updateMainImage();
+        }
+      });
+
+      document.getElementById("thumbnails").addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG") {
+          const thumbnail = e.target.closest(".relative");
+          currentIndex = Array.from(thumbnail.parentNode.children).indexOf(
+            thumbnail
+          );
+          updateMainImage();
+        } else if (e.target.classList.contains("prev")) {
+          const thumbnail = e.target.closest(".relative");
+          const index = Array.from(thumbnail.parentNode.children).indexOf(
+            thumbnail
+          );
+          if (index > 0) {
+            [images[index], images[index - 1]] = [
+              images[index - 1],
+              images[index],
+            ];
+            updateThumbnails();
+          }
+        } else if (e.target.classList.contains("next")) {
+          const thumbnail = e.target.closest(".relative");
+          const index = Array.from(thumbnail.parentNode.children).indexOf(
+            thumbnail
+          );
+          if (index < images.length - 1) {
+            [images[index], images[index + 1]] = [
+              images[index + 1],
+              images[index],
+            ];
+            updateThumbnails();
+          }
+        } else if (e.target.classList.contains("remove")) {
+          const thumbnail = e.target.closest(".relative");
+          const index = Array.from(thumbnail.parentNode.children).indexOf(
+            thumbnail
+          );
+          images.splice(index, 1);
+          updateThumbnails();
+          if (currentIndex >= images.length) {
+            currentIndex = Math.max(0, images.length - 1);
+          }
+          updateMainImage();
+        }
+      });
+
+      updateMainImage();
+    </script>
+    <script>
+      var hashtags = []; // Array to store hashtags
+
+      var messageContainer = document.querySelector(".message-container");
+      var hashtagsContainer = document.querySelector(".hashtags-container");
+
+      document
+        .getElementById("add-hashtag")
+        .addEventListener("click", function () {
+          var hashtagInput = document.getElementById("hashtags");
+          var hashtag = hashtagInput.value.trim(); // Remove leading and trailing spaces
+          if (hashtag !== "") {
+            hashtags.push("#" + hashtag); // Add hashtag with '#' symbol to the array
+            displayHashtags(); // Display hashtags
+            hashtagInput.value = ""; // Clear input field
+          }
+        });
+
+      // event listener for post buttopn
+      document
+        .getElementById("post-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (hashtags.length < 3) {
+            alert("Please add at least 3 hashtags.");
+            // return ;
+          } else {
+            var formData = new FormData(this);
+
+            var title = formData.get("title"); // title of the post
+            var message = formData.get("message"); // message of the post
+            console.log("Title:", title);
+            console.log("Message:", message);
+            var hashtag_data = hashtags;
+            console.log("Hashtags:");
+            hashtag_data.forEach(function (hashtag) {
+              console.log(hashtag); // individual hashtags
+            });
+
+            // Extract and log each image
+            console.log("Images:");
+            var posting_images = selectedImages; // array for images
+            for (var i = 0; i < posting_images.length; i++) {
+              console.log("Image:", posting_images[i].name);
+            }
+          }
+        });
+
+      // Function to display hashtags
+      function displayHashtags() {
+        var hashtagsList = document.getElementById("hashtags-list");
+        hashtagsList.innerHTML = "";
+        hashtags.forEach(function (hashtag, index) {
+          var hashtagElement = document.createElement("div");
+          hashtagElement.textContent = hashtag;
+          hashtagElement.classList.add("hashtag");
+
+          var removeButton = document.createElement("button");
+          removeButton.innerHTML = "X";
+          removeButton.classList.add("remove-hashtag");
+          removeButton.addEventListener("click", function () {
+            hashtags.splice(index, 1);
+            displayHashtags();
+          });
+
+          hashtagElement.appendChild(removeButton);
+          hashtagsList.appendChild(hashtagElement);
+        });
+      }
+    </script>
+  </body>
+  <script src="./app.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</html>
