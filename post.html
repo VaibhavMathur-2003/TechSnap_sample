@@ -966,24 +966,23 @@
         >
           <div class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 h-[87%]">
             <h1 class="text-2xl font-bold mb-2">Create a Post</h1>
+            <div class="flex items-center mb-4">
+              <img
+                src="https://avatars.githubusercontent.com/u/122403035?v=4"
+                alt="Alan Biju profile picture"
+                class="w-16 h-16 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-semibold">Alan Biju</p>
+                <p class="text-sm text-gray-500">TechSnap DevOps</p>
+              </div>
+            </div>
             <form
               id="post-form"
               class="max-h-[28rem]"
               enctype="multipart/form-data"
             >
               <div id="posttext" class="hidden">
-                <div class="flex items-center mb-4">
-                  <img
-                    src="https://avatars.githubusercontent.com/u/122403035?v=4"
-                    alt="Alan Biju profile picture"
-                    class="w-16 h-16 rounded-full mr-3"
-                  />
-                  <div>
-                    <p class="font-semibold">Alan Biju</p>
-                    <p class="text-sm text-gray-500">TechSnap DevOps</p>
-                  </div>
-                </div>
-
                 <div class="mb-4">
                   <label
                     for="message"
@@ -993,7 +992,7 @@
                   <textarea
                     id="message"
                     name="message"
-                    rows="4"
+                    rows="2"
                     class="mt-1 block w-full border rounded-md shadow-sm"
                     required
                   ></textarea>
@@ -1025,7 +1024,7 @@
                 </div>
               </div>
               <div
-                class="flex items-center justify-center min-h-[450px]"
+                class="flex items-center justify-center min-h-[400px]"
                 id="adimage"
               >
                 <div class="flex justify-between items-center w-full">
@@ -1057,13 +1056,13 @@
               <div class="flex justify-between mx-auto hidden" id="imagePage">
                 <div
                   id="mainImgdiv"
-                  class="mainImgdiv relative h-[25rem] hidden m-auto bg-gray-600 w-3/5"
+                  class="mainImgdiv relative h-[21rem] hidden m-auto bg-gray-600 w-3/5"
                 >
                   <img
                     id="mainImage"
                     src=""
                     alt="Main Image"
-                    class="w-full object-contain h-[25rem]"
+                    class="w-full object-contain h-[21rem]"
                   />
                   <button
                     tyoe="button"
@@ -1106,7 +1105,7 @@
                 </div>
                 <div
                   id="thumbnailDiv"
-                  class="hidden flex flex-col w-2/5 justify-between items-center max-h-[25rem] bg-gray-700"
+                  class="hidden flex flex-col w-2/5 justify-between items-center max-h-[21rem] bg-gray-700"
                 >
                   <div
                     id="thumbnails"
@@ -1143,12 +1142,35 @@
                   </label>
                 </div>
               </div>
-              <div
-                id="nextPage"
-                class="flex w-full justify-end bg-gray-800 p-2 hidden"
-              >
-                <button type="button" class="bg-blue-500 p-2 rounded-full px-4">
+
+              <div id="secondPage" class="flex w-full justify-end my-2 p-2 hidden">
+                <button
+                  id="draft"
+                  type="button"
+                  class="bg-blue-500 p-2 mx-2 rounded-full px-4 hidden"
+                >
+                  Draft
+                </button>
+                <button
+                  id="reorder"
+                  type="button"
+                  class="bg-blue-500 p-2 mx-2 rounded-full px-4 hidden"
+                >
+                  Reorder
+                </button>
+                <button
+                  id="nextPage"
+                  type="button"
+                  class="bg-blue-500 p-2 mx-2 rounded-full px-4 hidden"
+                >
                   Next
+                </button>
+                <button
+                  id="postbtn"
+                  type="button"
+                  class="bg-green-500 p-2 mx-2 rounded-full px-4 hidden"
+                >
+                  Post
                 </button>
               </div>
             </form>
@@ -1160,6 +1182,7 @@
     <script>
       let images = [];
       let currentIndex = 0;
+      let thirdPage = false;
 
       function updateMainImage() {
         const mainImage = document.getElementById("mainImage");
@@ -1168,12 +1191,16 @@
         const nextPage = document.getElementById("nextPage");
         const Thumbnails = document.getElementById("thumbnailDiv");
         const imagePage = document.getElementById("imagePage");
+        const secondPage = document.getElementById("secondPage")
         if (images.length > 0) {
           mainImage.src = images[currentIndex];
           adImage.classList.add("hidden");
           uploadbtn.classList.add("hidden");
           nextPage.classList.remove("hidden");
-          Thumbnails.classList.remove("hidden");
+          secondPage.classList.remove("hidden")
+          if (thirdPage === false) {
+            Thumbnails.classList.remove("hidden");
+          }
           imagePage.classList.remove("hidden");
           document.getElementById("mainImgdiv").classList.remove("hidden");
         } else {
@@ -1194,7 +1221,7 @@
           <button type="button" class="prev absolute left-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200 ${
             isFirst ? "opacity-50 cursor-not-allowed" : ""
           }" 
-            id="prevMain" ${isFirst ? "disabled" : ""}>
+        ${isFirst ? "disabled" : ""}>
             <svg class="prev w-4 h-4 text-gray-600 transform rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
@@ -1203,7 +1230,7 @@
           <button type="button" class="next absolute right-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200 ${
             isLast ? "opacity-50 cursor-not-allowed" : ""
           }" 
-            id="nextMain" ${isLast ? "disabled" : ""}>
+             ${isLast ? "disabled" : ""}>
             <span class="sr-only">
             </span>
             <svg class="next w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -1263,6 +1290,27 @@
       document.getElementById("nextPage").addEventListener("click", () => {
         document.getElementById("posttext").classList.remove("hidden");
         document.getElementById("post-form").classList.add("overflow-y-scroll");
+        document.getElementById("thumbnailDiv").classList.add("hidden");
+        document.getElementById("post-form").classList.remove("max-h-[28rem]");
+        document.getElementById("post-form").classList.add("max-h-96");
+        document.getElementById("reorder").classList.remove("hidden");
+        document.getElementById("draft").classList.remove("hidden");
+        document.getElementById("postbtn").classList.remove("hidden");
+        document.getElementById("nextPage").classList.add("hidden");
+      
+        thirdPage = true;
+      });
+      document.getElementById("reorder").addEventListener("click", () => {
+        document.getElementById("posttext").classList.add("hidden");
+        document.getElementById("thumbnailDiv").classList.remove("hidden");
+        document.getElementById("post-form").classList.add("max-h-[28rem]");
+        document.getElementById("post-form").classList.remove("max-h-96");
+        document.getElementById("reorder").classList.add("hidden");
+        document.getElementById("draft").classList.add("hidden");
+        document.getElementById("postbtn").classList.add("hidden");
+        document.getElementById("nextPage").classList.remove("hidden");
+
+        thirdPage = false;
       });
 
       document.getElementById("prevMain").addEventListener("click", (e) => {
