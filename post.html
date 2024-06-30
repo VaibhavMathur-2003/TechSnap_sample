@@ -962,9 +962,9 @@
           </div>
         </div>
         <div
-          class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll"
+          class="w-full mx-auto max_width_holde min-[900px]:w-[70%]  overflow-x-hidden overflow-y-scroll flex justify-between"
         >
-          <div class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 h-[87%]">
+          <div id="postPage" class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 h-[87%]">
             <h1 class="text-2xl font-bold mb-2">Create a Post</h1>
             <div class="flex items-center mb-4">
               <img
@@ -1053,10 +1053,10 @@
                 </div>
               </div>
 
-              <div class="flex justify-between mx-auto hidden" id="imagePage">
+              <div class="flex justify-between mx-auto bg-[#e1e1e1] hidden" id="imagePage">
                 <div
                   id="mainImgdiv"
-                  class="mainImgdiv relative h-[21rem] hidden m-auto bg-gray-600 w-3/5"
+                  class="mainImgdiv relative h-[21rem] hidden m-auto  w-3/5"
                 >
                   <img
                     id="mainImage"
@@ -1105,7 +1105,7 @@
                 </div>
                 <div
                   id="thumbnailDiv"
-                  class="hidden flex flex-col w-2/5 justify-between items-center max-h-[21rem] bg-gray-700"
+                  class="hidden flex flex-col w-2/5 justify-between items-center max-h-[21rem] bg-[#e1e1e1]"
                 >
                   <div
                     id="thumbnails"
@@ -1123,14 +1123,14 @@
                   />
                   <label
                     for="addImage"
-                    class="cursor-pointer w-[8%] inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 transition-colors duration-200 border-2 border-white border-solid font-sm m-3"
+                    class="cursor-pointer w-[10%] inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 transition-colors duration-200 border-2 border-black border-solid font-sm m-3"
                   >
                     <svg
                       class="w-6 h-6 text-gray-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke="white"
+                      stroke="black"
                     >
                       <path
                         stroke-linecap="round"
@@ -1175,6 +1175,29 @@
               </div>
             </form>
           </div>
+          <div id="advertisement" class="rounded  flex flex-col items-end justify-center hidden">
+            <div
+            class="w-[300px] bg-white p-4 rounded border mb-1.5 border-black rounded-lg"
+          >
+            <h2 class="text-xl font-bold mb-2">Linkdin News</h2>
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+            
+            <div class="mb-4">
+              <p class="font-semibold">Biden to meet refugees in Poland</p>
+              <p class="text-gray-400 text-sm">2h ago</p>
+            </div>
+          </div>
+            <img
+              src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAACeUyGWuWBhQQLyxe1gEMEaZgw.png"
+              alt="ads"
+              class="mb-1"
+            />
+        
+           
+          </div>
         </div>
       </div>
     </div>
@@ -1192,6 +1215,7 @@
         const Thumbnails = document.getElementById("thumbnailDiv");
         const imagePage = document.getElementById("imagePage");
         const secondPage = document.getElementById("secondPage")
+        
         if (images.length > 0) {
           mainImage.src = images[currentIndex];
           adImage.classList.add("hidden");
@@ -1201,6 +1225,7 @@
           if (thirdPage === false) {
             Thumbnails.classList.remove("hidden");
           }
+          
           imagePage.classList.remove("hidden");
           document.getElementById("mainImgdiv").classList.remove("hidden");
         } else {
@@ -1297,7 +1322,9 @@
         document.getElementById("draft").classList.remove("hidden");
         document.getElementById("postbtn").classList.remove("hidden");
         document.getElementById("nextPage").classList.add("hidden");
-      
+        document.getElementById("advertisement").classList.remove("hidden")
+        document.getElementById("postPage").classList.remove("w-[90%]")
+        document.getElementById("postPage").classList.add("w-[555px]")
         thirdPage = true;
       });
       document.getElementById("reorder").addEventListener("click", () => {
@@ -1309,7 +1336,9 @@
         document.getElementById("draft").classList.add("hidden");
         document.getElementById("postbtn").classList.add("hidden");
         document.getElementById("nextPage").classList.remove("hidden");
-
+        document.getElementById("advertisement").classList.add("hidden")
+        document.getElementById("postPage").classList.add("w-[90%]")
+        document.getElementById("postPage").classList.remove("w-[555px]")
         thirdPage = false;
       });
 
