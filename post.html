@@ -964,158 +964,191 @@
         <div
           class="w-full mx-auto max_width_holder max-w-[1400px] max-[1500px]:max-w-[1100px] overflow-x-hidden overflow-y-scroll"
         >
-          <div
-            class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 overflow-y-scroll h-[85%]"
-          >
-            <h1 class="text-2xl font-bold mb-4 text-center">Create a Post</h1>
-            <form id="post-form" enctype="multipart/form-data">
-              <div class="flex items-center mb-4">
-                <img
-                  src="https://avatars.githubusercontent.com/u/122403035?v=4"
-                  alt="Alan Biju profile picture"
-                  class="w-16 h-16 rounded-full mr-3"
-                />
-                <div>
-                  <p class="font-semibold">Alan Biju</p>
-                  <p class="text-sm text-gray-500">TechSnap DevOps</p>
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <label
-                  for="message"
-                  class="block text-sm font-medium text-gray-700"
-                  >Message:</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  class="mt-1 block w-full border rounded-md shadow-sm"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="mb-4">
-                <label
-                  for="hashtags"
-                  class="block text-sm font-medium text-gray-700"
-                  >Hashtags:</label
-                >
-                <div class="flex">
-                  <input
-                    type="text"
-                    id="hashtags"
-                    name="hashtags"
-                    class="mt-1 block w-full border rounded-md shadow-sm"
-                    style="padding-right: 30px"
+          <div class="w-[90%] m-10 bg-white rounded-lg shadow-md p-6 h-[87%]">
+            <h1 class="text-2xl font-bold mb-2">Create a Post</h1>
+            <form
+              id="post-form"
+              class="max-h-[28rem]"
+              enctype="multipart/form-data"
+            >
+              <div id="posttext" class="hidden">
+                <div class="flex items-center mb-4">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/122403035?v=4"
+                    alt="Alan Biju profile picture"
+                    class="w-16 h-16 rounded-full mr-3"
                   />
-                  <button
-                    type="button"
-                    id="add-hashtag"
-                    class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md"
-                  >
-                    Add
-                  </button>
+                  <div>
+                    <p class="font-semibold">Alan Biju</p>
+                    <p class="text-sm text-gray-500">TechSnap DevOps</p>
+                  </div>
                 </div>
-                <div id="hashtags-list" class="mt-2"></div>
-              </div>
 
-              <div class="mb-4">
-                <input
-                  type="file"
-                  id="imageUpload"
-                  accept="image/*"
-                  multiple
-                  class="hidden"
-                />
-                <label
-                  for="imageUpload"
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-                >
-                  Upload Images
-                </label>
-                <div class="image-section mt-2 flex justify-between">
-                  <div
-                    class="first-image flex flex-col items-center w-1/2 flex-1"
-                  ></div>
-                  <div class="preview-images flex w-1/2 flex-wrap mt-2"></div>
+                <div class="mb-4">
+                  <label
+                    for="message"
+                    class="block text-sm font-medium text-gray-700"
+                    >Message:</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="mt-1 block w-full border rounded-md shadow-sm"
+                    required
+                  ></textarea>
                 </div>
-                <div
-                  class="allImages flex flex-wrap mt-2"
-                  style="display: none"
-                ></div>
-              </div>
-              <div class="flex justify-between mx-auto">
-                <div class="mb-4"></div>
-                <div class="mb-8 w-1/2">
-                  <div id="mainImgdiv" class="mainImgdiv relative max-w-72 max-h-72">
-                    <img
-                      id="mainImage"
-                      src=""
-                      alt="Main Image"
-                      class="w-full object-cover"
+
+                <div class="mb-4">
+                  <label
+                    for="hashtags"
+                    class="block text-sm font-medium text-gray-700"
+                    >Hashtags:</label
+                  >
+                  <div class="flex">
+                    <input
+                      type="text"
+                      id="hashtags"
+                      name="hashtags"
+                      class="mt-1 block w-full border rounded-md shadow-sm"
+                      style="padding-right: 30px"
                     />
                     <button
                       type="button"
-                      id="prevMain"
-                      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-r"
+                      id="add-hashtag"
+                      class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 19l-7-7 7-7"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      type="button"
-                      id="nextMain"
-                      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-l"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                      Add
                     </button>
                   </div>
-                </div>
-                <div class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-4 w-1/2" id="thumbnails">
-                  <!-- Thumbnails will be inserted here -->
+                  <div id="hashtags-list" class="mt-2"></div>
                 </div>
               </div>
-              <div class="text-center m-5">
-                <button
-                  type="button"
-                  id="toggleImagesButton"
-                  class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+              <div
+                class="flex items-center justify-center min-h-[450px]"
+                id="adimage"
+              >
+                <div class="flex justify-between items-center w-full">
+                  <div id="uploadbtn" class="w-1/2 flex justify-center">
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      accept="image/*"
+                      multiple
+                      class="hidden mx-auto"
+                    />
+                    <label
+                      for="imageUpload"
+                      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                    >
+                      Upload Images
+                    </label>
+                  </div>
+                  <div class="w-1/2 h-1/2 flex justify-end">
+                    <img
+                      class="h-72"
+                      src="https://images.unsplash.com/photo-1653149108712-f174c6f3c631?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between mx-auto hidden" id="imagePage">
+                <div
+                  id="mainImgdiv"
+                  class="mainImgdiv relative h-[25rem] hidden m-auto bg-gray-600 w-3/5"
                 >
-                  Save
-                </button>
-                <button
-                  type="submit"
-                  id="submit-button"
-                  class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+                  <img
+                    id="mainImage"
+                    src=""
+                    alt="Main Image"
+                    class="w-full object-contain h-[25rem]"
+                  />
+                  <button
+                    tyoe="button"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200"
+                    id="prevMain"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-600 transform rotate-180"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    tyoe="button"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200"
+                    id="nextMain"
+                  >
+                    <span class="sr-only"> </span>
+                    <svg
+                      class="w-4 h-4 text-gray-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  id="thumbnailDiv"
+                  class="hidden flex flex-col w-2/5 justify-between items-center max-h-[25rem] bg-gray-700"
                 >
-                  Post
+                  <div
+                    id="thumbnails"
+                    class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-4 overflow-y-scroll"
+                  >
+                    <!-- Thumbnails will be inserted here -->
+                  </div>
+
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    id="addImage"
+                    class="hidden"
+                  />
+                  <label
+                    for="addImage"
+                    class="cursor-pointer w-[8%] inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 transition-colors duration-200 border-2 border-white border-solid font-sm m-3"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+              <div
+                id="nextPage"
+                class="flex w-full justify-end bg-gray-800 p-2 hidden"
+              >
+                <button type="button" class="bg-blue-500 p-2 rounded-full px-4">
+                  Next
                 </button>
               </div>
             </form>
@@ -1130,43 +1163,60 @@
 
       function updateMainImage() {
         const mainImage = document.getElementById("mainImage");
+        const adImage = document.getElementById("adimage");
+        const uploadbtn = document.getElementById("uploadbtn");
+        const nextPage = document.getElementById("nextPage");
+        const Thumbnails = document.getElementById("thumbnailDiv");
+        const imagePage = document.getElementById("imagePage");
         if (images.length > 0) {
           mainImage.src = images[currentIndex];
-          document.getElementById("mainImgdiv").classList.remove("hidden")
-
+          adImage.classList.add("hidden");
+          uploadbtn.classList.add("hidden");
+          nextPage.classList.remove("hidden");
+          Thumbnails.classList.remove("hidden");
+          imagePage.classList.remove("hidden");
+          document.getElementById("mainImgdiv").classList.remove("hidden");
         } else {
           mainImage.src = "";
         }
       }
-      if(images.length <=0){
-        document.getElementById("mainImgdiv").classList.add("hidden")
-      }
-  
+
       function createThumbnail(src, index) {
         const div = document.createElement("div");
         div.className = "relative";
-        if(images.length>0){
-        div.innerHTML = `
-            <div class="h-58 w-58 m-5 border border-red-400 border-solid flex flex-col justify-between">
-              <div>
-                <img src="${src}" alt="Thumbnail" class="w-full max-w-58 max-h-58 cursor-pointer">
-                <button type="button" class="prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-r">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="prev h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button type="button" class="next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-l">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="next h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-              </div>
-              <div class="flex justify-center items-end">
-                  <button type="button" class="remove  bg-red-500 text-white px-2 py-1 text-xs">Remove</button>
-              </div>
-            </div>
-            `;
-          }
+        if (images.length > 0) {
+          const isFirst = index === 0;
+          const isLast = index === images.length - 1;
+          div.innerHTML = `
+      <div class="w-[162px] h-[200px] m-5 border border-red-400 border-solid flex flex-col justify-between">
+        <div>
+          <img src="${src}" alt="Thumbnail" class="w-full w-[162px] h-[200px] cursor-pointer object-contain">
+          <button type="button" class="prev absolute left-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200 ${
+            isFirst ? "opacity-50 cursor-not-allowed" : ""
+          }" 
+            id="prevMain" ${isFirst ? "disabled" : ""}>
+            <svg class="prev w-4 h-4 text-gray-600 transform rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button type="button" class="next absolute right-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-200 ${
+            isLast ? "opacity-50 cursor-not-allowed" : ""
+          }" 
+            id="nextMain" ${isLast ? "disabled" : ""}>
+            <span class="sr-only">
+            </span>
+            <svg class="next w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex justify-center items-end">
+          <button type="button" class="remove bg-red-500 text-white px-2 py-1 text-xs">Remove</button>
+        </div>
+      </div>
+    `;
+        }
         return div;
       }
 
@@ -1194,6 +1244,26 @@
             reader.readAsDataURL(file);
           }
         });
+      document
+        .getElementById("addImage")
+        .addEventListener("change", function (event) {
+          const files = event.target.files;
+          for (let file of files) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              images.push(e.target.result);
+              updateThumbnails();
+              if (images.length === 1) {
+                updateMainImage();
+              }
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      document.getElementById("nextPage").addEventListener("click", () => {
+        document.getElementById("posttext").classList.remove("hidden");
+        document.getElementById("post-form").classList.add("overflow-y-scroll");
+      });
 
       document.getElementById("prevMain").addEventListener("click", (e) => {
         e.preventDefault();
@@ -1251,6 +1321,14 @@
           updateThumbnails();
           if (currentIndex >= images.length) {
             currentIndex = Math.max(0, images.length - 1);
+          }
+          if (images.length <= 0) {
+            const adImage = document.getElementById("adimage");
+            const uploadbtn = document.getElementById("uploadbtn");
+
+            document.getElementById("mainImgdiv").classList.add("hidden");
+            adImage.classList.remove("hidden");
+            uploadbtn.classList.remove("hidden");
           }
           updateMainImage();
         }

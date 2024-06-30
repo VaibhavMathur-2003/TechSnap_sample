@@ -1,0 +1,69 @@
+<div id="posttext">
+<div class="flex items-center mb-4">
+    <img
+      src="https://avatars.githubusercontent.com/u/122403035?v=4"
+      alt="Alan Biju profile picture"
+      class="w-16 h-16 rounded-full mr-3"
+    />
+    <div>
+      <p class="font-semibold">Alan Biju</p>
+      <p class="text-sm text-gray-500">TechSnap DevOps</p>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label
+      for="message"
+      class="block text-sm font-medium text-gray-700"
+      >Message:</label
+    >
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="mt-1 block w-full border rounded-md shadow-sm"
+      required
+    ></textarea>
+  </div>
+
+  <div class="mb-4">
+    <label
+      for="hashtags"
+      class="block text-sm font-medium text-gray-700"
+      >Hashtags:</label
+    >
+    <div class="flex">
+      <input
+        type="text"
+        id="hashtags"
+        name="hashtags"
+        class="mt-1 block w-full border rounded-md shadow-sm"
+        style="padding-right: 30px"
+      />
+      <button
+        type="button"
+        id="add-hashtag"
+        class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+      >
+        Add
+      </button>
+    </div>
+    <div id="hashtags-list" class="mt-2"></div>
+  </div>
+</div>
+  <div class="text-center m-5">
+    <button
+      type="button"
+      id="toggleImagesButton"
+      class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+    >
+      Save
+    </button>
+    <button
+      type="submit"
+      id="submit-button"
+      class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+    >
+      Post
+    </button>
+  </div>
