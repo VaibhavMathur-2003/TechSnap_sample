@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Sidebar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the sidebar */
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar-open {
+            transform: translateX(0);
+        }
+
+        .backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .backdrop-blur {
+            display: block;
+            backdrop-filter: blur(1px);
+            z-index: 10;
+        }
+
+        .sidebar-content {
+            z-index: 20;
+        }
+
+        .quiz {
+            overflow-y: auto;
+            margin-bottom: 70px;
+            margin-top: 70px;
+        }
+
+        #course-outline {
+            display: flex;
+            align-items: center;
+            border: 1px solid #D1D5DB;
+            /* Gray-300 */
+            padding: 0.5rem 1rem;
+            /* Adjust padding as needed */
+            transition: border-color 0.3s ease;
+        }
+
+        #course-outline:hover {
+            border-color: #0400ff;
+            background-color: #e0e0ea;
+            /* Green-500 */
+        }
+
+        #course-outline svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+            /* Space between icon and text */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+
+        .lesson-button {
+            border: 1px solid #999999;
+            cursor: pointer;
+        }
+
+        .bar-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bar {
+            width: 60px;
+            height: 15px;
+            background-color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            background-color: lightblue;
+        }
+
+        .bar:visited {
+            background-color: #3b82f6;
+        }
+
+        .lesson-progress {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .option:hover {
+            border-color: #81b1ff;
+            color: #81b1ff;
+        }
+
+        .option {
+            border-color: #8e98aa;
+            /* blue-500 */
+            color: #8e98aa;
+            border: 2px solid;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .option.selected {
+            border-color: #3b82f6;
+            /* blue-500 */
+            color: #3b82f6;
+            /* blue-500 */
+        }
+
+        .hover-blue-500 {
+            border: 2px solid white;
+        }
+        .hover-blue-500:hover{
+            border:2px solid #00ffd1bd;
+            background-color: #e4fffe;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-lg fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="h-8 w-8" src="logo.png" alt="Logo">
+                    </div>
+                </div>
+                <!-- Course Outline -->
+                <div class="flex items-center justify-center flex-grow">
+                    <a href="#" id="course-outline"
+                        class="flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300">
+                        <svg class="h-6 w-6 mr-2" fill="#000000" version="1.1" id="Capa_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 460.054 460.054" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path
+                                        d="M40.003,69.679C17.914,69.679,0,87.592,0,109.697c0,22.089,17.914,39.987,40.003,39.987c22.089,0,40.003-17.898,40.003-39.987C80.006,87.592,62.092,69.679,40.003,69.679z" />
+                                </g>
+                                <g>
+                                    <path
+                                        d="M40.003,190.032C17.914,190.032,0,207.93,0,230.035c0,22.089,17.914,40.002,40.003,40.002c22.089,0,40.003-17.913,40.003-40.002C80.006,207.93,62.092,190.032,40.003,190.032z" />
+                                </g>
+                                <g>
+                                    <path
+                                        d="M40.003,310.37C17.914,310.37,0,328.283,0,350.372c0,22.089,17.914,40.003,40.003,40.003c22.089,0,40.003-17.914,40.003-40.003C80.006,328.283,62.092,310.37,40.003,310.37z" />
+                                </g>
+                                <g>
+                                    <path
+                                        d="M429.973,79.601H145.419c-16.611,0-30.081,13.47-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,93.071,446.583,79.601,429.973,79.601z" />
+                                </g>
+                                <g>
+                                    <path
+                                        d="M429.973,199.939H145.419c-16.611,0-30.081,13.469-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,213.408,446.583,199.939,429.973,199.939z" />
+                                </g>
+                                <g>
+                                    <path
+                                        d="M429.973,320.291H145.419c-16.611,0-30.081,13.469-30.081,30.081c0,16.611,13.469,30.08,30.081,30.08h284.554c16.61,0,30.081-13.469,30.081-30.08C460.054,333.759,446.583,320.291,429.973,320.291z" />
+                                </g>
+                            </g>
+                        </svg>
+                        Course Outline
+                    </a>
+                </div>
+                <!-- Profile and Notification -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notification bell -->
+                    <div class="relative">
+                        <a href="#" id="notification-icon"
+                            class="text-gray-800 px-3 py-2 rounded-md text-sm font-medium relative">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.5 0.999992C10.9477 0.999992 10.5 1.44771 10.5 1.99999V2.99999H9.99998C7.23864 2.99999 4.99998 5.23824 4.99998 7.99975V11C4.99998 11.7377 4.76718 12.5722 4.39739 13.4148C4.03164 14.2482 3.55875 15.0294 3.14142 15.6439C2.38188 16.7624 2.85215 18.5301 4.40564 18.8103C5.42144 18.9935 6.85701 19.2115 8.54656 19.3527C8.54454 19.4015 8.54352 19.4506 8.54352 19.5C8.54352 21.433 10.1105 23 12.0435 23C13.9765 23 15.5435 21.433 15.5435 19.5C15.5435 19.4482 15.5424 19.3966 15.5402 19.3453C17.1921 19.204 18.596 18.9903 19.5943 18.8103C21.1478 18.5301 21.6181 16.7624 20.8586 15.6439C20.4412 15.0294 19.9683 14.2482 19.6026 13.4148C19.2328 12.5722 19 11.7377 19 11V7.99975C19 5.23824 16.7613 2.99999 14 2.99999H13.5V1.99999C13.5 1.44771 13.0523 0.999992 12.5 0.999992H11.5ZM12 19.5C12.5113 19.5 13.0122 19.4898 13.4997 19.4715C13.5076 20.2758 12.8541 20.9565 12.0435 20.9565C11.2347 20.9565 10.5803 20.2778 10.5872 19.4746C11.0473 19.491 11.5191 19.5 12 19.5ZM9.99998 4.99999C8.34305 4.99999 6.99998 6.34297 6.99998 7.99975V11C6.99998 12.1234 6.65547 13.2463 6.22878 14.2186C5.79804 15.2 5.25528 16.0911 4.79599 16.7675C4.78578 16.7825 4.78102 16.7969 4.77941 16.8113C4.77797 16.8242 4.77919 16.8362 4.78167 16.8458C6.3644 17.1303 9.00044 17.5 12 17.5C14.9995 17.5 17.6356 17.1303 19.2183 16.8458C19.2208 16.8362 19.222 16.8242 19.2206 16.8113C19.2189 16.7969 19.2142 16.7825 19.204 16.7675C18.7447 16.0911 18.2019 15.2 17.7712 14.2186C17.3445 13.2463 17 12.1234 17 11V7.99975C17 6.34297 15.6569 4.99999 14 4.99999H9.99998Z"
+                                    fill="#0F0F0F" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M16.0299 0.757457C16.1622 0.228068 16.7146 -0.102469 17.2437 0.0301341C17.3131 0.0476089 17.3789 0.0669732 17.4916 0.104886C17.6295 0.151258 17.8183 0.221479 18.0424 0.322098C18.4894 0.522794 19.0851 0.848127 19.6982 1.35306C20.9431 2.37831 22.2161 4.1113 22.495 6.9005C22.55 7.45005 22.149 7.94009 21.5995 7.99504C21.05 8.05 20.5599 7.64905 20.505 7.09951C20.2839 4.88869 19.3068 3.62168 18.4268 2.89692C17.9774 2.52686 17.5418 2.28969 17.2232 2.14664C17.0645 2.07538 16.9369 2.02841 16.8541 2.00057C16.8201 1.98913 16.7859 1.97833 16.7513 1.96858C16.2192 1.83203 15.8964 1.2912 16.0299 0.757457Z"
+                                    fill="#0F0F0F" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.97014 0.757457C7.83619 0.221662 7.29326 -0.104099 6.75746 0.0298498C6.68765 0.0473468 6.62176 0.066766 6.5084 0.104885C6.37051 0.151257 6.1817 0.221478 5.9576 0.322097C5.51059 0.522793 4.91493 0.848125 4.30179 1.35306C3.05685 2.37831 1.78388 4.1113 1.50496 6.90049C1.45001 7.45003 1.85095 7.94008 2.40049 7.99503C2.95004 8.04998 3.44008 7.64904 3.49504 7.0995C3.71612 4.88869 4.69315 3.62168 5.57321 2.89692C6.02257 2.52686 6.45815 2.28969 6.77678 2.14664C6.93548 2.07538 7.06308 2.02841 7.14589 2.00057C7.17991 1.98913 7.21413 1.97833 7.24867 1.96858C7.78081 1.83203 8.10358 1.2912 7.97014 0.757457Z"
+                                    fill="#0F0F0F" />
+                            </svg>
+                        </a>
+                        <!-- Notification Popup -->
+                        <div id="notification-popup"
+                            class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-80 z-20">
+                            <!-- Changed w-64 to w-80 for wider box -->
+                            <div class="p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold text-gray-700">Notifications</span>
+                                    <a href="#" class="text-blue-500 text-sm">Mark All as Read</a>
+                                </div>
+                                <ul class="mt-2">
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between">
+                                        <span>Notification 1</span>
+                                        <span class="text-xs text-gray-500">Today at 12:19 AM</span>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between">
+                                        <span>Notification 2</span>
+                                        <span class="text-xs text-gray-500">Today at 1:19 AM</span>
+                                    </li>
+                                    <li class="px-4 py-2 flex justify-between">
+                                        <span>Notification 3</span>
+                                        <span class="text-xs text-gray-500">Today at 2:19 AM</span>
+                                    </li>
+                                </ul>
+                                <a href="#" class="block text-center text-blue-500 py-2">See All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- profile  -->
+                    <div class="relative">
+                        <a href="#" id="profile-icon" class="text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </a>
+                        <!-- Profile Popup -->
+                        <div id="profile-popup"
+                            class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-64 z-20">
+                            <!-- Changed w-64 to w-80 for wider box -->
+                            <div class="p-4">
+                                <ul class="mt-2">
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500 checkhover">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                                            <span>Upgrade to Pro</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 0 0 308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 0 0-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"></path></svg>
+                                            <span>My Playgrounds</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                            <span>Account Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                                            <span>Help Center</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Backdrop -->
+    <div id="backdrop" class="backdrop"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 w-96 h-full bg-white shadow-lg sidebar sidebar-content overflow-y-auto">
+        <div class="p-4">
+            <button id="close-sidebar" class="text-gray-500 text-3xl">&times;</button>
+            <h2 class="text-xl font-semibold mb-8 mt-4">Learn SQL Basics</h2>
+            <div class="border rounded-lg p-4">
+                <ul>
+                    <!-- Chapter 1 -->
+                    <li class="mb-2">
+                        <button class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
+                            onclick="toggleChapter(1)">
+                            Ch 1: Introduction
+                            <span id="arrow-1">▼</span>
+                        </button>
+                        <ul id="chapter-1" class="ml-4 hidden">
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">Topic 1.1</a>
+                            </li>
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">Topic 1.2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="border-gray-300">
+                    <!-- Chapter 2 -->
+                    <li class="mb-2">
+                        <button class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
+                            onclick="toggleChapter(2)">
+                            Ch 2: Select Records
+                            <span id="arrow-2">▼</span>
+                        </button>
+                        <ul id="chapter-2" class="ml-4 hidden">
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">SQL SELECT</a>
+                            </li>
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">SELECT WHERE</a>
+                            </li>
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">AND, OR and NOT</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="border-gray-300">
+                    <!-- Chapter 3 -->
+                    <li class="mb-2">
+                        <button class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
+                            onclick="toggleChapter(3)">
+                            Ch 3: Aggregate Functions
+                            <span id="arrow-3">▼</span>
+                        </button>
+                        <ul id="chapter-3" class="ml-4 hidden">
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">Topic 3.1</a>
+                            </li>
+                            <li class="mb-2 pl-4 flex items-center">
+                                <input type="checkbox" class="mr-2">
+                                <a href="#" class="text-gray-700">Topic 3.2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="border-gray-300">
+                    <!-- More chapters can be added here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="p-4 sm:px-4 lg:px-20 xl:px-30 quiz">
+        <div class="sm:px-4 lg:px-8 xl:px-64">
+            <div class="border-2 p-4 sm:p-6 lg:p-8 xl:p-12">
+                <div class="py-2">
+                    Course: Learn SQL Basics
+                </div>
+                <div class="py-2">
+                    Quiz:
+                    <br>
+                    <b>SQL SELECT Statement</b>
+                </div>
+                <div class="py-2">
+                    Suppose a database has a table named <strong>Employees</strong> with these fields:
+                    <strong>id</strong>,
+                    <strong>name</strong>, <strong>email</strong>, and <strong>city</strong>. <br>
+                    How can we select the email addresses of all the employees from the <strong>Employees</strong>
+                    table?
+                </div>
+                <div class="py-2">
+                    <ul id="options" class="space-y-4">
+                        <li>
+                            <div class="option" data-value="A">
+                                <div>Option A:</div>
+                                <div>SELECT id, email FROM Employees;</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option" data-value="B">
+                                <div>Option B:</div>
+                                <div>SELECT city FROM Employees;</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option" data-value="C">
+                                <div>Option C:</div>
+                                <div>SELECT email FROM Customers;</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option" data-value="D">
+                                <div>Option D:</div>
+                                <div>SELECT email FROM Employees;</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <footer class="footer bg-red-500 py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl">
+        <!-- Previous Lesson Button -->
+        <button class="lesson-button border border-gray-500 px-2 py-1 rounded-md text-sm flex items-center">
+            <span>&lt;</span> Prev Lesson
+        </button>
+    
+        <!-- Lesson Progress Bar -->
+        <div class="lesson-progress hidden sm:block">
+            <div class="bar-container">
+                <a class="bar" href="https://github.com/shreyshah173/ProgramPage"><p class="hidden border border-blue-500 rounded-lg bottom-14 p-2 bar-text bg-blue-100">text for the first bar</p></a>
+                <a class="bar" href="https://www.msn.com/en-in/health/health-news/kerala-reports-41-deaths-due-to-leptospirosis-check-here-the-symptoms-and-preventive-measures/ar-BB1n6OaM?ocid=msedgntp&pc=ASTS&cvid=f4ab0027684d41558049c522b90fd838&ei=20"><p class="hidden border p-2 border-blue-500 rounded-lg bottom-14 bar-text bg-blue-100">shreyshah132</p></a>
+                <a class="bar" href="https://www.msn.com/en-in/money/topstories/ekadanta-sankashti-chaturthi-2024-date-time-rituals-and-significance/ar-BB1n4nU2?ocid=msedgntp&pc=ASTS&cvid=f4ab0027684d41558049c522b90fd838&ei=27"><p class="hidden border border-blue-500 p-2 rounded-lg bottom-14 bar-text bg-blue-100">text for the second</p></a>
+                <a class="bar" href="https://www.msn.com/en-in/health/health-news/five-body-pains-that-can-indicate-a-heart-attack/ar-BB1n3QdA?ocid=msedgntp&pc=ASTS&cvid=f4ab0027684d41558049c522b90fd838&ei=8"><p class="hidden border border-blue-500 p-2 rounded-lg bottom-14 bar-text bg-blue-100">random text here</p></a>
+            </div>
+        </div>
+    
+        <!-- Next Lesson Button -->
+        <button class="lesson-button bg-blue-500 text-white px-2 py-1 rounded-md text-sm flex items-center">
+            Next Lesson <span>&gt;</span>
+        </button>
+    </footer>
+    
+
+
+
+    <!-- Scripts -->
+    <script>
+        // Get elements
+        const courseOutline = document.getElementById('course-outline');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const backdrop = document.getElementById('backdrop');
+
+        // Function to open sidebar and show backdrop
+        function openSidebar() {
+            sidebar.classList.add('sidebar-open');
+            backdrop.classList.add('backdrop-blur');
+        }
+
+        // Function to close sidebar and hide backdrop
+        function closeSidebarFn() {
+            sidebar.classList.remove('sidebar-open');
+            backdrop.classList.remove('backdrop-blur');
+        }
+
+        // Event listener to open sidebar
+
+        // Event listener to open sidebar
+        courseOutline.addEventListener('click', (e) => {
+            e.preventDefault();
+            openSidebar();
+        });
+
+        // Event listener to close sidebar
+        closeSidebar.addEventListener('click', () => {
+            closeSidebarFn();
+        });
+
+        // Event listener to close sidebar when clicking outside
+        backdrop.addEventListener('click', () => {
+            closeSidebarFn();
+        });
+
+        // Prevent closing sidebar when clicking inside it
+        sidebar.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Function to toggle chapters
+        function toggleChapter(chapter) {
+            const chapterElement = document.getElementById(`chapter-${chapter}`);
+            const arrowElement = document.getElementById(`arrow-${chapter}`);
+            if (chapterElement.classList.contains('hidden')) {
+                chapterElement.classList.remove('hidden');
+                arrowElement.textContent = '▲';
+            } else {
+                chapterElement.classList.add('hidden');
+                arrowElement.textContent = '▼';
+            }
+        }
+
+
+        const notificationIcon = document.getElementById('notification-icon');
+        const notificationPopup = document.getElementById('notification-popup');
+
+        notificationIcon.addEventListener('click', () => {
+            notificationPopup.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = notificationIcon.contains(event.target) || notificationPopup.contains(event.target);
+            if (!isClickInside) {
+                notificationPopup.classList.add('hidden');
+            }
+        });
+
+        const profileIcon = document.getElementById('profile-icon');
+        const profilePopup = document.getElementById('profile-popup');
+
+        profileIcon.addEventListener('click', () => {
+            profilePopup.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = profileIcon.contains(event.target) || profilePopup.contains(event.target);
+            if (!isClickInside) {
+                profilePopup.classList.add('hidden');
+            }
+        });
+
+        const bars = document.querySelectorAll('.bar');
+
+        bars.forEach((bar) => {
+            bar.addEventListener('click', () => {
+                bars.forEach((b) => {
+                    b.classList.remove('active');
+                });
+                bar.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        const anchorTags = document.querySelectorAll('.bar');
+
+        anchorTags.forEach(anchorTag => {
+            const paragraphTag = anchorTag.querySelector('.bar-text');
+
+            anchorTag.addEventListener('mouseover', function() {
+                paragraphTag.classList.remove('hidden');
+                paragraphTag.classList.add('absolute');
+            });
+
+            anchorTag.addEventListener('mouseout', function() {
+                paragraphTag.classList.remove('absolute');
+                paragraphTag.classList.add('hidden');
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

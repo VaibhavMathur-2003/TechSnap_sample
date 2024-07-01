@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Sidebar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+
+        .main {
+            margin-top: 80px;
+        }
+
+        .hover-blue-500 {
+            border: 2px solid white;
+        }
+        .hover-blue-500:hover{
+            border:2px solid #00ffd1bd;
+            background-color: #e4fffe;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-lg fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="h-8 w-8" src="logo.png" alt="Logo">
+                    </div>
+                </div>
+                <!-- Course Outline -->
+
+                <!-- Profile and Notification -->
+                <div class="flex items-center space-x-4">
+
+                    <!-- Profile -->
+                    <div class="relative">
+                        <a href="#" id="profile-icon" class="text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </a>
+                        <!-- Profile Popup -->
+                        <div id="profile-popup"
+                            class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-64 z-20">
+                            <!-- Changed w-64 to w-80 for wider box -->
+                            <div class="p-4">
+                                <ul class="mt-2">
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500 checkhover">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                                            <span>Upgrade to Pro</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 0 0 308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 0 0-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"></path></svg>
+                                            <span>My Playgrounds</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                            <span>Account Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                                            <span>Help Center</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-4 py-2 flex justify-between items-center hover-blue-500">
+                                        <a href="#" class="flex items-center">
+                                            <svg stroke="currentColor" class="w-5 h-5 mr-2" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main content -->
+    <div class="p-4 sm:px-4 lg:px-20 xl:px-30 main">
+        <div class="max-w-3xl mx-auto rounded-lg p-6">
+            <h2 class="text-2xl font-bold  mb-6">Lesson Completed!</h2>
+            <div class="border border-gray-300 p-4 mt-10 flex bg-white">
+                <div class="relative bottom-8 left-5 border border-gray-500"
+                    style="background-color: #d7ffff; padding: 2%;">
+                    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M57.2465 4.70273C57.2465 7.38829 46.8352 9.54035 33.8053 9.54035C20.7753 9.54035 10.4375 7.38792 10.4375 4.70236C12.4027 3.01042 20.7753 0 33.8053 0C46.8352 0 55.0157 2.79017 57.2465 4.70273Z"
+                            fill="#D3A01D"></path>
+                        <path
+                            d="M12.8368 10.0416C11.5194 9.57205 10.1796 9.55963 8.94902 10.0056C7.71847 10.4516 4.69357 7.14729 3.87261 8.3918C3.05165 9.6363 2.51686 11.1935 2.32088 12.91C2.12489 14.6266 4.22052 20.6366 4.70093 22.3749C5.18133 24.1131 5.97602 25.713 7.00678 27.0169C8.03755 28.3208 9.26886 29.284 10.5796 29.8115C11.8903 30.339 13.2352 30.4128 14.482 30.0255C15.7287 29.6383 16.8344 28.8033 17.6902 27.6028L15.676 24.9784C15.1147 25.7659 14.3894 26.3136 13.5716 26.5676C12.7538 26.8216 11.8716 26.7732 11.0118 26.4272C10.1521 26.0812 9.34441 25.4494 8.66829 24.5941C7.99217 23.7388 7.4709 22.6894 7.15578 21.5492C6.84066 20.409 6.74255 19.2173 6.8711 18.0913C6.99966 16.9653 7.35045 15.9439 7.88895 15.1276C8.42746 14.3113 9.13511 13.7282 9.94229 13.4357C10.7495 13.1431 11.6283 13.1513 12.4924 13.4593L12.8368 10.0416Z"
+                            fill="#FFC33D"></path>
+                        <path
+                            d="M55.1652 10.0416C56.4825 9.57205 57.8224 9.55963 59.0529 10.0056C60.2835 10.4516 63.3084 7.14729 64.1293 8.3918C64.9503 9.6363 65.4851 11.1935 65.6811 12.91C65.8771 14.6266 63.7814 20.6366 63.301 22.3749C62.8206 24.1131 62.0259 25.713 60.9952 27.0169C59.9644 28.3208 58.7331 29.284 57.4224 29.8115C56.1117 30.339 54.7668 30.4128 53.52 30.0255C52.2732 29.6383 51.1675 28.8033 50.3118 27.6028L52.326 24.9784C52.8873 25.7659 53.6126 26.3136 54.4304 26.5676C55.2482 26.8216 56.1304 26.7732 56.9901 26.4272C57.8499 26.0812 58.6575 25.4494 59.3337 24.5941C60.0098 23.7388 60.5311 22.6894 60.8462 21.5492C61.1613 20.409 61.2594 19.2173 61.1308 18.0913C61.0023 16.9653 60.6515 15.9439 60.113 15.1276C59.5745 14.3113 58.8668 13.7282 58.0597 13.4357C57.2525 13.1431 56.3736 13.1513 55.5095 13.4593L55.1652 10.0416Z"
+                            fill="#F5B614"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M33.649 8.55596C19.2289 8.31054 10.4341 4.70312 10.4341 4.70312C10.4341 4.70312 10.2874 21.2667 14.9064 29.5537C17.2921 33.8341 23.6871 40.1601 29.0647 43.0178C30.4198 48.3179 29.8042 52.1965 27.9115 56.5412C26.6853 56.7414 25.3938 56.899 24.1441 56.959C21.4724 57.0872 20.248 62.3065 20.248 62.3065C30.4239 63.9841 36.6956 64.0642 47.6158 62.3065C47.6158 62.3065 46.2013 57.0872 43.5296 56.959C42.0449 56.959 40.5654 56.7643 39.2408 56.5C38.0081 51.3941 37.6659 47.613 38.1671 43.2468C43.6316 40.5115 50.3173 33.9524 52.7691 29.5537C57.388 21.2667 57.2413 4.70312 57.2413 4.70312C57.2413 4.70312 48.0691 8.80138 33.649 8.55596Z"
+                            fill="#FFC33D"></path>
+                        <path
+                            d="M12.4121 67.9996C12.2214 67.9996 12.1153 67.7792 12.2342 67.6301L16.0713 62.8206C16.3279 62.4989 16.716 62.3101 17.1276 62.3068L34.5806 62.166C34.6873 62.1652 34.7802 62.2386 34.8042 62.3425L36.0421 67.721C36.0749 67.8636 35.9666 67.9996 35.8204 67.9996H12.4121Z"
+                            fill="#7A4C0E"></path>
+                        <path
+                            d="M56.687 67.9986C56.8766 67.9986 56.983 67.7805 56.8665 67.631L53.3104 63.0707C52.9318 62.585 52.3763 62.2914 51.7607 62.2796C48.2064 62.2116 36.2102 62.1694 34.609 62.1641C34.5027 62.1637 34.4149 62.237 34.3911 62.3406L33.1529 67.7199C33.1201 67.8625 33.2284 67.9986 33.3747 67.9986H56.687Z"
+                            fill="#7A4C0E"></path>
+                        <path
+                            d="M17.5871 62.2182C16.8867 62.2182 16.2254 62.5407 15.7941 63.0925L12.2474 67.6302C12.1306 67.7796 12.2371 67.9979 12.4267 67.9979L27.0518 67.9975C27.1093 67.9975 27.1623 67.9776 27.2051 67.9392C30.6242 64.8708 42.9024 62.2178 43.0568 62.2178L17.5871 62.2182Z"
+                            fill="#8A5714"></path>
+                        <path
+                            d="M26.482 65.8374L27.1145 64.2385C27.1721 64.1438 41.0538 64.0637 41.1951 64.2965L42.1309 65.8374C42.1746 65.9094 42.0423 65.9792 41.8619 65.9792H26.751C26.5707 65.9792 26.4383 65.9094 26.482 65.8374Z"
+                            fill="#5F3C0D"></path>
+                        <path
+                            d="M29.5554 43.4296C32.6482 44.3477 36.521 43.6203 38.0878 43.2295C37.8813 45.3394 37.9946 46.4296 37.8991 48.0914C35.5215 45.3802 33.1201 44.5016 29.5554 43.4296C29.5369 43.4241 29.5184 43.4186 29.5 43.413C29.5185 43.4185 29.5369 43.4241 29.5554 43.4296Z"
+                            fill="#FFB205"></path>
+                        <path
+                            d="M22.1108 10.2668C19.1836 10.0125 15.6602 9.51403 13.3431 9.14742C12.798 9.06116 12.3203 9.5201 12.3894 10.0677C14.3701 25.7545 19.5323 37.3975 31.5716 42.1315C21.4571 36.9758 16.445 19.7748 22.8256 12.3996C23.3812 11.7574 22.9569 10.3403 22.1108 10.2668Z"
+                            fill="#FFD26F"></path>
+                        <path
+                            d="M39.0058 39.9462C39.1577 40.6976 37.7361 41.5692 35.8308 41.8931C33.9255 42.217 32.2578 41.8705 32.106 41.1191C31.9542 40.3678 33.512 40.1024 35.4173 39.7785C37.3226 39.4546 38.854 39.1949 39.0058 39.9462Z"
+                            fill="#FFD26F"></path>
+                        <path
+                            d="M23.363 57.9863C23.6355 57.7544 25.6784 57.7179 27.2551 57.7255C27.4957 57.7267 27.542 58.0832 27.3126 58.1555C25.3911 58.7608 23.4835 59.5996 22.0302 60.7786C21.8446 60.9292 21.5578 60.7155 21.6783 60.509C22.3009 59.442 23.1046 58.2062 23.363 57.9863Z"
+                            fill="#FFD26F"></path>
+                        <path
+                            d="M3.03713 13.2548C2.92139 12.8122 3.83114 10.4983 4.54314 8.88538C4.63933 8.66747 4.93563 8.79339 4.90524 9.03652C4.63217 11.2215 4.72138 13.1217 5.34464 15.1784C5.41794 15.4203 5.03992 15.6685 4.8728 15.4864C4.05314 14.5932 3.14079 13.6511 3.03713 13.2548Z"
+                            fill="#FFD26F"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="ml-16 bold text-gray-500">You just Completed :</p>
+                    <h2 class="ml-16 text-2xl font-bold">SQL select</h2>
+                </div>
+            </div>
+            <div class="border border-gray-300 p-4 mt-10 flex bg-white">
+                <div class="relative bottom-8 left-5 border border-gray-500"
+                    style="background-color: #d7ffff; padding: 2%;">
+                    <img src="./image1.png" alt="image" class="w-20 h-20">
+                </div>
+                <div>
+                    <p class="ml-16 bold text-gray-500">Next Lesson :</p>
+                    <h2 class="ml-16 text-2xl font-bold text-blue-500"><a href="">Select Where &gt;</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer bg-red-500 py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl">
+        <!-- Previous Lesson Button -->
+        <button class="lesson-button border border-gray-500 px-2 py-1 rounded-md text-sm flex items-center">
+            <span>&lt;</span> Prev Lesson
+        </button>
+
+        <!-- Next Lesson Button -->
+        <button class="lesson-button bg-blue-500 text-white px-2 py-1 rounded-md text-sm flex items-center">
+            Next Lesson <span>&gt;</span>
+        </button>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const profileIcon = document.getElementById('profile-icon');
+        const profilePopup = document.getElementById('profile-popup');
+
+        profileIcon.addEventListener('click', () => {
+            profilePopup.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = profileIcon.contains(event.target) || profilePopup.contains(event.target);
+            if (!isClickInside) {
+                profilePopup.classList.add('hidden');
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
