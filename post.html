@@ -1110,13 +1110,13 @@
               <div class="flex justify-between mx-auto bg-[#e1e1e1] hidden max-[500px]:flex-col" id="imagePage">
                 <div
                   id="mainImgdiv"
-                  class="mainImgdiv relative h-80 hidden m-auto"
+                  class="mainImgdiv relative hidden m-auto h-80 flex"
                 >
                   <img
                     id="mainImage"
                     src=""
                     alt="Main Image"
-                    class="w-full object-contain h-80"
+                    class="w-full object-contain"
                   />
                   <button
                     tyoe="button"
@@ -1274,7 +1274,9 @@
           mainImage.src = images[currentIndex];
           adImage.classList.add("hidden");
           uploadbtn.classList.add("hidden");
-          nextPage.classList.remove("hidden");
+          if(thirdPage===false){
+            nextPage.classList.remove("hidden");
+          }
           secondPage.classList.remove("hidden")
           if (thirdPage === false) {
             Thumbnails.classList.remove("hidden");
@@ -1368,7 +1370,7 @@
         });
       document.getElementById("nextPage").addEventListener("click", () => {
         document.getElementById("posttext").classList.remove("hidden");
-        document.getElementById("post-form").classList.add("overflow-y-scroll");
+        document.getElementById("postPage").classList.add("overflow-y-scroll");
         document.getElementById("thumbnailDiv").classList.add("hidden");
         document.getElementById("post-form").classList.remove("max-h-[28rem]");
         document.getElementById("post-form").classList.add("max-h-96");
@@ -1379,11 +1381,15 @@
         document.getElementById("advertisement").classList.remove("hidden")
         document.getElementById("postPage").classList.remove("w-[90%]")
         document.getElementById("postPage").classList.add("w-[555px]")
+        document.getElementById("mainImgdiv").classList.add("min-h-[400px]");
+        document.getElementById("mainImgdiv").classList.remove("h-80")
         thirdPage = true;
       });
       document.getElementById("reorder").addEventListener("click", () => {
         document.getElementById("posttext").classList.add("hidden");
         document.getElementById("thumbnailDiv").classList.remove("hidden");
+        document.getElementById("postPage").classList.remove("overflow-y-scroll");
+
         document.getElementById("post-form").classList.add("max-h-[28rem]");
         document.getElementById("post-form").classList.remove("max-h-96");
         document.getElementById("reorder").classList.add("hidden");
@@ -1393,6 +1399,8 @@
         document.getElementById("advertisement").classList.add("hidden")
         document.getElementById("postPage").classList.add("w-[90%]")
         document.getElementById("postPage").classList.remove("w-[555px]")
+        document.getElementById("mainImgdiv").classList.remove("min-h-[400px]");
+        document.getElementById("mainImgdiv").classList.add("h-80")
         thirdPage = false;
       });
 
