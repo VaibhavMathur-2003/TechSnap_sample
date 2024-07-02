@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar with Sidebar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
       /* Custom styles for the sidebar */
       .sidebar {
@@ -139,6 +140,7 @@
       @media (max-width: 800px) {
         .left-content {
           width: 100%;
+          height: 40vh;
         }
 
         .right-content {
@@ -178,59 +180,59 @@
       .sidebar-open-right {
         transform: translateX(0);
       }
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 27px;
-    }
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-    }
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 20px;
-      width: 20px;
-      left: 7px;
-      bottom: 3px;
-      background-color: white;
-      transition: .4s;
-    }
-    input:checked + .slider {
-      background-color: #8b5cf6;
-    }
-    input:checked + .slider:before {
-      transform: translateX(26px);
-    }
-    .slider.round {
-      border-radius: 34px;
-    }
-    .slider.round:before {
-      border-radius: 50%;
-    }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 27px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 7px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+      }
+      input:checked + .slider {
+        background-color: #8b5cf6;
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
     </style>
   </head>
 
   <body class="bg-gray-100">
     <nav class="bg-white shadow-lg fixed w-full z-10 top-0">
-      <div class=" mx-auto px-4">
+      <div class="mx-auto px-4">
         <div class="flex justify-between h-16">
           <div class="flex items-center w-80">
             <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="logo.png" alt="Logo" />
+              <img class="h-8 w-8" src="/assets/banner.png" alt="Logo" />
             </div>
           </div>
           <!-- Course Outline -->
@@ -241,52 +243,66 @@
                 id="left-sidebar-button"
                 class="mr-2 flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
               >
-                Left Sidebar
+                Left
               </button>
-              
+
               <a
                 href="#"
                 id="openPopup"
                 class="flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
               >
-              <svg class="h-6 w-6 mr-2" fill="#000000" version="1.1" id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 460.054 460.054" xml:space="preserve">
-              <g>
+                <svg
+                  class="h-6 w-6 mr-2"
+                  fill="#000000"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 460.054 460.054"
+                  xml:space="preserve"
+                >
                   <g>
+                    <g>
                       <path
-                          d="M40.003,69.679C17.914,69.679,0,87.592,0,109.697c0,22.089,17.914,39.987,40.003,39.987c22.089,0,40.003-17.898,40.003-39.987C80.006,87.592,62.092,69.679,40.003,69.679z" />
-                  </g>
-                  <g>
+                        d="M40.003,69.679C17.914,69.679,0,87.592,0,109.697c0,22.089,17.914,39.987,40.003,39.987c22.089,0,40.003-17.898,40.003-39.987C80.006,87.592,62.092,69.679,40.003,69.679z"
+                      />
+                    </g>
+                    <g>
                       <path
-                          d="M40.003,190.032C17.914,190.032,0,207.93,0,230.035c0,22.089,17.914,40.002,40.003,40.002c22.089,0,40.003-17.913,40.003-40.002C80.006,207.93,62.092,190.032,40.003,190.032z" />
-                  </g>
-                  <g>
+                        d="M40.003,190.032C17.914,190.032,0,207.93,0,230.035c0,22.089,17.914,40.002,40.003,40.002c22.089,0,40.003-17.913,40.003-40.002C80.006,207.93,62.092,190.032,40.003,190.032z"
+                      />
+                    </g>
+                    <g>
                       <path
-                          d="M40.003,310.37C17.914,310.37,0,328.283,0,350.372c0,22.089,17.914,40.003,40.003,40.003c22.089,0,40.003-17.914,40.003-40.003C80.006,328.283,62.092,310.37,40.003,310.37z" />
-                  </g>
-                  <g>
+                        d="M40.003,310.37C17.914,310.37,0,328.283,0,350.372c0,22.089,17.914,40.003,40.003,40.003c22.089,0,40.003-17.914,40.003-40.003C80.006,328.283,62.092,310.37,40.003,310.37z"
+                      />
+                    </g>
+                    <g>
                       <path
-                          d="M429.973,79.601H145.419c-16.611,0-30.081,13.47-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,93.071,446.583,79.601,429.973,79.601z" />
-                  </g>
-                  <g>
+                        d="M429.973,79.601H145.419c-16.611,0-30.081,13.47-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,93.071,446.583,79.601,429.973,79.601z"
+                      />
+                    </g>
+                    <g>
                       <path
-                          d="M429.973,199.939H145.419c-16.611,0-30.081,13.469-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,213.408,446.583,199.939,429.973,199.939z" />
-                  </g>
-                  <g>
+                        d="M429.973,199.939H145.419c-16.611,0-30.081,13.469-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,213.408,446.583,199.939,429.973,199.939z"
+                      />
+                    </g>
+                    <g>
                       <path
-                          d="M429.973,320.291H145.419c-16.611,0-30.081,13.469-30.081,30.081c0,16.611,13.469,30.08,30.081,30.08h284.554c16.61,0,30.081-13.469,30.081-30.08C460.054,333.759,446.583,320.291,429.973,320.291z" />
+                        d="M429.973,320.291H145.419c-16.611,0-30.081,13.469-30.081,30.081c0,16.611,13.469,30.08,30.081,30.08h284.554c16.61,0,30.081-13.469,30.081-30.08C460.054,333.759,446.583,320.291,429.973,320.291z"
+                      />
+                    </g>
                   </g>
-              </g>
-            </svg> 
-            
+                </svg>
+                <span class="md:block hidden">
                 Course Outline
+              </span>
               </a>
               <button
                 id="right-sidebar-button"
                 class="ml-2 flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
               >
-                Right Sidebar
+                Right
               </button>
             </div>
           </div>
@@ -296,7 +312,6 @@
             <div class="relative">
               <a
                 href="#"
-                id="notification-icon"
                 class="text-gray-800 px-3 py-2 rounded-md text-sm font-medium relative"
               >
                 <svg
@@ -327,231 +342,262 @@
                 </svg>
               </a>
               <!-- Notification Popup -->
-              <div
-                id="notification-popup"
-                class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-80 z-20"
-              >
-                <!-- Changed w-64 to w-80 for wider box -->
-                <div class="p-4">
-                  <div class="flex justify-between items-center">
-                    <span class="font-semibold text-gray-700"
-                      >Notifications</span
-                    >
-                    <a href="#" class="text-blue-500 text-sm"
-                      >Mark All as Read</a
-                    >
-                  </div>
-                  <ul class="mt-2">
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between"
-                    >
-                      <span>Notification 1</span>
-                      <span class="text-xs text-gray-500"
-                        >Today at 12:19 AM</span
-                      >
-                    </li>
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between"
-                    >
-                      <span>Notification 2</span>
-                      <span class="text-xs text-gray-500"
-                        >Today at 1:19 AM</span
-                      >
-                    </li>
-                    <li class="px-4 py-2 flex justify-between">
-                      <span>Notification 3</span>
-                      <span class="text-xs text-gray-500"
-                        >Today at 2:19 AM</span
-                      >
-                    </li>
-                  </ul>
-                  <a href="#" class="block text-center text-blue-500 py-2"
-                    >See All Notifications</a
-                  >
-                </div>
-              </div>
             </div>
             <!-- Profile -->
-            <div class="relative flex justify-between">
-              <a
-                href="#"
-                id="profile-icon"
-                class="text-gray-800 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                <svg
-                  width="34px"
-                  height="34px"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                    stroke="#000000"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <i class="fa fa-question-circle  py-2 px-3" style="font-size: 34px;"></i>
-
-              <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/000000/external-setting-advertising-xnimrodx-lineal-gradient-xnimrodx-3.png" onclick="toggleSidebar()" class="w-1/12 h-1/12 py-2" alt="">
-              <i class="fa fa-bell-o py-2 px-3" style="font-size: 34px;"></i>
-              <i class="fa fa-info-circle py-2 px-3" style="font-size:36px"></i>
-
-              <i class="fa fa-arrow-circle-left py-2 px-3" style="font-size: 34px;"></i>
-             
+            <div class="relative flex justify-between items-center">
               
-              <!-- Profile Popup -->
+              <i
+                class="fa fa-question-circle py-2 px-3 cursor-pointer"
+                style="font-size: 34px"
+              ></i>
+
+              <img
+                src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/000000/external-setting-advertising-xnimrodx-lineal-gradient-xnimrodx-3.png"
+                onclick="toggleSidebar()"
+                class="w-1/6 h-1/6 py-2 px-3 cursor-pointer"
+                alt=""
+              />
               <div
-                id="profile-popup"
-                class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-64 z-20"
+                id="notification-icon"
+                class="relative notification_bell cursor-pointer py-2 px-3 cursor-pointer"
               >
-                <!-- Changed w-64 to w-80 for wider box -->
-                <div class="p-4">
-                  <ul class="mt-2">
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500 checkhover"
-                    >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
+                <div class="">
+                  <img
+                    src="assets/bell.svg"
+                    alt="notifiction"
+                    class="notification_bell w-8 h-8 ml-1"
+                  />
+                  <span
+                    class="absolute top-0 right-0 transform -translate-y-2/5 text-white rounded-full text-xs font-bold px-2 py-1"
+                  >
+                    3
+                  </span>
+                </div>
+                <div
+                  id="notification-popup"
+                  class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-80 z-20"
+                >
+                  <!-- Changed w-64 to w-80 for wider box -->
+                  <div class="p-4">
+                    <div class="flex justify-between items-center">
+                      <span class="font-semibold text-gray-700"
+                        >Notifications</span
+                      >
+                      <a href="#" class="text-blue-500 text-sm"
+                        >Mark All as Read</a
+                      >
+                    </div>
+                    <ul class="mt-2">
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between"
+                      >
+                        <span>Notification 1</span>
+                        <span class="text-xs text-gray-500"
+                          >Today at 12:19 AM</span
                         >
-                          <path
-                            d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                          ></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span>Profile</span>
-                      </a>
-                    </li>
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
-                    >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
+                      </li>
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between"
+                      >
+                        <span>Notification 2</span>
+                        <span class="text-xs text-gray-500"
+                          >Today at 1:19 AM</span
                         >
-                          <circle cx="12" cy="8" r="7"></circle>
-                          <polyline
-                            points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
-                          ></polyline>
-                        </svg>
-                        <span>Upgrade to Pro</span>
-                      </a>
-                    </li>
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
-                    >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="currentColor"
-                          stroke-width="0"
-                          viewBox="0 0 1024 1024"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
+                      </li>
+                      <li class="px-4 py-2 flex justify-between">
+                        <span>Notification 3</span>
+                        <span class="text-xs text-gray-500"
+                          >Today at 2:19 AM</span
                         >
-                          <path d=""></path>
-                        </svg>
-                        <span>My Playgrounds</span>
-                      </a>
-                    </li>
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
+                      </li>
+                    </ul>
+                    <a href="#" class="block text-center text-blue-500 py-2"
+                      >See All Notifications</a
                     >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle cx="12" cy="12" r="3"></circle>
-                          <path d=""></path>
-                        </svg>
-                        <span>Account Settings</span>
-                      </a>
-                    </li>
-                    <li
-                      class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
-                    >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                          <path
-                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
-                          ></path>
-                        </svg>
-                        <span>Help Center</span>
-                      </a>
-                    </li>
-                    <li
-                      class="px-4 py-2 flex justify-between items-center hover-blue-500"
-                    >
-                      <a href="#" class="flex items-center">
-                        <svg
-                          stroke="currentColor"
-                          class="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          height="20"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
-                          ></path>
-                          <polyline points="16 17 21 12 16 7"></polyline>
-                          <line x1="21" y1="12" x2="9" y2="12"></line>
-                        </svg>
-                        <span>Logout</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </div>
                 </div>
               </div>
+              <i
+                class="fa fa-info-circle py-2 px-3 cursor-pointer"
+                style="font-size: 34px"
+              ></i>
+
+              <i
+                class="fa fa-arrow-circle-left py-2 px-3 cursor-pointer"
+                style="font-size: 34px"
+              ></i>
+              <div class="relative profile-icon cursor-pointer py-2 px-3 cursor-pointer">
+                <a
+                  href="#"
+                  class="text-gray-800 px-3 rounded-md text-sm font-medium"
+                  id="profile-icon"
+                >
+                  <svg
+                    width="34px"
+                    height="34px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                      stroke="#000000"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <div
+                  id="profile-popup"
+                  class="hidden absolute right-0 mt-0 bg-white border border-gray-300 rounded-lg shadow-lg w-80 z-20"
+                >
+                  <!-- Changed w-64 to w-80 for wider box -->
+                  <div class="p-4">
+                    <ul class="mt-0">
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500 checkhover"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                            ></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                          </svg>
+                          <span>Profile</span>
+                        </a>
+                      </li>
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline
+                              points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                            ></polyline>
+                          </svg>
+                          <span>Upgrade to Pro</span>
+                        </a>
+                      </li>
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 1024 1024"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d=""></path>
+                          </svg>
+                          <span>My Playgrounds</span>
+                        </a>
+                      </li>
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d=""></path>
+                          </svg>
+                          <span>Account Settings</span>
+                        </a>
+                      </li>
+                      <li
+                        class="px-4 py-2 border-b border-gray-200 flex justify-between items-center hover-blue-500"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                            <path
+                              d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                            ></path>
+                          </svg>
+                          <span>Help Center</span>
+                        </a>
+                      </li>
+                      <li
+                        class="px-4 py-2 flex justify-between items-center hover-blue-500"
+                      >
+                        <a href="#" class="flex items-center">
+                          <svg
+                            stroke="currentColor"
+                            class="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="20"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"
+                            ></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                          </svg>
+                          <span>Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Profile Popup -->
             </div>
           </div>
         </div>
@@ -564,7 +610,7 @@
     <!-- Sidebar -->
     <div
       id="sidebar"
-      class="fixed top-0 left-0 w-96 h-full bg-white shadow-lg sidebar sidebar-content overflow-y-auto"
+      class="fixed top-0 left-0 w-96 max-[500px]:w-80 h-full bg-white shadow-lg sidebar sidebar-content overflow-y-auto"
     >
       <div class="p-4">
         <button id="close-sidebar" class="text-gray-500 text-3xl">
@@ -645,9 +691,8 @@
         </div>
       </div>
     </div>
-    <!-- Right Sidebar -->
-    <!-- Right Sidebar -->
-    <div id="right-sidebar" class="right-sidebar">
+    <!-- Right -->
+    <div id="right-sidebar" class="right-sidebar max-[500px]:w-80">
       <div class="p-4">
         <button id="close-right-sidebar" class="text-gray-500 text-3xl">
           &times;
@@ -728,71 +773,87 @@
       </div>
     </div>
 
-    <div id="settingbar" class="fixed top-0 right-0 h-full  bg-white w-80 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
-        <button onclick="toggleSidebar()" class="text-2xl">&times;</button>
-    
-        <div class="p-4 ">
-          <div class="flex justify-between items-center mb-0">
-            <img src="/assets/banner.png" alt="logo" class="w-full">
+    <div
+      id="settingbar"
+      class="fixed top-0 right-0 h-full bg-white w-80 z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+    >
+      <button onclick="toggleSidebar()" class="text-2xl">&times;</button>
+
+      <div class="p-4">
+        <div class="flex justify-between items-center mb-0">
+          <img src="/assets/banner.png" alt="logo" class="w-full" />
+        </div>
+        <h1 class="text-2xl font-bold mb-6">Course Setting</h1>
+
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <p class="text-base">
+              Dark Mode
+              <span class="text-xs bg-purple-600 px-2 py-1 rounded-full ml-2"
+                >Beta</span
+              >
+            </p>
           </div>
-          <h1 class="text-2xl font-bold mb-6">Course Setting</h1>
-          
-          <div class="flex justify-between items-center mb-6">
-            <div>
-              <p class="text-base">Dark Mode <span class="text-xs bg-purple-600 px-2 py-1 rounded-full ml-2">Beta</span></p>
-            </div>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="flex space-x-4 mb-6">
+          <div class="bg-gray-800 p-2 rounded-lg flex-1">
+            <img
+              src="/assets/download.png"
+              alt="snpiiet"
+              class="w-full h-[200px] object-cover mb-2"
+            />
+            <label class="flex items-center">
+              <input type="checkbox" class="form-checkbox text-purple-600" />
+              <span class="ml-2">Checkbox</span>
+            </label>
+          </div>
+          <div class="bg-gray-800 p-2 rounded-lg flex-1">
+            <img
+              src="/assets/download.png"
+              alt="snpiiet"
+              class="w-full h-[200px] object-cover mb-2"
+            />
+            <label class="flex items-center">
+              <input type="checkbox" class="form-checkbox text-purple-600" />
+              <span class="ml-2">Checkbox</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <p>Save course history</p>
             <label class="switch">
-              <input type="checkbox" checked>
+              <input type="checkbox" checked />
               <span class="slider round"></span>
             </label>
           </div>
-          
-          <div class="flex space-x-4 mb-6">
-            <div class="bg-gray-800 p-2 rounded-lg flex-1">
-              <img src="/assets/download.png" alt="snpiiet" class="w-full h-[200px] object-cover mb-2">
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox text-purple-600">
-                <span class="ml-2">Checkbox</span>
-              </label>
-            </div>
-            <div class="bg-gray-800 p-2 rounded-lg flex-1">
-              <img src="/assets/download.png" alt="snpiiet" class="w-full h-[200px] object-cover mb-2">
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox text-purple-600">
-                <span class="ml-2">Checkbox</span>
-              </label>
-            </div>
+          <div class="flex justify-between items-center">
+            <p>Announcement Emails</p>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider round"></span>
+            </label>
           </div>
-          
-          <div class="space-y-4">
-            <div class="flex justify-between items-center">
-              <p>Save course history</p>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div class="flex justify-between items-center">
-              <p>Announcement Emails</p>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div class="flex justify-between items-center">
-              <p>Reminders</p>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </div>
+          <div class="flex justify-between items-center">
+            <p>Reminders</p>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
       </div>
+    </div>
 
     <div
       id="coursePopup"
-      class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center"
+      class="hidden fixed z-50 inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center"
     >
       <div class="bg-white rounded-lg p-6 max-w-2xl w-full">
         <h2 class="text-2xl font-bold mb-4">Learn Coding</h2>
@@ -811,13 +872,44 @@
       </div>
     </div>
 
+    <div id="feedbackPopup" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+      <div class="relative top-20 mx-auto p-5 border w-96 max-[500px]:w-80 shadow-lg rounded-md bg-white">
+          <div class="mt-3">
+              <div class="flex justify-between items-center pb-3">
+                  <h3 class="text-xl font-semibold">Provide Feedback</h3>
+                  <button id="closeFeedbackPopup" class="text-black close-modal text-3xl font-bold">&times;</button>
+              </div>
+              <div class="mt-2">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Feedback type</label>
+                  <select id="feedbackType" class="w-full p-2 border border-gray-300 rounded-md">
+                      <option value="">Select type of feedback...</option>
+                      <option value="bug">Bug Report</option>
+                      <option value="feature">Feature Request</option>
+                      <option value="other">Other</option>
+                  </select>
+              </div>
+              <div class="mt-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Feedback message</label>
+                  <textarea id="feedbackMessage" rows="4" class="w-full p-2 border border-gray-300 rounded-md" maxlength="1000"></textarea>
+                  <div class="text-right text-sm text-gray-500 mt-1">
+                      <span id="charCount">0</span> / 1000
+                  </div>
+              </div>
+              <div class="flex justify-end mt-4">
+                  <button id="cancelButton" class="px-4 py-2 bg-gray-200 text-black rounded-md mr-2">Cancel</button>
+                  <button id="submitButton" class="px-4 py-2 bg-green-400 text-white rounded-md">Submit Feedback</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
     <!-- Main content -->
     <div
-      class="p-4 px-4 coding flex flex-col md:flex-row border-2 border-gray-500"
+      class="p-4 px-4 coding flex flex-col md:flex-row  "
     >
       <!-- Left Content -->
       <div
-        class="left-content mr-4 mb-4 sm:mb-0 overflow-scroll h-1/2 sm:h-full w-full sm:w-full border-r-2 border-gray-500"
+        class="left-content mr-4 mb-4 sm:mb-0 overflow-y-scroll h-1/2 sm:h-full w-full sm:w-1/2 border-r-2 "
       >
         <div>
           <h1 class="text-xl font-bold mb-2">Course Name</h1>
@@ -831,19 +923,24 @@
         </div>
       </div>
       <!-- Right Content -->
-      <div class="right-content bg-gray-200 p-4 w-full sm:w-full md:w-1/2">
+      <div class="right-content bg-gray-200 p-4 w-full sm:w-full md:w-1/2  h-1/2 sm:h-full">
         compiler goes here
       </div>
     </div>
 
     <footer
-      class="footer bg-red-500 py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl"
+      class="footer  py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl"
     >
       <!-- Previous Lesson Button -->
       <button
         class="lesson-button border border-gray-500 px-2 py-1 rounded-md text-sm flex items-center"
       >
         <span>&lt;</span> Prev Lesson
+      </button>
+      <button id="openFeedbackPopup"
+        class="lesson-button border border-gray-500 px-2 py-1 ml-3 rounded-md text-sm flex items-center"
+      >
+       Feedback
       </button>
 
       <!-- Lesson Progress Bar -->
@@ -910,6 +1007,35 @@
       const closeLeftSidebar = document.getElementById("close-sidebar");
       const closeRightSidebar = document.getElementById("close-right-sidebar");
       const backdrop = document.getElementById("backdrop");
+
+      const openfeedbackPopup = document.getElementById('openFeedbackPopup');
+        const feedbackPopup = document.getElementById('feedbackPopup');
+        const closefeedbackPopup = document.getElementById('closeFeedbackPopup');
+        const cancelButton = document.getElementById('cancelButton');
+        const submitButton = document.getElementById('submitButton');
+        const feedbackMessage = document.getElementById('feedbackMessage');
+        const charCount = document.getElementById('charCount');
+
+        openfeedbackPopup.addEventListener('click', () => {
+            feedbackPopup.classList.remove('hidden');
+        });
+
+        const closeModal = () => {
+            feedbackPopup.classList.add('hidden');
+        };
+
+        closefeedbackPopup.addEventListener('click', closeModal);
+        cancelButton.addEventListener('click', closeModal);
+
+        feedbackMessage.addEventListener('input', () => {
+            charCount.textContent = feedbackMessage.value.length;
+        });
+
+        submitButton.addEventListener('click', () => {
+            // Handle feedback submission here
+            console.log('Feedback submitted');
+            closeModal();
+        });
 
       // Function to open left sidebar and show backdrop
       function openLeftSidebar() {
@@ -983,9 +1109,9 @@
         e.stopPropagation();
       });
       function toggleSidebar() {
-      const settingbar = document.getElementById('settingbar');
-      settingbar.classList.toggle('translate-x-full');
-    }
+        const settingbar = document.getElementById("settingbar");
+        settingbar.classList.toggle("translate-x-full");
+      }
 
       // Function to toggle chapters
       function toggleChapter(chapter) {
