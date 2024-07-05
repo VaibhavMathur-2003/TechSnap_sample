@@ -134,7 +134,7 @@
 
       .left-content {
         overflow-y: scroll;
-        height: 80vh;
+        height: 75vh;
       }
 
       @media (max-width: 800px) {
@@ -239,71 +239,7 @@
           <div class="flex items-center justify-center flex-grow">
             <!-- Course Outline -->
             <div class="flex items-center justify-center flex-grow">
-              <button
-                id="left-sidebar-button"
-                class="mr-2 flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
-              >
-                Left
-              </button>
-
-              <a
-                href="#"
-                id="openPopup"
-                class="flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
-              >
-                <svg
-                  class="h-6 w-6 mr-2"
-                  fill="#000000"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 460.054 460.054"
-                  xml:space="preserve"
-                >
-                  <g>
-                    <g>
-                      <path
-                        d="M40.003,69.679C17.914,69.679,0,87.592,0,109.697c0,22.089,17.914,39.987,40.003,39.987c22.089,0,40.003-17.898,40.003-39.987C80.006,87.592,62.092,69.679,40.003,69.679z"
-                      />
-                    </g>
-                    <g>
-                      <path
-                        d="M40.003,190.032C17.914,190.032,0,207.93,0,230.035c0,22.089,17.914,40.002,40.003,40.002c22.089,0,40.003-17.913,40.003-40.002C80.006,207.93,62.092,190.032,40.003,190.032z"
-                      />
-                    </g>
-                    <g>
-                      <path
-                        d="M40.003,310.37C17.914,310.37,0,328.283,0,350.372c0,22.089,17.914,40.003,40.003,40.003c22.089,0,40.003-17.914,40.003-40.003C80.006,328.283,62.092,310.37,40.003,310.37z"
-                      />
-                    </g>
-                    <g>
-                      <path
-                        d="M429.973,79.601H145.419c-16.611,0-30.081,13.47-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,93.071,446.583,79.601,429.973,79.601z"
-                      />
-                    </g>
-                    <g>
-                      <path
-                        d="M429.973,199.939H145.419c-16.611,0-30.081,13.469-30.081,30.096c0,16.612,13.469,30.081,30.081,30.081h284.554c16.61,0,30.081-13.469,30.081-30.081C460.054,213.408,446.583,199.939,429.973,199.939z"
-                      />
-                    </g>
-                    <g>
-                      <path
-                        d="M429.973,320.291H145.419c-16.611,0-30.081,13.469-30.081,30.081c0,16.611,13.469,30.08,30.081,30.08h284.554c16.61,0,30.081-13.469,30.081-30.08C460.054,333.759,446.583,320.291,429.973,320.291z"
-                      />
-                    </g>
-                  </g>
-                </svg>
-                <span class="md:block hidden">
-                Course Outline
-              </span>
-              </a>
-              <button
-                id="right-sidebar-button"
-                class="ml-2 flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300"
-              >
-                Right
-              </button>
+              <button class="ml-2 flex items-center text-gray-800 px-3 py-2 rounded-md text-sm font-medium border border-gray-300 hover:border-green-500 transition-colors duration-300" id="toggle-sidebar"> Open </button>
             </div>
           </div>
           <!-- Profile and Notification -->
@@ -345,17 +281,19 @@
             </div>
             <!-- Profile -->
             <div class="relative flex justify-between items-center">
-              
               <i
+                id="openPopup"
                 class="fa fa-question-circle py-2 px-3 cursor-pointer"
                 style="font-size: 34px"
+                title="question"
               ></i>
 
               <img
                 src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/000000/external-setting-advertising-xnimrodx-lineal-gradient-xnimrodx-3.png"
-                onclick="toggleSidebar()"
+                onclick="openSettingBar()"
                 class="w-1/6 h-1/6 py-2 px-3 cursor-pointer"
                 alt=""
+                title="Setting"
               />
               <div
                 id="notification-icon"
@@ -366,6 +304,7 @@
                     src="assets/bell.svg"
                     alt="notifiction"
                     class="notification_bell w-8 h-8 ml-1"
+                    title="notification"
                   />
                   <span
                     class="absolute top-0 right-0 transform -translate-y-2/5 text-white rounded-full text-xs font-bold px-2 py-1"
@@ -420,17 +359,22 @@
               <i
                 class="fa fa-info-circle py-2 px-3 cursor-pointer"
                 style="font-size: 34px"
+                title="info"
               ></i>
 
               <i
                 class="fa fa-arrow-circle-left py-2 px-3 cursor-pointer"
                 style="font-size: 34px"
+                title="back"
               ></i>
-              <div class="relative profile-icon cursor-pointer py-2 px-3 cursor-pointer">
+              <div
+                class="relative profile-icon cursor-pointer py-2 px-3 cursor-pointer"
+              >
                 <a
                   href="#"
                   class="text-gray-800 px-3 rounded-md text-sm font-medium"
                   id="profile-icon"
+                  title="profile"
                 >
                   <svg
                     width="34px"
@@ -609,11 +553,11 @@
 
     <!-- Sidebar -->
     <div
-      id="sidebar"
+      id="left-sidebar"
       class="fixed top-0 left-0 w-96 max-[500px]:w-80 h-full bg-white shadow-lg sidebar sidebar-content overflow-y-auto"
     >
       <div class="p-4">
-        <button id="close-sidebar" class="text-gray-500 text-3xl">
+        <button id="close-left-sidebar" class="text-gray-500 text-3xl">
           &times;
         </button>
         <h2 class="text-xl font-semibold mb-8 mt-4">Learn SQL Basics</h2>
@@ -704,12 +648,12 @@
             <li class="mb-2">
               <button
                 class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
-                onclick="toggleChapter(1)"
+                onclick="toggleChapterRight(1)"
               >
                 Ch 1: Introduction
-                <span id="arrow-1">▼</span>
+                <span id="arrow-1-right">▼</span>
               </button>
-              <ul id="chapter-1" class="ml-4 hidden">
+              <ul id="chapter-1-right" class="ml-4 hidden">
                 <li class="mb-2 pl-4 flex items-center">
                   <input type="checkbox" class="mr-2" />
                   <a href="#" class="text-gray-700">Topic 1.1</a>
@@ -725,12 +669,12 @@
             <li class="mb-2">
               <button
                 class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
-                onclick="toggleChapter(2)"
+                onclick="toggleChapterRight(2)"
               >
                 Ch 2: Select Records
-                <span id="arrow-2">▼</span>
+                <span id="arrow-2-right">▼</span>
               </button>
-              <ul id="chapter-2" class="ml-4 hidden">
+              <ul id="chapter-2-right" class="ml-4 hidden">
                 <li class="mb-2 pl-4 flex items-center">
                   <input type="checkbox" class="mr-2" />
                   <a href="#" class="text-gray-700">SQL SELECT</a>
@@ -750,12 +694,12 @@
             <li class="mb-2">
               <button
                 class="text-left w-full text-gray-700 font-bold flex justify-between items-center py-2"
-                onclick="toggleChapter(3)"
+                onclick="toggleChapterRight(3)"
               >
                 Ch 3: Aggregate Functions
-                <span id="arrow-3">▼</span>
+                <span id="arrow-3-right">▼</span>
               </button>
-              <ul id="chapter-3" class="ml-4 hidden">
+              <ul id="chapter-3-right" class="ml-4 hidden">
                 <li class="mb-2 pl-4 flex items-center">
                   <input type="checkbox" class="mr-2" />
                   <a href="#" class="text-gray-700">Topic 3.1</a>
@@ -775,9 +719,11 @@
 
     <div
       id="settingbar"
-      class="fixed top-0 right-0 h-full bg-white w-80 z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+      class="fixed top-0 right-0 h-full bg-white w-96 z-50 max-[500px]:w-80 transform translate-x-full transition-transform duration-300 ease-in-out"
     >
-      <button onclick="toggleSidebar()" class="text-2xl">&times;</button>
+      <button onclick="closeSettingBar()" class="text-gray-500 text-3xl">
+        &times;
+      </button>
 
       <div class="p-4">
         <div class="flex justify-between items-center mb-0">
@@ -795,7 +741,7 @@
             </p>
           </div>
           <label class="switch">
-            <input type="checkbox" checked />
+            <input type="checkbox"  checked />
             <span class="slider round"></span>
           </label>
         </div>
@@ -808,7 +754,7 @@
               class="w-full h-[200px] object-cover mb-2"
             />
             <label class="flex items-center">
-              <input type="checkbox" class="form-checkbox text-purple-600" />
+              <input type="checkbox" id="open-left" class="form-checkbox text-purple-600" />
               <span class="ml-2">Checkbox</span>
             </label>
           </div>
@@ -819,7 +765,7 @@
               class="w-full h-[200px] object-cover mb-2"
             />
             <label class="flex items-center">
-              <input type="checkbox" class="form-checkbox text-purple-600" />
+              <input type="checkbox" id="open-right" class="form-checkbox text-purple-600" />
               <span class="ml-2">Checkbox</span>
             </label>
           </div>
@@ -872,44 +818,74 @@
       </div>
     </div>
 
-    <div id="feedbackPopup" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-      <div class="relative top-20 mx-auto p-5 border w-96 max-[500px]:w-80 shadow-lg rounded-md bg-white">
-          <div class="mt-3">
-              <div class="flex justify-between items-center pb-3">
-                  <h3 class="text-xl font-semibold">Provide Feedback</h3>
-                  <button id="closeFeedbackPopup" class="text-black close-modal text-3xl font-bold">&times;</button>
-              </div>
-              <div class="mt-2">
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Feedback type</label>
-                  <select id="feedbackType" class="w-full p-2 border border-gray-300 rounded-md">
-                      <option value="">Select type of feedback...</option>
-                      <option value="bug">Bug Report</option>
-                      <option value="feature">Feature Request</option>
-                      <option value="other">Other</option>
-                  </select>
-              </div>
-              <div class="mt-4">
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Feedback message</label>
-                  <textarea id="feedbackMessage" rows="4" class="w-full p-2 border border-gray-300 rounded-md" maxlength="1000"></textarea>
-                  <div class="text-right text-sm text-gray-500 mt-1">
-                      <span id="charCount">0</span> / 1000
-                  </div>
-              </div>
-              <div class="flex justify-end mt-4">
-                  <button id="cancelButton" class="px-4 py-2 bg-gray-200 text-black rounded-md mr-2">Cancel</button>
-                  <button id="submitButton" class="px-4 py-2 bg-green-400 text-white rounded-md">Submit Feedback</button>
-              </div>
+    <div
+      id="feedbackPopup"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden"
+    >
+      <div
+        class="relative top-20 mx-auto p-5 border w-96 max-[500px]:w-80 shadow-lg rounded-md bg-white"
+      >
+        <div class="mt-3">
+          <div class="flex justify-between items-center pb-3">
+            <h3 class="text-xl font-semibold">Provide Feedback</h3>
+            <button
+              id="closeFeedbackPopup"
+              class="text-black close-modal text-3xl font-bold"
+            >
+              &times;
+            </button>
           </div>
+          <div class="mt-2">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >Feedback type</label
+            >
+            <select
+              id="feedbackType"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            >
+              <option value="">Select type of feedback...</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mt-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >Feedback message</label
+            >
+            <textarea
+              id="feedbackMessage"
+              rows="4"
+              class="w-full p-2 border border-gray-300 rounded-md"
+              maxlength="1000"
+            ></textarea>
+            <div class="text-right text-sm text-gray-500 mt-1">
+              <span id="charCount">0</span> / 1000
+            </div>
+          </div>
+          <div class="flex justify-end mt-4">
+            <button
+              id="cancelButton"
+              class="px-4 py-2 bg-gray-200 text-black rounded-md mr-2"
+            >
+              Cancel
+            </button>
+            <button
+              id="submitButton"
+              class="px-4 py-2 bg-green-400 text-white rounded-md"
+            >
+              Submit Feedback
+            </button>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
 
     <!-- Main content -->
-    <div
-      class="p-4 px-4 coding flex flex-col md:flex-row  "
-    >
+    <div class="p-4 px-4 coding flex flex-col md:flex-row">
       <!-- Left Content -->
       <div
-        class="left-content mr-4 mb-4 sm:mb-0 overflow-y-scroll h-1/2 sm:h-full w-full sm:w-1/2 border-r-2 "
+        class="left-content mr-4 mb-4 sm:mb-0 overflow-y-scroll h-1/2 sm:h-[80vh] w-full sm:w-1/2 border-r-2"
       >
         <div>
           <h1 class="text-xl font-bold mb-2">Course Name</h1>
@@ -923,13 +899,21 @@
         </div>
       </div>
       <!-- Right Content -->
-      <div class="right-content bg-gray-200 p-4 w-full sm:w-full md:w-1/2  h-1/2 sm:h-full">
-        compiler goes here
+      <div
+        class="right-content bg-gray-200 p-4 w-full sm:w-full md:w-1/2 h-1/2 sm:h-full"
+      >
+        <iframe
+          id="compiler"
+          frameborder="0"
+          height="450px"
+          src="https://onecompiler.com/embed/"
+          width="100%"
+        ></iframe>
       </div>
     </div>
 
     <footer
-      class="footer  py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl"
+      class="footer py-4 px-3 sm:px-6 flex items-center justify-between border-2 shadow-xl"
     >
       <!-- Previous Lesson Button -->
       <button
@@ -937,10 +921,11 @@
       >
         <span>&lt;</span> Prev Lesson
       </button>
-      <button id="openFeedbackPopup"
+      <button
+        id="openFeedbackPopup"
         class="lesson-button border border-gray-500 px-2 py-1 ml-3 rounded-md text-sm flex items-center"
       >
-       Feedback
+        Feedback
       </button>
 
       <!-- Lesson Progress Bar -->
@@ -994,48 +979,59 @@
     <!-- Scripts -->
     <script>
       // Get elements
-      const sidebar = document.getElementById("sidebar");
-      const closeSidebar = document.getElementById("close-sidebar");
+      const sidebar = document.getElementById("left-sidebar");
+      const closeSidebar = document.getElementById("close-left-sidebar");
 
       // Get elements
-      const leftSidebarButton = document.getElementById("left-sidebar-button");
-      const rightSidebarButton = document.getElementById(
-        "right-sidebar-button"
-      );
-      const leftSidebar = document.getElementById("sidebar");
+      const leftSidebar = document.getElementById("left-sidebar");
       const rightSidebar = document.getElementById("right-sidebar");
-      const closeLeftSidebar = document.getElementById("close-sidebar");
+      const closeLeftSidebar = document.getElementById("close-left-sidebar");
+      const settingbar = document.getElementById("settingbar");
+
       const closeRightSidebar = document.getElementById("close-right-sidebar");
       const backdrop = document.getElementById("backdrop");
 
-      const openfeedbackPopup = document.getElementById('openFeedbackPopup');
-        const feedbackPopup = document.getElementById('feedbackPopup');
-        const closefeedbackPopup = document.getElementById('closeFeedbackPopup');
-        const cancelButton = document.getElementById('cancelButton');
-        const submitButton = document.getElementById('submitButton');
-        const feedbackMessage = document.getElementById('feedbackMessage');
-        const charCount = document.getElementById('charCount');
+      const openfeedbackPopup = document.getElementById("openFeedbackPopup");
+      const feedbackPopup = document.getElementById("feedbackPopup");
+      const closefeedbackPopup = document.getElementById("closeFeedbackPopup");
+      const cancelButton = document.getElementById("cancelButton");
+      const submitButton = document.getElementById("submitButton");
+      const feedbackMessage = document.getElementById("feedbackMessage");
+      const charCount = document.getElementById("charCount");
+      const openLeftCheckbox = document.getElementById('open-left');
+      const openRightCheckbox = document.getElementById('open-right');
 
-        openfeedbackPopup.addEventListener('click', () => {
-            feedbackPopup.classList.remove('hidden');
-        });
+      openLeftCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      openRightCheckbox.checked = false;
+    }
+  });
 
-        const closeModal = () => {
-            feedbackPopup.classList.add('hidden');
-        };
+  openRightCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      openLeftCheckbox.checked = false;
+    }
+  });
+      openfeedbackPopup.addEventListener("click", () => {
+        feedbackPopup.classList.remove("hidden");
+      });
 
-        closefeedbackPopup.addEventListener('click', closeModal);
-        cancelButton.addEventListener('click', closeModal);
+      const closeModal = () => {
+        feedbackPopup.classList.add("hidden");
+      };
 
-        feedbackMessage.addEventListener('input', () => {
-            charCount.textContent = feedbackMessage.value.length;
-        });
+      closefeedbackPopup.addEventListener("click", closeModal);
+      cancelButton.addEventListener("click", closeModal);
 
-        submitButton.addEventListener('click', () => {
-            // Handle feedback submission here
-            console.log('Feedback submitted');
-            closeModal();
-        });
+      feedbackMessage.addEventListener("input", () => {
+        charCount.textContent = feedbackMessage.value.length;
+      });
+
+      submitButton.addEventListener("click", () => {
+        // Handle feedback submission here
+        console.log("Feedback submitted");
+        closeModal();
+      });
 
       // Function to open left sidebar and show backdrop
       function openLeftSidebar() {
@@ -1058,7 +1054,6 @@
       }
 
       // Event listeners
-      rightSidebarButton.addEventListener("click", openRightSidebar);
       closeRightSidebar.addEventListener("click", closeSidebars);
 
       // Function to close sidebars and hide backdrop
@@ -1068,16 +1063,28 @@
         backdrop.classList.remove("backdrop-blur");
       }
 
+      function openSidebarBtn(){
+        if(openRightCheckbox.checked){
+          openRightSidebar()
+        }
+        
+       else {
+          openLeftSidebar()
+        }
+      }
+
+      document.getElementById("toggle-sidebar").addEventListener("click", openSidebarBtn)
+
       // Event listeners
-      leftSidebarButton.addEventListener("click", openLeftSidebar);
-      rightSidebarButton.addEventListener("click", openRightSidebar);
       closeLeftSidebar.addEventListener("click", closeSidebars);
       closeRightSidebar.addEventListener("click", closeSidebars);
       backdrop.addEventListener("click", closeSidebars);
+      backdrop.addEventListener("click", closeSettingBar);
 
       // Prevent closing sidebars when clicking inside them
       leftSidebar.addEventListener("click", (e) => e.stopPropagation());
       rightSidebar.addEventListener("click", (e) => e.stopPropagation());
+      settingbar.addEventListener("click", (e) => e.stopPropagation());
       // Function to open sidebar and show backdrop
       function openSidebar() {
         sidebar.classList.add("sidebar-open");
@@ -1108,15 +1115,36 @@
       sidebar.addEventListener("click", (e) => {
         e.stopPropagation();
       });
-      function toggleSidebar() {
+      function openSettingBar() {
         const settingbar = document.getElementById("settingbar");
-        settingbar.classList.toggle("translate-x-full");
+        const backdrop = document.getElementById("backdrop"); // Assuming backdrop has this ID
+        settingbar.classList.remove("translate-x-full");
+        backdrop.classList.add("backdrop-blur");
+      }
+
+      function closeSettingBar() {
+        const settingbar = document.getElementById("settingbar");
+        const backdrop = document.getElementById("backdrop"); // Assuming backdrop has this ID
+        settingbar.classList.add("translate-x-full");
+        backdrop.classList.remove("backdrop-blur");
       }
 
       // Function to toggle chapters
       function toggleChapter(chapter) {
         const chapterElement = document.getElementById(`chapter-${chapter}`);
         const arrowElement = document.getElementById(`arrow-${chapter}`);
+        if (chapterElement.classList.contains("hidden")) {
+          chapterElement.classList.remove("hidden");
+          arrowElement.textContent = "▲";
+        } else {
+          chapterElement.classList.add("hidden");
+          arrowElement.textContent = "▼";
+        }
+      }
+
+      function toggleChapterRight(chapter) {
+        const chapterElement = document.getElementById(`chapter-${chapter}-right`);
+        const arrowElement = document.getElementById(`arrow-${chapter}-right`);
         if (chapterElement.classList.contains("hidden")) {
           chapterElement.classList.remove("hidden");
           arrowElement.textContent = "▲";
